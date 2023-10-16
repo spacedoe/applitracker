@@ -2,7 +2,7 @@ import { Group, Badge } from "@mantine/core";
 
 export default function JobsListHeader() {
   return (
-    <Group justify="center" gap="xl" my="xl">
+    <Group justify="center" gap="lg" my="xl">
       <Badge variant="outline" color="blue" size="lg" radius="sm">
         Title
       </Badge>
@@ -11,6 +11,9 @@ export default function JobsListHeader() {
       </Badge>
       <Badge variant="outline" color="blue" size="lg" radius="sm">
         Location
+      </Badge>
+      <Badge variant="outline" color="blue" size="lg" radius="sm">
+        URL
       </Badge>
       <Badge variant="outline" color="blue" size="lg" radius="sm">
         Date

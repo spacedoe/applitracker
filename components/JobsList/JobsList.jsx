@@ -1,5 +1,6 @@
 import { Button, Flex, Container } from "@mantine/core";
 import JobsListHeader from "../JobsListHeader/JobListHeader";
+import Link from "next/link";
 
 export default function JobsList() {
   return (
@@ -11,7 +12,7 @@ export default function JobsList() {
       my="xl"
     >
       <JobsListHeader />
-      <Button variant="filled" size="xl">
+      <Button variant="filled" size="xl" component={Link} href="/add-job">
         ADD new job opportunity
       </Button>
     </Container>
