@@ -1,10 +1,8 @@
-import "@/styles/globals.css";
 import "@mantine/core/styles.css";
-import { MantineProvider, createTheme } from "@mantine/core";
+import "@mantine/dates/styles.css";
+import { MantineProvider } from "@mantine/core";
+import { theme } from "@/theme";
 
-const theme = createTheme({
-  /** Put your mantine theme override here */
-});
 export default function App({ Component, pageProps }) {
   return (
     <>
