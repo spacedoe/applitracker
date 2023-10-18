@@ -1,0 +1,41 @@
+[{
+    "_id": {
+      "$oid": "64e7739ea38da8d43bdcfb11"
+    },
+    "role": "Full-stack developer",
+    "company": "Pied Piper",
+    "location": "Silicon Valley",
+    "URL": "https://silicon-valley.fandom.com/wiki/Pied_Piper_(company)",
+    "description": "This exicitng role involves ...",
+    "contact person": "Richard Hendricks",
+    "contact details": "Richard.Hendricks@piedpiper.com",
+    "notes": "Stated salary: $200K",
+    "stages": [
+      {
+        "$oid": "64e7741c1a90e219169cbe01"
+      }
+    ]
+  },
+  
+  {
+    "_id": {
+        "$oid": "64e7739ea38da8d43bdcfb12"
+      },
+      "role": "Web Developer",
+      "company": "Hooli",
+      "location": "Silicon Valley",
+      "URL": "hhttps://silicon-valley.fandom.com/wiki/Hooli",
+      "description": "You will focus on... ",
+      "contact person": "Peter Gregory",
+      "contact details": "Peter.Gregor@hooli.com",
+      "notes": "Work from home possible",
+    "stages": [
+      {
+        "$oid": "64e775211a90e219169cbe02"
+      },
+      {
+        "$oid": "64e775441a90e219169cbe03"
+      }
+     
+    ]
+  }]

@@ -1,0 +1,24 @@
+[{
+    "_id": {
+      "$oid": "64e7741c1a90e219169cbe01"
+    },
+    "name": "initial interview",
+    "date": "18.10.2023"
+    
+  },
+  {
+    "_id": {
+      "$oid": "64e775211a90e219169cbe02"
+    },
+    "name": "Initial call",
+    "date": "19.10.2023"
+    
+  },
+  {
+    "_id": {
+      "$oid": "64e775441a90e219169cbe03"
+    },
+    "name": "Technical challenge",
+    "date": "23.10.2023"
+    
+  }]
