@@ -5,35 +5,13 @@ import {
   Group,
   TextInput,
   Textarea,
-  NativeSelect,
   Flex,
 } from "@mantine/core";
-import { DateInput } from "@mantine/dates";
 import { Fragment, useState } from "react";
-import StageField from "../StageField/StageField";
+import StagesField from "../StagesField/StagesField";
+import { uid } from "uid";
 
 export default function Form() {
-  //   const stages = [
-  //     {
-  //       stageNumber: "",
-  //       stageName: "",
-  //       stageDate: "",
-  //     },
-  //   ];
-
-  const stage = {
-    stageNumber: "Stage 1",
-    stageName: "Initial interview",
-    stageDate: "",
-  };
-
-  const [stages, setStages] = useState([]);
-
-  function addStage() {
-  
-    setStages([...stages, stage]);
-  }
-
   return (
     <>
       <Box maw={600} mx="auto" my="sm">
@@ -80,20 +58,7 @@ export default function Form() {
               placeholder="Add notes about the role & process"
             />
 
-            <Flex>
-              <Button onClick={addStage}>+ Stage</Button>
-            </Flex>
-
-            {(stages) ? ( <Fieldset>
-                {stages.map((stage) => {
-                  return (
-                    <Fragment key={stage.stageNumber}>
-                        <StageField />
-                    </Fragment>
-                  );
-                })} </Fieldset>
-            ) : (<h1>no stages</h1> )}
-
+            <StagesField />
           </Flex>
 
           <Group justify="center" mt="md">

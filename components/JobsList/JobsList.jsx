@@ -13,7 +13,7 @@ export default function JobsList() {
     >
       <JobsListHeader />
       <Button variant="filled" size="xl" component={Link} href="/add">
-        ADD new job opportunity
+        Add new job opportunity
       </Button>
     </Container>
   );
