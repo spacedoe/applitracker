@@ -8,8 +8,9 @@ export default async function handler(request, response) {
   if (request.method === "GET") {
     const jobs = await Job.find().populate("stages");
 
-    console.log("fetched jobs", jobs);
+    
     return response.status(200).json(jobs);
+
   }
 
   if (request.method === "POST") {

@@ -20,7 +20,6 @@ export default function StagesField() {
   };
 
   const [stages, setStages] = useState([{ ...stage, uid: uid() }]);
-  // console.log("stages", stages);
 
   function addStage() {
     setStages([...stages, { ...stage, uid: uid() }]);
