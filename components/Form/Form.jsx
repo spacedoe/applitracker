@@ -7,9 +7,7 @@ import {
   Textarea,
   Flex,
 } from "@mantine/core";
-import { Fragment, useState } from "react";
 import StagesField from "../StagesField/StagesField";
-import { uid } from "uid";
 
 export default function Form() {
   return (

@@ -1,8 +1,9 @@
 import { Button, Flex, Container } from "@mantine/core";
 import JobsListHeader from "../JobsListHeader/JobListHeader";
 import Link from "next/link";
+import JobsTable from "../JobsTable/JobsTable";
 
-export default function JobsList() {
+export default function JobsList({jobs}) {
   return (
     <Container
       gap="xl"
@@ -15,6 +16,8 @@ export default function JobsList() {
       <Button variant="filled" size="xl" component={Link} href="/add">
         Add new job opportunity
       </Button>
+      <JobsTable jobs={jobs}/>
+
     </Container>
   );
 }

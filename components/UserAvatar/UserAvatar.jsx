@@ -4,7 +4,7 @@ export default function UserAvatar() {
   return (
     <Stack align="center" gap={0}>
       <Avatar radius="xl" />
-      <Text size="sm">Joe Doe</Text>
+      <Text size="sm">Jian Yang</Text>
     </Stack>
   );
 }

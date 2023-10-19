@@ -20,7 +20,7 @@ export default function StagesField() {
   };
 
   const [stages, setStages] = useState([{ ...stage, uid: uid() }]);
-  console.log("stages", stages);
+  // console.log("stages", stages);
 
   function addStage() {
     setStages([...stages, { ...stage, uid: uid() }]);
@@ -40,10 +40,10 @@ export default function StagesField() {
       {stages && (
         <Fieldset>
           {stages.map((stage, index) => {
-            console.log();
+           
             return (
               <Fragment key={stage.uid}>
-                <Stage count={index + 1} onDeleteStage={deleteStage} uid={stage.uid}/>
+                <Stage count={index} onDeleteStage={deleteStage} uid={stage.uid}/>
               </Fragment>
             );
           })}

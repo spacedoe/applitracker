@@ -1,24 +1,24 @@
-import { Container, Flex, Text, Title } from "@mantine/core";
+import {Flex, Group, Text, Title } from "@mantine/core";
 import UserAvatar from "../UserAvatar/UserAvatar";
 
 export default function Header() {
   return (
-    <header>
-      <Flex justify="center">
-        <Container>
-          <Title order={1}>
-            <Text
-              inherit
-              fw={900}
-              variant="gradient"
-              gradient={{ from: "blue", to: "pink", deg: 90 }}
-            >
-              Applitracker
-            </Text>
-          </Title>
-        </Container>
-        <UserAvatar />
+    <>
+      <Flex justify="center" my="10px">
+        <Title order={1}>
+          <Text
+            inherit
+            fw={900}
+            variant="gradient"
+            gradient={{ from: "blue", to: "pink", deg: 90 }}
+          >
+            Applitracker
+          </Text>
+        </Title>
       </Flex>
-    </header>
+      <Group justify="flex-end" align="center"  style={{'position': 'absolute', 'top' : "10px", 'right': "10px"}} >
+        <UserAvatar />
+      </Group>
+    </>
   );
 }

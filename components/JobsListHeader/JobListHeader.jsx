@@ -4,7 +4,7 @@ export default function JobsListHeader() {
   return (
     <Group justify="center" gap="lg" my="xl">
       <Badge variant="outline" color="blue" size="lg" radius="sm">
-        Title
+        Role
       </Badge>
       <Badge variant="outline" color="blue" size="lg" radius="sm">
         Company

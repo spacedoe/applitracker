@@ -2,7 +2,7 @@ import { Badge, Button, Flex, TextInput } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { IconTrash } from "@tabler/icons-react";
 
-export default function Stage({count, onDeleteStage, uid}) {
+export default function Stage({ count, onDeleteStage, uid }) {
   return (
     <Flex
       gap="sm"
@@ -22,15 +22,22 @@ export default function Stage({count, onDeleteStage, uid}) {
     maw="250px"
   /> */}
 
-      <TextInput label="Stage name" placeholder="e.g. Interview stage" />
+      <TextInput label="Stage name" placeholder="e.g. CV sent" />
       <DateInput
         valueFormat="DD.MM.YYYY"
         label="Date"
         placeholder="Enter date"
         maw="120px"
       />
-      <Button size="xs" h="36px" px="5px" onClick={() => onDeleteStage(uid)}>
-        <IconTrash />
+      <Button
+        variant="outline"
+        color="rgba(255, 87, 87, 1)"
+        size="xs"
+        h="36px"
+        px="5px"
+        onClick={() => onDeleteStage(uid)}
+      >
+        <IconTrash color="rgba(255, 87, 87, 1)" />
       </Button>
     </Flex>
   );

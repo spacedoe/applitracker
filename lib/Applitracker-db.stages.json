@@ -1,6 +1,14 @@
-[{
+[ {
+  "_id": {
+    "$oid": "64e774901a90e219169cbeae"
+  },
+  "name": "CV, Cover letter sent",
+  "date": "18.10.2023"
+  
+},
+  {
     "_id": {
-      "$oid": "64e7741c1a90e219169cbe01"
+      "$oid": "64e774f41a90e219169cbeb9"
     },
     "name": "initial interview",
     "date": "18.10.2023"
@@ -8,7 +16,15 @@
   },
   {
     "_id": {
-      "$oid": "64e775211a90e219169cbe02"
+      "$oid": "64e774ff1a90e219169cbec2"
+    },
+    "name": "Applied through LinkedIn",
+    "date": "18.10.2023"
+    
+  },
+  {
+    "_id": {
+      "$oid": "64e775441a90e219169cbeda"
     },
     "name": "Initial call",
     "date": "19.10.2023"
@@ -16,7 +32,7 @@
   },
   {
     "_id": {
-      "$oid": "64e775441a90e219169cbe03"
+      "$oid": "64e775211a90e219169cbecc"
     },
     "name": "Technical challenge",
     "date": "23.10.2023"
