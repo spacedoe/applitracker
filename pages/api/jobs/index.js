@@ -3,14 +3,11 @@ import Job from "../../../db/models/Job";
 
 export default async function handler(request, response) {
   await dbConnect();
-  const { id } = request.query;
 
   if (request.method === "GET") {
     const jobs = await Job.find().populate("stages");
 
-    
     return response.status(200).json(jobs);
-
   }
 
   if (request.method === "POST") {

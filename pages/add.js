@@ -10,10 +10,10 @@ export default function AddJobPage() {
   return (
     <>
     <Header />
+      <Button variant="filled" size="sm" component={Link} href="/">Back</Button>
       <Flex justify="center">
       <Title>Add Job</Title>
       </Flex>
-      <Button variant="filled" size="sm" component={Link} href="/">Back</Button>
       <Form/>
     </>
   );

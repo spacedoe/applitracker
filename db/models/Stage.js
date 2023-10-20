@@ -3,8 +3,9 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const stageSchema = new Schema({
-  name: { type: String, required: true },
-  date: { type: String, required: true },
+  _id: Schema.Types.ObjectId,
+  name: { type: String },
+  date: { type: String },
 });
 
 const Stage = mongoose.models.Stage || mongoose.model("Stage", stageSchema);

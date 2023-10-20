@@ -32,9 +32,6 @@ export default function StagesField() {
 
   return (
     <>
-      <Flex>
-        <Button onClick={addStage}>+ Stage</Button>
-      </Flex>
 
       {stages && (
         <Fieldset>
@@ -46,6 +43,9 @@ export default function StagesField() {
               </Fragment>
             );
           })}
+      <Flex>
+        <Button mt="10px" w="103.9px" onClick={addStage}>+ Stage</Button>
+      </Flex>
         </Fieldset>
       )}
     </>
