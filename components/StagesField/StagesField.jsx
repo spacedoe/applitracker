@@ -39,7 +39,7 @@ export default function StagesField() {
            
             return (
               <Fragment key={stage.uid}>
-                <Stage count={index} onDeleteStage={deleteStage} uid={stage.uid}/>
+                <Stage count={index+1} onDeleteStage={deleteStage} uid={stage.uid}/>
               </Fragment>
             );
           })}
