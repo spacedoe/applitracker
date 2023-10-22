@@ -7,7 +7,7 @@ import useSWR from "swr";
 
 export default function AddJobPage() {
   const router = useRouter();
-  const { mutate } = useSWR("/api/jobs");
+
 
   async function handleAddJob(job) {
     console.log("job", job);
@@ -19,8 +19,8 @@ export default function AddJobPage() {
       body: JSON.stringify(job),
     });
     if (response.ok) {
-      // router.push("/")
-      mutate();
+      router.push("/")
+  
     } else {
       const error = await response.json();
       console.log("Error:", error, response.status);

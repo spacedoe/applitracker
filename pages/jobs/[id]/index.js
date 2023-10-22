@@ -1,9 +1,10 @@
-import { Button, Flex, Stack, Title } from "@mantine/core";
+import { Button, Flex, Group, Stack, Title } from "@mantine/core";
 import Header from "../../../components/Header/Header";
 import JobDetails from "../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
 import Link from "next/link";
 import useSWR from "swr";
+import { IconTrash } from "@tabler/icons-react";
 
 export default function JobDetailsPage() {
   const router = useRouter();
@@ -11,11 +12,15 @@ export default function JobDetailsPage() {
   const { id } = router.query;
   const { data: job, isLoading, error } = useSWR(`/api/jobs/${id}`);
   
-  console.log("job", job);
-  
 
   if (error) return <div>Failed to load</div>;
   if (!job || isLoading) return <h2>Loading...</h2>;
+
+  async function deleteJob() {
+    await fetch(`/api/jobs/${id}`, {method: "DELETE"})
+    router.push("/")
+  }
+
 
   return (
     <>
@@ -27,7 +32,14 @@ export default function JobDetailsPage() {
         <Title>Job Details</Title>
       <JobDetails job={job}/>
       
-      <Button w="wrap-text">Edit</Button>
+      <Group justify="center" mt="md">
+      <Button variant="outline" size="sm">Edit</Button>
+      <Button variant="outline"
+        color="rgba(255, 87, 87, 1)"
+        size="sm"
+        px="5px"
+        onClick={deleteJob}><IconTrash color="rgba(255, 87, 87, 1)" /></Button>
+      </Group>
       </Stack>
     
 

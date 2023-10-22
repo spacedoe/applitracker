@@ -33,7 +33,7 @@ export default function JobDetails({ job }) {
   return (
     <>
       <Paper shadow="xs" p="xl" withBorder maw="600px" mx="auto">
-        <Flex justify="space-around">
+        <Flex gap="70px">
           <Stack>
             <Text>Role: {role} </Text>
             <Text>Company: {company}</Text>

@@ -110,7 +110,6 @@ export default function Form({ onAddJob, formName }) {
 
           <Group justify="center" mt="md">
             <Button type="submit">Submit</Button>
-            <Button type="cancel">Cancel</Button>
           </Group>
         </form>
       </Box>

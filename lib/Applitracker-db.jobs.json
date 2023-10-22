@@ -1,28 +1,32 @@
 [{
     "_id": {
-      "$oid": "64e7739ea38da8d43bdcfb8a"
+      "$oid": "65356b88f27b4d60352f51be"
     },
     "role": "Full-stack developer",
     "company": "Pied Piper",
     "location": "Silicon Valley",
     "URL": "https://silicon-valley.fandom.com/wiki/Pied_Piper_(company)",
-    "description": "This exicitng role involves ...",
+    "description": "This excitng role involves ...",
     "contactPerson": "Richard Hendricks",
     "contactDetails": "Richard.Hendricks@piedpiper.com",
     "notes": "Stated salary: $200K",
     "stages": [
       {
-        "$oid": "64e774901a90e219169cbeae"
+        "stageName": "Applied on",
+        "stageDate":"01.10.2023",
+        "$oid": "65356b88f27b4d60352f51bf"
       },
       {
-        "$oid": "64e774f41a90e219169cbeb9"
+        "stageName": "Initial interview",
+        "stageDate":"05.10.2023",
+        "$oid": "65356b88f27b4d60352f51c0"
       }
     ]
   },
   
   {
     "_id": {
-        "$oid": "64e7739ea38da8d43bdcfb8b"
+        "$oid": "65356c44f27b4d60352f51cb"
       },
       "role": "Web Developer",
       "company": "Hooli",
@@ -34,13 +38,19 @@
       "notes": "Work from home possible",
     "stages": [
       {
-        "$oid": "64e774ff1a90e219169cbec2"
+        "stageName": "Applied on",
+        "stageDate":"07.10.2023",
+        "$oid": "65356c44f27b4d60352f51cc"
       },
       {
-        "$oid": "64e775441a90e219169cbeda"
+        "stageName": "Initial interview",
+        "stageDate":"17.10.2023",
+        "$oid": "65356c44f27b4d60352f51cd"
       }, 
       {
-        "$oid": "64e775211a90e219169cbecc"
+        "stageName": "Technical challenge",
+        "stageDate":"27.10.2023",
+        "$oid": "65356c44f27b4d60352f51ce"
       }
     ]
   }]

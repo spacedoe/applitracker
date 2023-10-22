@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 
 const jobSchema = new Schema(
   {
+    // _id: Schema.Types.ObjectId,
     role: { type: String, required: true },
     company: { type: String, required: true },
     location: { type: String, required: true },
@@ -16,7 +17,7 @@ const jobSchema = new Schema(
     stages: {
       type: {
         stageName: String,
-        stageDate: String,
+        stageDate: Date,
       },
     },
   },
