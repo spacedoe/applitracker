@@ -8,20 +8,44 @@ export default async function handler(request, response) {
   if (!id) {
     return;
   }
-console.log("requst method", request.method);
+  console.log("requst method", request.method);
 
   if (request.method === "GET") {
-    const job = await Job.findById(id);
+    try {
+      const job = await Job.findById(id);
 
-    if (!job) {
-      return response.status(404).json({ status: "Not found" });
+      if (!job) {
+        return response.status(404).json({ status: "Not found" });
+      }
+      return response.status(200).json(job);
+    } catch (error) {
+      console.log({ error: error.message });
     }
-    return response.status(200).json(job);
   }
 
   if (request.method === "DELETE") {
-    const jobToDelete = await Job.findByIdAndDelete(id);
-    console.log("jobToDelete", jobToDelete);
-    return response.status(200).json({ status: "Job deleted" });
+    try {
+      await Job.findByIdAndDelete(id);
+      return response.status(200).json({ status: "Job deleted sucessfully" });
+    } catch (error) {
+      response.status(404).json({ error: error.message });
+    }
+  }
+
+  if (request.method === "PATCH") {
+    try {
+      await Job.findByIdAndUpdate(
+        id,
+        {
+          $set: request.body,
+        },
+        {
+          new: true,
+        }
+      );
+      return response.status(200).json({ status: "Job updated sucessfully" });
+    } catch (error) {
+      response.status(404).json({ error: error.message });
+    }
   }
 }

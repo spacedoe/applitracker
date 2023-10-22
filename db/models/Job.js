@@ -14,12 +14,14 @@ const jobSchema = new Schema(
     contactPerson: { type: String },
     contactDetails: { type: String },
     notes: { type: String },
-    stages: {
-      type: {
-        stageName: String,
-        stageDate: Date,
+    stages: [
+      {
+        type: {
+          stageName: String,
+          stageDate: String,
+        },
       },
-    },
+    ],
   },
   { collection: "jobs" }
 );

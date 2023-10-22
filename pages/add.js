@@ -3,13 +3,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Form from "../components/Form/Form";
 import Header from "../components/Header/Header";
-import useSWR from "swr";
+
 
 export default function AddJobPage() {
   const router = useRouter();
 
 
-  async function handleAddJob(job) {
+  async function addJob(job) {
     console.log("job", job);
     const response = await fetch("/api/jobs", {
       method: "POST",
@@ -36,7 +36,7 @@ export default function AddJobPage() {
       <Flex justify="center">
         <Title>Add Job</Title>
       </Flex>
-      <Form onAddJob={handleAddJob} formName={"add-job"} />
+      <Form onSubmit={addJob} formName={"add-job"} />
     </>
   );
 }

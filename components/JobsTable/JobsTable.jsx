@@ -1,5 +1,4 @@
-import { Anchor, Group, Table } from "@mantine/core";
-import Link from "next/link";
+import { Anchor, Table } from "@mantine/core";
 
 export default function JobsTable({ jobs }) {
   const rows = jobs.map((job) => (

@@ -11,16 +11,14 @@ export default function JobDetailsPage() {
 
   const { id } = router.query;
   const { data: job, isLoading, error } = useSWR(`/api/jobs/${id}`);
-  
 
   if (error) return <div>Failed to load</div>;
   if (!job || isLoading) return <h2>Loading...</h2>;
 
   async function deleteJob() {
-    await fetch(`/api/jobs/${id}`, {method: "DELETE"})
-    router.push("/")
+    await fetch(`/api/jobs/${id}`, { method: "DELETE" });
+    router.push("/");
   }
-
 
   return (
     <>
@@ -30,19 +28,28 @@ export default function JobDetailsPage() {
       </Button>
       <Stack align="center">
         <Title>Job Details</Title>
-      <JobDetails job={job}/>
-      
-      <Group justify="center" mt="md">
-      <Button variant="outline" size="sm">Edit</Button>
-      <Button variant="outline"
-        color="rgba(255, 87, 87, 1)"
-        size="sm"
-        px="5px"
-        onClick={deleteJob}><IconTrash color="rgba(255, 87, 87, 1)" /></Button>
-      </Group>
-      </Stack>
-    
+        <JobDetails job={job} />
 
+        <Group justify="center" mt="md">
+          <Button
+            variant="outline"
+            size="sm"
+            component={Link}
+            href={`/jobs/${id}/edit`}
+          >
+            Edit
+          </Button>
+          <Button
+            variant="outline"
+            color="rgba(255, 87, 87, 1)"
+            size="sm"
+            px="5px"
+            onClick={deleteJob}
+          >
+            <IconTrash color="rgba(255, 87, 87, 1)" />
+          </Button>
+        </Group>
+      </Stack>
     </>
   );
 }

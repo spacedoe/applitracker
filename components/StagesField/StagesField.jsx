@@ -1,15 +1,9 @@
-import {
-  Badge,
-  Button,
-  Fieldset,
-  Flex,
-
-} from "@mantine/core";
+import { Badge, Button, Fieldset, Flex } from "@mantine/core";
 import { Fragment, useEffect, useState } from "react";
 import { uid } from "uid";
 import Stage from "../Stage/Stage";
 
-export default function StagesField() {
+export default function StagesField({ savedData }) {
   const stage = {
     stageName: "",
     stageDate: "",
@@ -26,12 +20,22 @@ export default function StagesField() {
   }
 
   useEffect(() => {
-    console.log("stages c", stages);
-  }, [stages]);
+    if (savedData) {
+      let { stages: savedStages } = savedData;
+      savedStages.map((stage) => {
+        return {
+          ...stage,
+          uid: uid(),
+        };
+      });
+      setStages(savedStages);
+    }
+    console.log("saved stages data", savedData?.stages);
+  }, [savedData]);
 
   return (
     <>
-      {stages && (
+      {stages ? (
         <Fieldset>
           {stages.map((stage, index) => {
             return (
@@ -40,6 +44,7 @@ export default function StagesField() {
                   count={index + 1}
                   onDeleteStage={deleteStage}
                   uid={stage.uid}
+                  stage={stage}
                 />
               </Fragment>
             );
@@ -50,7 +55,7 @@ export default function StagesField() {
             </Button>
           </Flex>
         </Fieldset>
-      )}
+      ) : null}
     </>
   );
 }

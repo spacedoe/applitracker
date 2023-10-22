@@ -9,7 +9,7 @@ import {
 } from "@mantine/core";
 import StagesField from "../StagesField/StagesField";
 
-export default function Form({ onAddJob, formName }) {
+export default function Form({ onSubmit, formName, savedData }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -46,7 +46,7 @@ export default function Form({ onAddJob, formName }) {
     }
 
     console.log("hc jobData", jobData);
-    onAddJob(jobData);
+    onSubmit(jobData);
     // event.target.reset();
   }
 
@@ -61,30 +61,35 @@ export default function Form({ onAddJob, formName }) {
                 label="Role"
                 placeholder="What is the role title?"
                 name="role"
+                defaultValue={savedData?.role}
               />
               <TextInput
                 withAsterisk
                 label="Company"
                 placeholder="What is the company name?"
                 name="company"
+                defaultValue={savedData?.company}
               />
               <TextInput
                 withAsterisk
                 label="Location"
                 placeholder="Office address/work from home/hybrid"
                 name="location"
+                defaultValue={savedData?.location}
               />
               <TextInput
                 withAsterisk
                 label="URL"
                 placeholder="Job post link"
                 name="URL"
+                defaultValue={savedData?.URL}
               />
 
               <Textarea
                 label="Description"
                 placeholder="What does the role involve?"
                 name="description"
+                defaultValue={savedData?.description}
               />
             </Fieldset>
             <Fieldset>
@@ -92,20 +97,23 @@ export default function Form({ onAddJob, formName }) {
                 label="Contact person"
                 placeholder="Full name, title"
                 name="contactPerson"
+                defaultValue={savedData?.contactPerson}
               />
               <TextInput
                 label="Contact details"
                 placeholder="Email, phone number, etc."
                 name="contactDetails"
+                defaultValue={savedData?.contactDetails}
               />
             </Fieldset>
             <Textarea
               label="Notes"
               placeholder="Add notes about the role & process"
               name="notes"
+              defaultValue={savedData?.notes}
             />
 
-            <StagesField />
+            <StagesField savedData={savedData} />
           </Flex>
 
           <Group justify="center" mt="md">
