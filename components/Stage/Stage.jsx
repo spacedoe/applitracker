@@ -1,4 +1,4 @@
-import { Badge, Button, Flex, NativeSelect, TextInput } from "@mantine/core";
+import { Badge, Button, Flex, NativeSelect } from "@mantine/core";
 import { DateInput } from "@mantine/dates";
 import { IconTrash } from "@tabler/icons-react";
 
@@ -24,6 +24,7 @@ export default function Stage({ count, onDeleteStage, uid }) {
 
       <NativeSelect
         label="Stage name"
+        name="stageName"
         data={[
           "Applied on",
           "Initial interview",
@@ -37,11 +38,10 @@ export default function Stage({ count, onDeleteStage, uid }) {
           "Rejection",
         ]}
       />
-
-      {/* <TextInput label="Stage name" placeholder="Applied on" /> */}
       <DateInput
         valueFormat="DD.MM.YYYY"
         label="Date"
+        name="stageDate"
         placeholder="Enter date"
         maw="120px"
       />

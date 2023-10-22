@@ -1,4 +1,4 @@
-import { Button, Flex, Title } from "@mantine/core";
+import { Button, Flex, Stack, Title } from "@mantine/core";
 import Header from "../../../components/Header/Header";
 import JobDetails from "../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
@@ -23,10 +23,14 @@ export default function JobDetailsPage() {
       <Button variant="filled" size="sm" component={Link} href="/">
         Back
       </Button>
-      <Flex justify="center">
+      <Stack align="center">
         <Title>Job Details</Title>
-      </Flex>
       <JobDetails job={job}/>
+      
+      <Button w="wrap-text">Edit</Button>
+      </Stack>
+    
+
     </>
   );
 }

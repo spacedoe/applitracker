@@ -3,9 +3,9 @@ import Job from "../../../db/models/Job";
 
 export default async function handler(request, response) {
   await dbConnect();
-
+  console.log("request method", request.method);
   if (request.method === "GET") {
-    const jobs = await Job.find().populate("stages");
+    const jobs = await Job.find();
 
     return response.status(200).json(jobs);
   }

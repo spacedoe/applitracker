@@ -10,8 +10,8 @@ export default function JobsTable({ jobs }) {
       </Table.Td>
       <Table.Td>{job.company}</Table.Td>
       <Table.Td>{job.location}</Table.Td>
-      <Table.Td>{job.stages[job.stages.length - 1].name}</Table.Td>
-      <Table.Td>{job.stages[job.stages.length - 1].date}</Table.Td>
+      <Table.Td>{job.stages[job.stages.length - 1].stageName}</Table.Td>
+      <Table.Td>{job.stages[job.stages.length - 1].stageDate}</Table.Td>
     </Table.Tr>
   ));
 
@@ -22,8 +22,8 @@ export default function JobsTable({ jobs }) {
           <Table.Th>Role</Table.Th>
           <Table.Th>Company</Table.Th>
           <Table.Th>Location</Table.Th>
-          <Table.Th>stage</Table.Th>
-          <Table.Th>date</Table.Th>
+          <Table.Th>Latest stage</Table.Th>
+          <Table.Th>Date</Table.Th>
         </Table.Tr>
       </Table.Thead>
       <Table.Tbody>{rows}</Table.Tbody>

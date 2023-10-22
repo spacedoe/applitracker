@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
-import Stage from "./Stage";
+// import Stage from "./Stage";
 
 const { Schema } = mongoose;
 
 const jobSchema = new Schema(
   {
-    _id: Schema.Types.ObjectId,
     role: { type: String, required: true },
     company: { type: String, required: true },
     location: { type: String, required: true },
@@ -14,7 +13,12 @@ const jobSchema = new Schema(
     contactPerson: { type: String },
     contactDetails: { type: String },
     notes: { type: String },
-    stages: { type: [Schema.Types.ObjectId], ref: Stage },
+    stages: {
+      type: {
+        stageName: String,
+        stageDate: String,
+      },
+    },
   },
   { collection: "jobs" }
 );

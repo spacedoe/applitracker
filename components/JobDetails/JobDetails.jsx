@@ -1,4 +1,12 @@
-import { Anchor, Flex, Group, Paper, Stack, Text, Timeline } from "@mantine/core";
+import {
+  Anchor,
+  Flex,
+  Group,
+  Paper,
+  Stack,
+  Text,
+  Timeline,
+} from "@mantine/core";
 
 import {
   IconCircleCheck,
@@ -30,7 +38,12 @@ export default function JobDetails({ job }) {
             <Text>Role: {role} </Text>
             <Text>Company: {company}</Text>
             <Text>Location: {location}</Text>
-            <Text>URL: <Anchor href={`${URL}`} target="_blank">{URL}</Anchor> </Text>
+            <Text>
+              URL:{" "}
+              <Anchor href={`${URL}`} target="_blank">
+                {URL}
+              </Anchor>{" "}
+            </Text>
             <Text>Description: {description}</Text>
             <Text>Contact person: {contactPerson}</Text>
             <Text>Contact details: {contactDetails}</Text>
@@ -40,18 +53,20 @@ export default function JobDetails({ job }) {
           <Stack>
             <Timeline active={2} bulletSize={30} lineWidth={2} color="blue">
               {stages?.map((stage, index) => {
+                const { _id, stageName, stageDate } = stage;
+
                 return (
                   <Timeline.Item
-                    key={stage._id}
+                    key={_id}
                     mb="20px"
                     bullet={<IconCircleCheck size={30} />}
                     lineVariant="solid"
-                    title={`Stage ${index+1}`}
+                    title={`Stage ${index + 1}`}
                   >
-                    <Text size="sm">{stage.name}</Text>
+                    <Text size="sm">{stageName}</Text>
 
                     <Text size="xs" mt={4}>
-                      {stage.date}
+                      {stageDate}
                     </Text>
                   </Timeline.Item>
                 );

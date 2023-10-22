@@ -2,39 +2,39 @@
   "_id": {
     "$oid": "64e774901a90e219169cbeae"
   },
-  "name": "Applied on",
-  "date": "18.10.2023"
+  "stageName": "Applied on",
+  "stageDate": "18.10.2023"
   
 },
   {
     "_id": {
       "$oid": "64e774f41a90e219169cbeb9"
     },
-    "name": "Initial interview",
-    "date": "18.10.2023"
+    "stageName": "Initial interview",
+    "stageDate": "18.10.2023"
     
   },
   {
     "_id": {
       "$oid": "64e774ff1a90e219169cbec2"
     },
-    "name": "Applied on",
-    "date": "18.10.2023"
+    "stageName": "Applied on",
+    "stageDate": "18.10.2023"
     
   },
   {
     "_id": {
       "$oid": "64e775441a90e219169cbeda"
     },
-    "name": "Initial interview",
-    "date": "19.10.2023"
+    "stageName": "Initial interview",
+    "stageDate": "19.10.2023"
     
   },
   {
     "_id": {
       "$oid": "64e775211a90e219169cbecc"
     },
-    "name": "Technical challenge",
-    "date": "23.10.2023"
+    "stageName": "Technical challenge",
+    "stageDate": "23.10.2023"
     
   }]
