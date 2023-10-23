@@ -4,7 +4,7 @@ import JobDetails from "../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
 import Link from "next/link";
 import useSWR from "swr";
-import { IconTrash } from "@tabler/icons-react";
+import { IconPencil, IconTrash } from "@tabler/icons-react";
 
 export default function JobDetailsPage() {
   const router = useRouter();
@@ -36,17 +36,18 @@ export default function JobDetailsPage() {
             size="sm"
             component={Link}
             href={`/jobs/${id}/edit`}
+            
           >
-            Edit
+            <IconPencil style={{"marginRight": "5px"}} color="var(--mantine-color-blue-outline)"/>Edit
           </Button>
           <Button
             variant="outline"
             color="rgba(255, 87, 87, 1)"
             size="sm"
-            px="5px"
+            px="9px"
             onClick={deleteJob}
           >
-            <IconTrash color="rgba(255, 87, 87, 1)" />
+            <IconTrash style={{"marginRight": "5px"}} color="rgba(255, 87, 87, 1)" />Delete
           </Button>
         </Group>
       </Stack>

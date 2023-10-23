@@ -10,7 +10,7 @@ export default function Header() {
             inherit
             fw={900}
             variant="gradient"
-            gradient={{ from: "blue", to: "pink", deg: 90 }}
+            gradient={{ from: "blue", to: "pink", deg: 90,  }}
           >
             Applitracker
           </Text>

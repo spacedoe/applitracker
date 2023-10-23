@@ -1,4 +1,6 @@
 import { Anchor, Table } from "@mantine/core";
+import { localiseDate } from "../../utils/general";
+
 
 export default function JobsTable({ jobs }) {
   const rows = jobs.map((job) => (
@@ -10,7 +12,7 @@ export default function JobsTable({ jobs }) {
       <Table.Td>{job.company}</Table.Td>
       <Table.Td>{job.location}</Table.Td>
       <Table.Td>{job.stages[job.stages.length - 1].stageName}</Table.Td>
-      <Table.Td>{job.stages[job.stages.length - 1].stageDate}</Table.Td>
+      <Table.Td>{localiseDate(job.stages[job.stages.length - 1].stageDate)}</Table.Td>
     </Table.Tr>
   ));
 

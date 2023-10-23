@@ -4,34 +4,35 @@ import { uid } from "uid";
 import Stage from "../Stage/Stage";
 
 export default function StagesField({ savedData }) {
-  const stage = {
-    stageName: "",
-    stageDate: "",
-  };
 
-  const [stages, setStages] = useState([{ ...stage, uid: uid() }]);
+  const [stages, setStages] = useState([]);
 
   function addStage() {
-    setStages([...stages, { ...stage, uid: uid() }]);
-  }
-
-  function deleteStage(uid) {
-    setStages(stages.filter((stage) => stage.uid !== uid));
+    setStages([
+      ...stages,
+      { stageName: "", stageDate: new Date(), uid: uid() },
+    ]);
   }
 
   useEffect(() => {
-    if (savedData) {
-      let { stages: savedStages } = savedData;
-      savedStages.map((stage) => {
-        return {
-          ...stage,
-          uid: uid(),
-        };
-      });
-      setStages(savedStages);
+    if (savedData && savedData.stages) {
+      const newStages = savedData.stages.map((stage) => ({
+        ...stage,
+        uid: uid(),
+      }));
+      setStages(newStages);
     }
-    console.log("saved stages data", savedData?.stages);
   }, [savedData]);
+
+  function deleteStage(uid) {
+    const filterByUid = stages.filter((stage) => stage.uid !== uid);
+    setStages(filterByUid);
+    console.log("f", filterByUid);
+  }
+
+  useEffect(() => {
+    console.log("s", stages);
+  }, [stages]);
 
   return (
     <>
@@ -39,12 +40,13 @@ export default function StagesField({ savedData }) {
         <Fieldset>
           {stages.map((stage, index) => {
             return (
-              <Fragment key={stage.uid}>
+              <Fragment key={index}>
                 <Stage
                   count={index + 1}
                   onDeleteStage={deleteStage}
                   uid={stage.uid}
-                  stage={stage}
+                  stageName={stage.stageName}
+                  stageDate={stage.stageDate}
                 />
               </Fragment>
             );
