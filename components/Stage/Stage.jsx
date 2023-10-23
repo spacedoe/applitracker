@@ -1,21 +1,27 @@
 import { Badge, Button, Flex, NativeSelect } from "@mantine/core";
-import { DateInput } from "@mantine/dates";
+import { DateInput, DatePickerInput } from "@mantine/dates";
 import { IconTrash } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
+// import moment from "moment";
 
 dayjs.extend(customParseFormat);
 
 export default function Stage({ count, onDeleteStage, uid, stage }) {
   // TODO: Fix stage Date format for rendering saved date
 
-  const savedDate = dayjs(stage?.stageDate, "DD.MM.YYYY").toDate();
+  // const savedDate = dayjs(stage?.stageDate, "DD.MM.YYYY").toDate();
+  // console.log("saved date", savedDate);
 
-  let newDate = new Date();
+  // let newDate = new Date('2023-10-16T00:00:00.000Z');
+  // const savedDate = moment(stage?.stageDate)
+  console.log("stage?.stageDate", stage?.stageDate);
+  const savedDate = stage.stageDate;
 
-  console.log("stage date", stage?.stageDate);
-  console.log("saved date", savedDate);
-  console.log("new date", newDate);
+  console.log("savedDate", savedDate);
+  console.log("type of savedDate", typeof savedDate);
+  // console.log("new date", newDate);
+  // console.log("type of newDate", typeof newDate);
 
   return (
     <Flex
@@ -53,13 +59,13 @@ export default function Stage({ count, onDeleteStage, uid, stage }) {
         ]}
         defaultValue={stage?.stageName}
       />
-      <DateInput
+      <DatePickerInput
         valueFormat="DD.MM.YYYY"
         label="Date"
         name="stageDate"
         placeholder="Enter date"
         maw="120px"
-        defaultValue={new Date()}
+        defaultValue={savedDate ? new Date(savedDate) : new Date()}
       />
       <Button
         variant="outline"

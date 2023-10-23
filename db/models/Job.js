@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-// import Stage from "./Stage";
 
 const { Schema } = mongoose;
 
@@ -18,7 +17,7 @@ const jobSchema = new Schema(
       {
         type: {
           stageName: String,
-          stageDate: String,
+          stageDate: Date,
         },
       },
     ],

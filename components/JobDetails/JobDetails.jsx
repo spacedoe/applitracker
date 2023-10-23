@@ -16,6 +16,7 @@ import {
   IconMessageDots,
 } from "@tabler/icons-react";
 import { Fragment } from "react";
+import { localiseDate } from "../../utils/general";
 
 export default function JobDetails({ job }) {
   const {
@@ -66,7 +67,7 @@ export default function JobDetails({ job }) {
                     <Text size="sm">{stageName}</Text>
 
                     <Text size="xs" mt={4}>
-                      {stageDate}
+                      {localiseDate(stageDate)}
                     </Text>
                   </Timeline.Item>
                 );

@@ -30,18 +30,18 @@ export default function Form({ onSubmit, formName, savedData }) {
     const stageNames = formData.getAll("stageName");
     const stageDates = formData.getAll("stageDate");
     for (let i = 0; i < stageNames.length; i++) {
-      // Convert date from UTC time zone to locale time zone
-      let date = new Date(stageDates[i]);
-      let formattedDate = date.toLocaleDateString("de-DE", {
-        // Options for DD.MM.YYYY
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-      });
-      // Update stages object
+      // // Convert date from UTC time zone to locale time zone
+      // let date = new Date(stageDates[i]);
+      // let formattedDate = date.toLocaleDateString("de-DE", {
+      //   // Options for DD.MM.YYYY
+      //   day: "2-digit",
+      //   month: "2-digit",
+      //   year: "numeric",
+      // });
+      // // Update stages object
       jobData.stages.push({
         stageName: stageNames[i],
-        stageDate: formattedDate,
+        stageDate: stageDates[i],
       });
     }
 
