@@ -38,16 +38,16 @@ export default function JobDetailsPage() {
             href={`/jobs/${id}/edit`}
             
           >
-            Edit<IconPencil style={{"marginLeft": "5px"}} color="var(--mantine-color-blue-outline)"/>
+            <IconPencil style={{"marginRight": "5px"}} color="var(--mantine-color-blue-outline)"/>Edit
           </Button>
           <Button
             variant="outline"
             color="rgba(255, 87, 87, 1)"
             size="sm"
-            px="5px"
+            px="9px"
             onClick={deleteJob}
           >
-            Delete<IconTrash style={{"marginLeft": "5px"}} color="rgba(255, 87, 87, 1)" />
+            <IconTrash style={{"marginRight": "5px"}} color="rgba(255, 87, 87, 1)" />Delete
           </Button>
         </Group>
       </Stack>

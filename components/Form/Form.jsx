@@ -9,7 +9,7 @@ import {
 } from "@mantine/core";
 import StagesField from "../StagesField/StagesField";
 
-export default function Form({ onSubmit, formName, savedData }) {
+export default function Form({ onSubmit, formName, savedData}) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);

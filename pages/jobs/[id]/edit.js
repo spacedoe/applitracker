@@ -40,7 +40,11 @@ export default function EditPage() {
       <Flex justify="center">
         <Title>Edit Job</Title>
       </Flex>
-      <Form onSubmit={editJob} formName={"edit-job"} savedData={job} />
+      <Form
+        onSubmit={editJob}
+        formName={"edit-job"}
+        savedData={job}
+      />
     </>
   );
 }

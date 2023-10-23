@@ -32,7 +32,7 @@ export default function HomePage() {
       >
         {!jobsAdded ? (
           <Button variant="filled" size="xl" component={Link} href="/add">
-            <IconPencilPlus style={{ "margin-right": "10px" }} /> Add new job
+            <IconPencilPlus style={{ "marginRight": "10px" }} /> Add new job
             opportunity
           </Button>
         ): (
