@@ -52,7 +52,7 @@ export default function JobDetails({ job }) {
           </Stack>
 
           <Stack>
-            <Timeline active={2} bulletSize={30} lineWidth={2} color="blue">
+            <Timeline active={10} bulletSize={30} lineWidth={2} color="blue">
               {stages?.map((stage, index) => {
                 const { _id, stageName, stageDate } = stage;
 
