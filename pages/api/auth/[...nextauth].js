@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import GoogleProvider from "next-auth/providers/google";
 import clientPromise from "@/db/mongodb";
 
 export const authOptions = {
@@ -19,6 +20,10 @@ export const authOptions = {
       //         preferedColors: ["#dddddd", "#ffffff"],
       //     };
       // },
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     // ...add more providers here
   ],
