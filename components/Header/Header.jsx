@@ -1,7 +1,11 @@
-import { Avatar, Button, Flex, Group, Stack, Text, Title } from "@mantine/core";
+import { Avatar, Button, Drawer, Flex, Text, Title } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+
 import { signOut } from "next-auth/react";
 
 export default function Header({ session }) {
+  const [opened, { open, close }] = useDisclosure(false);
+
   return (
     <>
       <Flex justify="center" my="10px">
@@ -19,11 +23,7 @@ export default function Header({ session }) {
       </Flex>
 
       {session ? (
-        <Stack
-          align="end"
-          style={{ position: "absolute", top: "10px", right: "10px" }}
-          gap={0}
-        >
+        <>
           <Avatar
             width={200}
             height={200}
@@ -32,14 +32,49 @@ export default function Header({ session }) {
             priority="true"
             radius="100%"
             size="lg"
+            onClick={open}
+            style={{ position: "absolute", top: "16px", right: "16px" }}
+            styles={{ image: { cursor: "pointer" } }}
           />
 
-          <Text>Hello {session.user?.name}</Text>
-          <Text ta="end">
-            You are signed in as <br /> {session.user?.email}
-          </Text>
-          <Button onClick={() => signOut()}>Sign out</Button>
-        </Stack>
+          <Drawer
+            position="right"
+            size="sm"
+            opened={opened}
+            onClose={close}
+            styles={{ header: { zIndex: "-1" } }}
+          >
+            <Avatar
+              width={200}
+              height={200}
+              src={session.user?.image}
+              alt="Avatar"
+              priority="true"
+              radius="100%"
+              size="lg"
+              style={{
+                position: "absolute",
+                top: "16px",
+                left: "16px",
+                zIndex: "1",
+              }}
+            />
+            <Title order={4} pt="md" my="md">
+              {" "}
+              Hello {session.user?.name}
+            </Title>
+            <Text ta="start">
+              You are signed in as <br /> {session.user?.email}
+            </Text>
+
+            <Button
+              onClick={() => signOut()}
+              style={{ position: "absolute", bottom: "16px", left: "16px" }}
+            >
+              Sign out
+            </Button>
+          </Drawer>
+        </>
       ) : null}
     </>
   );
