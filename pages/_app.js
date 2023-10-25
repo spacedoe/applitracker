@@ -3,8 +3,12 @@ import "@mantine/dates/styles.css";
 import { MantineProvider } from "@mantine/core";
 import { theme } from "../theme";
 import { SWRConfig } from "swr";
+import { SessionProvider } from "next-auth/react";
 
-export default function App({ Component, pageProps }) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
     <SWRConfig
       value={{
@@ -18,7 +22,9 @@ export default function App({ Component, pageProps }) {
       }}
     >
       <MantineProvider theme={theme}>
-        <Component {...pageProps} />
+        <SessionProvider session={session}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </MantineProvider>
     </SWRConfig>
   );

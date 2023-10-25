@@ -1,10 +1,9 @@
-import { Badge, Button, Fieldset, Flex } from "@mantine/core";
+import { Button, Fieldset, Flex } from "@mantine/core";
 import { Fragment, useEffect, useState } from "react";
 import { uid } from "uid";
 import Stage from "../Stage/Stage";
 
 export default function StagesField({ savedData }) {
-
   const [stages, setStages] = useState([]);
 
   function addStage() {

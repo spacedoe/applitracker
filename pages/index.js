@@ -6,6 +6,7 @@ import useSWR from "swr";
 import { IconPencilPlus } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Profile from "../components/Profile/Profile"
 
 export default function HomePage() {
   const { data: jobs } = useSWR("/api/jobs", { fallbackData: [] });
@@ -23,6 +24,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
+      <Profile/>
       <Container
         gap="xl"
         justify="center"

@@ -1,4 +1,4 @@
-import { Button, Flex, Group, Stack, Title } from "@mantine/core";
+import { Button, Group, Stack, Title } from "@mantine/core";
 import Header from "../../../components/Header/Header";
 import JobDetails from "../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
