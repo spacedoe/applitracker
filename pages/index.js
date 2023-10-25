@@ -6,9 +6,9 @@ import useSWR from "swr";
 import { IconPencilPlus } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Profile from "../components/Profile/Profile";
+
 import { Hero } from "@/components/Hero/Hero";
-import { useSession, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 export default function HomePage() {
   const { data: session } = useSession();
@@ -35,14 +35,14 @@ export default function HomePage() {
 
   return (
     <>
-      <Header />
-      <Profile />
+      <Header session={session}/>
       <Container
         gap="xl"
         justify="center"
         align="center"
         direction="column"
         my="xl"
+        mt="150px"
       >
         {!jobsAdded ? (
           <Button variant="filled" size="xl" component={Link} href="/add">
