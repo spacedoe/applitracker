@@ -6,9 +6,12 @@ import useSWR from "swr";
 import { IconPencilPlus } from "@tabler/icons-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Profile from "../components/Profile/Profile"
+import Profile from "../components/Profile/Profile";
+import { Hero } from "@/components/Hero/Hero";
+import { useSession, signOut } from "next-auth/react";
 
 export default function HomePage() {
+  const { data: session } = useSession();
   const { data: jobs } = useSWR("/api/jobs", { fallbackData: [] });
   const [jobsAdded, setjobsAdded] = useState(false);
 
@@ -16,15 +19,24 @@ export default function HomePage() {
     if (jobs && jobs.length > 0) {
       return setjobsAdded(true);
     } else {
-      return setjobsAdded(false)
+      return setjobsAdded(false);
     }
-    
   }, [jobs]);
+
+  console.log("session", session);
+
+  if (!session) {
+    return (
+      <>
+        <Hero />
+      </>
+    );
+  }
 
   return (
     <>
       <Header />
-      <Profile/>
+      <Profile />
       <Container
         gap="xl"
         justify="center"
@@ -34,10 +46,10 @@ export default function HomePage() {
       >
         {!jobsAdded ? (
           <Button variant="filled" size="xl" component={Link} href="/add">
-            <IconPencilPlus style={{ "marginRight": "10px" }} /> Add new job
+            <IconPencilPlus style={{ marginRight: "10px" }} /> Add new job
             opportunity
           </Button>
-        ): (
+        ) : (
           <>
             <JobsTable jobs={jobs} />
             <Flex justify="flex-end">
