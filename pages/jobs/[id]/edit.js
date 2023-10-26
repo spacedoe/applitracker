@@ -11,7 +11,7 @@ export default function EditPage() {
   const router = useRouter();
 
   const { id } = router.query;
-  const { data: job, isLoading, error, mutate } = useSWR(`/api/jobs/${id}`);
+  const { data: job, isLoading, error } = useSWR(`/api/jobs/${id}`);
 
   if (error) return <div>Failed to load</div>;
   if (!job || isLoading) return <h2>Loading...</h2>;
