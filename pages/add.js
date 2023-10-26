@@ -3,14 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Form from "../components/Form/Form";
 import Header from "../components/Header/Header";
+import { useSession } from "next-auth/react";
 
 
 export default function AddJobPage() {
   const router = useRouter();
+  const { data: session } = useSession();
 
 
   async function addJob(job) {
-    console.log("job", job);
     const response = await fetch("/api/jobs", {
       method: "POST",
       headers: {
@@ -29,7 +30,7 @@ export default function AddJobPage() {
 
   return (
     <>
-      <Header />
+      <Header session={session}/>
       <Button variant="filled" size="sm" component={Link} href="/">
         Back
       </Button>

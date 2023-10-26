@@ -8,7 +8,7 @@ export default async function handler(request, response) {
   if (!id) {
     return;
   }
-  console.log("requst method", request.method);
+ 
 
   if (request.method === "GET") {
     try {

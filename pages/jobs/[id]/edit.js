@@ -4,12 +4,14 @@ import Form from "../../../components/Form/Form";
 import { Button, Flex, Title } from "@mantine/core";
 import useSWR from "swr";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 export default function EditPage() {
+  const { data: session } = useSession();
   const router = useRouter();
 
   const { id } = router.query;
-  const { data: job, isLoading, error, mutate } = useSWR(`/api/jobs/${id}`);
+  const { data: job, isLoading, error } = useSWR(`/api/jobs/${id}`);
 
   if (error) return <div>Failed to load</div>;
   if (!job || isLoading) return <h2>Loading...</h2>;
@@ -33,7 +35,7 @@ export default function EditPage() {
   }
   return (
     <>
-      <Header />
+      <Header session={session}/>
       <Button variant="filled" size="sm" component={Link} href={`/jobs/${id}`}>
         Back
       </Button>

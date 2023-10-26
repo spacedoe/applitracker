@@ -5,8 +5,10 @@ import { useRouter } from "next/router.js";
 import Link from "next/link";
 import useSWR from "swr";
 import { IconPencil, IconTrash } from "@tabler/icons-react";
+import { useSession } from "next-auth/react";
 
 export default function JobDetailsPage() {
+  const { data: session } = useSession();
   const router = useRouter();
 
   const { id } = router.query;
@@ -22,7 +24,7 @@ export default function JobDetailsPage() {
 
   return (
     <>
-      <Header />
+      <Header session={session}/>
       <Button variant="filled" size="sm" component={Link} href="/">
         Back
       </Button>
