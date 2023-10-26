@@ -39,7 +39,7 @@ export default function StagesField({ savedData }) {
         <Fieldset>
           {stages.map((stage, index) => {
             return (
-              <Fragment key={index}>
+              <Fragment key={stage.uid}>
                 <Stage
                   count={index + 1}
                   onDeleteStage={deleteStage}

@@ -23,7 +23,7 @@ export default function HomePage() {
     }
   }, [jobs]);
 
-  console.log("session", session);
+ 
 
   if (!session) {
     return (
