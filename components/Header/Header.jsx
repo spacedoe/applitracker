@@ -1,11 +1,8 @@
-import { Avatar, Button, Drawer, Flex, Text, Title } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { Flex, Text, Title } from "@mantine/core";
 
-import { signOut } from "next-auth/react";
+import UserAvatarDrawer from "../UserAvatarDrawer/UserAvatarDrawer";
 
 export default function Header({ session }) {
-  const [opened, { open, close }] = useDisclosure(false);
-
   return (
     <>
       <Flex justify="center" my="10px">
@@ -22,60 +19,7 @@ export default function Header({ session }) {
         </Title>
       </Flex>
 
-      {session ? (
-        <>
-          <Avatar
-            width={200}
-            height={200}
-            src={session.user?.image}
-            alt="Avatar"
-            priority="true"
-            radius="100%"
-            size="lg"
-            onClick={open}
-            style={{ position: "absolute", top: "16px", right: "16px" }}
-            styles={{ image: { cursor: "pointer" } }}
-          />
-
-          <Drawer
-            position="right"
-            size="sm"
-            opened={opened}
-            onClose={close}
-            styles={{ header: { zIndex: "-1" } }}
-          >
-            <Avatar
-              width={200}
-              height={200}
-              src={session.user?.image}
-              alt="Avatar"
-              priority="true"
-              radius="100%"
-              size="lg"
-              style={{
-                position: "absolute",
-                top: "16px",
-                left: "16px",
-                zIndex: "1",
-              }}
-            />
-            <Title order={4} pt="md" my="md">
-              {" "}
-              Hello {session.user?.name}
-            </Title>
-            <Text ta="start">
-              You are signed in as <br /> {session.user?.email}
-            </Text>
-
-            <Button
-              onClick={() => signOut()}
-              style={{ position: "absolute", bottom: "16px", left: "16px" }}
-            >
-              Sign out
-            </Button>
-          </Drawer>
-        </>
-      ) : null}
+      {session ? <UserAvatarDrawer session={session} /> : null}
     </>
   );
 }
