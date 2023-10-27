@@ -1,5 +1,5 @@
-import dbConnect from "../../../db/connect";
-import Job from "../../../db/models/Job";
+import dbConnect from "../../../../db/connect";
+import Job from "../../../../db/models/Job";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -8,7 +8,6 @@ export default async function handler(request, response) {
   if (!id) {
     return;
   }
- 
 
   if (request.method === "GET") {
     try {

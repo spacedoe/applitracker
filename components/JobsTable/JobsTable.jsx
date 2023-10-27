@@ -2,12 +2,12 @@ import { Anchor, Table } from "@mantine/core";
 import { localiseDate } from "../../utils/general";
 
 
-export default function JobsTable({ jobs }) {
+export default function JobsTable({ jobs, userId }) {
   const rows = jobs.map((job) => (
     <Table.Tr key={job._id}>
       <Table.Td>
         {" "}
-        <Anchor href={`jobs/${job._id}`}>{job.role}</Anchor>
+        <Anchor href={`${userId}/jobs/${job._id}`}>{job.role}</Anchor>
       </Table.Td>
       <Table.Td>{job.company}</Table.Td>
       <Table.Td>{job.location}</Table.Td>

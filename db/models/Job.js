@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
+import User from "./User";
 
 const { Schema } = mongoose;
 
 const jobSchema = new Schema(
   {
     // _id: Schema.Types.ObjectId,
+    userId: { type: Schema.Types.ObjectId, ref: User },
     role: { type: String, required: true },
     company: { type: String, required: true },
     location: { type: String, required: true },

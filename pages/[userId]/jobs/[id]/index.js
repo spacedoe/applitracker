@@ -1,6 +1,6 @@
 import { Button, Group, Stack, Title } from "@mantine/core";
-import Header from "../../../components/Header/Header";
-import JobDetails from "../../../components/JobDetails/JobDetails";
+import Header from "../../../../components/Header/Header";
+import JobDetails from "../../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
 import Link from "next/link";
 import useSWR from "swr";
@@ -9,23 +9,24 @@ import { useSession } from "next-auth/react";
 
 export default function JobDetailsPage() {
   const { data: session } = useSession();
+  const userId = session?.user?.userId
   const router = useRouter();
 
   const { id } = router.query;
-  const { data: job, isLoading, error } = useSWR(`/api/jobs/${id}`);
+  const { data: job, isLoading, error } = useSWR(`/api/${userId}/jobs/${id}`);
 
   if (error) return <div>Failed to load</div>;
   if (!job || isLoading) return <h2>Loading...</h2>;
 
   async function deleteJob() {
-    await fetch(`/api/jobs/${id}`, { method: "DELETE" });
+    await fetch(`/api/${userId}/jobs/${id}`, { method: "DELETE" });
     router.push("/");
   }
 
   return (
     <>
-      <Header session={session}/>
-      <Button variant="filled" size="sm" component={Link} href="/">
+      <Header session={session} />
+      <Button variant="filled" size="sm" component={Link} href={`/${userId}`}>
         Back
       </Button>
       <Stack align="center">
@@ -37,10 +38,13 @@ export default function JobDetailsPage() {
             variant="outline"
             size="sm"
             component={Link}
-            href={`/jobs/${id}/edit`}
-            
+            href={`/${userId}/jobs/${id}/edit`}
           >
-            <IconPencil style={{"marginRight": "5px"}} color="var(--mantine-color-blue-outline)"/>Edit
+            <IconPencil
+              style={{ marginRight: "5px" }}
+              color="var(--mantine-color-blue-outline)"
+            />
+            Edit
           </Button>
           <Button
             variant="outline"
@@ -49,7 +53,11 @@ export default function JobDetailsPage() {
             px="9px"
             onClick={deleteJob}
           >
-            <IconTrash style={{"marginRight": "5px"}} color="rgba(255, 87, 87, 1)" />Delete
+            <IconTrash
+              style={{ marginRight: "5px" }}
+              color="rgba(255, 87, 87, 1)"
+            />
+            Delete
           </Button>
         </Group>
       </Stack>

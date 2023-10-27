@@ -1,9 +1,11 @@
 import { Avatar, Button, Drawer, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function UserAvatarDrawer({ session }) {
   const [opened, { open, close }] = useDisclosure(false);
+  const router = useRouter();
   return (
     <>
       <Avatar
@@ -49,7 +51,7 @@ export default function UserAvatarDrawer({ session }) {
         </Text>
 
         <Button
-          onClick={() => signOut()}
+          onClick={() => signOut({ callbackUrl: "/" })}
           style={{ position: "absolute", bottom: "16px", left: "16px" }}
         >
           Sign out
