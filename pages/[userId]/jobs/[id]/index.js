@@ -33,7 +33,7 @@ export default function JobDetailsPage() {
       <Button variant="filled" size="sm" component={Link} href={`/${userId}`}>
         Back
       </Button>
-      <Stack align="center">
+      <Stack align="center" mx={20}>
         <Title>Job Details</Title>
         {error ? <p>Failed to load job details...</p> : null}
         {!job && isLoading ? <JobDetailsSkeleton /> : null}
@@ -67,6 +67,7 @@ export default function JobDetailsPage() {
                 Delete
               </Button>
             </Group>
+          
           </>
         ) : null}
       </Stack>

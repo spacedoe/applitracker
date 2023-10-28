@@ -17,8 +17,8 @@ export default function JobDetails({ job }) {
   } = job;
 
   return (
-    <Paper shadow="xs" p="xl" withBorder maw="600px" mx="auto">
-      <Flex gap="70px">
+    <Paper shadow="xs" p="xl" withBorder maw={600} w={"100%"}>
+      <Flex gap="70px" mx="lg" wrap={"wrap"}>
         <Stack>
           <Text>Role: {role} </Text>
           <Text>Company: {company}</Text>
@@ -35,7 +35,7 @@ export default function JobDetails({ job }) {
           <Text>Notes: {notes}</Text>
         </Stack>
 
-        <Stack>
+        <Stack ml="auto" >
           <Timeline active={10} bulletSize={30} lineWidth={2} color="blue">
             {stages?.map((stage, index) => {
               const { _id, stageName, stageDate } = stage;
