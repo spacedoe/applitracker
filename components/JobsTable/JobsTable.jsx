@@ -71,6 +71,7 @@ export default function JobsTable({ jobs, userId }) {
                 Latest stage
                 <IconSelector
                   size="16px"
+                  color="var(--mantine-color-blue-filled)"
                   style={{ cursor: "pointer", position: "relative", top: "3px"  }}
                   onClick={() =>
                     setSortDirection(sortDirection === "asc" ? "desc" : "asc")
@@ -81,6 +82,7 @@ export default function JobsTable({ jobs, userId }) {
                 Date
                 <IconSelector
                   size="16px"
+                  color="var(--mantine-color-blue-filled)"
                   style={{ cursor: "pointer", position: "relative", top: "3px"  }}
                   onClick={() =>
                     setSortDirection(sortDirection === "asc" ? "desc" : "asc")
