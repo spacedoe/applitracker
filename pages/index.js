@@ -3,17 +3,12 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 export default function HomePage() {
-    const { data: session } = useSession();
-    const userId = session?.user?.userId
-    const router = useRouter();
+  const { data: session, status } = useSession();
+  const userId = session?.user?.userId;
+  const router = useRouter();
 
-    
-    if (!session) {
-        return (
-          <>
-            <Hero />
-          </>
-        );
-      } else router.push(`/${userId}`)
-    
+  if (status === "unauthenticated") return <Hero />;
+  if (session && status === "authenticated") router.push(`/${userId}`);
+
+  return null;
 }
