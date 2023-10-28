@@ -4,9 +4,10 @@ import JobDetails from "../../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
 import Link from "next/link";
 import useSWR from "swr";
-import { IconPencil, IconTrash } from "@tabler/icons-react";
+import { IconArrowBackUp, IconArrowLeft, IconPencil, IconTrash } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 import JobDetailsSkeleton from "@/components/JobDetails/JobDetailsSkeleton";
+import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
 
 export default function JobDetailsPage() {
   const { data: session } = useSession();
@@ -30,9 +31,7 @@ export default function JobDetailsPage() {
   return (
     <>
       <Header session={session} />
-      <Button variant="filled" size="sm" component={Link} href={`/${userId}`}>
-        Back
-      </Button>
+      <GoBackBnt/>
       <Stack align="center" mx={20}>
         <Title>Job Details</Title>
         {error ? <p>Failed to load job details...</p> : null}

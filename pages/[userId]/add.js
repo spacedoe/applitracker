@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Form from "../../components/Form/Form";
 import Header from "../../components/Header/Header";
 import { useSession } from "next-auth/react";
+import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
 
 
 export default function AddJobPage() {
@@ -35,9 +36,7 @@ export default function AddJobPage() {
   return (
     <>
       <Header session={session}/>
-      <Button variant="filled" size="sm" component={Link} href={`/${userId}`}>
-        Back
-      </Button>
+     <GoBackBnt/>
       <Flex justify="center">
         <Title>Add Job</Title>
       </Flex>

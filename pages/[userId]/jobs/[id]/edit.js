@@ -5,6 +5,8 @@ import { Button, Flex, Title } from "@mantine/core";
 import useSWR from "swr";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
+import { IconArrowLeft } from "@tabler/icons-react";
 
 export default function EditPage() {
   const { data: session } = useSession();
@@ -37,7 +39,8 @@ export default function EditPage() {
   return (
     <>
       <Header session={session} />
-      <Button variant="filled" size="sm" component={Link} href={`/${userId}/jobs/${id}`}>
+      <Button variant="filled" size="sm" ml="8px" component={Link} href={`/${userId}/jobs/${id}`}>
+      <IconArrowLeft style={{ marginRight: "10px" }} />
         Back
       </Button>
       <Flex justify="center">
