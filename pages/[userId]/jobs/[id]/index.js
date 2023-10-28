@@ -9,14 +9,11 @@ import { useSession } from "next-auth/react";
 
 export default function JobDetailsPage() {
   const { data: session } = useSession();
-  const userId = session?.user?.userId
+  const userId = session?.user?.userId;
   const router = useRouter();
 
   const { id } = router.query;
   const { data: job, isLoading, error } = useSWR(`/api/${userId}/jobs/${id}`);
-
-  if (error) return <div>Failed to load</div>;
-  if (!job || isLoading) return <h2>Loading...</h2>;
 
   async function deleteJob() {
     await fetch(`/api/${userId}/jobs/${id}`, { method: "DELETE" });
@@ -31,35 +28,41 @@ export default function JobDetailsPage() {
       </Button>
       <Stack align="center">
         <Title>Job Details</Title>
-        <JobDetails job={job} />
+        {error ? <p>Failed to load job details...</p> : null}
+        {isLoading ? <p>Loading job details...</p> : null}
 
-        <Group justify="center" mt="md">
-          <Button
-            variant="outline"
-            size="sm"
-            component={Link}
-            href={`/${userId}/jobs/${id}/edit`}
-          >
-            <IconPencil
-              style={{ marginRight: "5px" }}
-              color="var(--mantine-color-blue-outline)"
-            />
-            Edit
-          </Button>
-          <Button
-            variant="outline"
-            color="rgba(255, 87, 87, 1)"
-            size="sm"
-            px="9px"
-            onClick={deleteJob}
-          >
-            <IconTrash
-              style={{ marginRight: "5px" }}
-              color="rgba(255, 87, 87, 1)"
-            />
-            Delete
-          </Button>
-        </Group>
+        {job ? (
+          <>
+            <JobDetails job={job} />
+            <Group justify="center" mt="md">
+              <Button
+                variant="outline"
+                size="sm"
+                component={Link}
+                href={`/${userId}/jobs/${id}/edit`}
+              >
+                <IconPencil
+                  style={{ marginRight: "5px" }}
+                  color="var(--mantine-color-blue-outline)"
+                />
+                Edit
+              </Button>
+              <Button
+                variant="outline"
+                color="rgba(255, 87, 87, 1)"
+                size="sm"
+                px="9px"
+                onClick={deleteJob}
+              >
+                <IconTrash
+                  style={{ marginRight: "5px" }}
+                  color="rgba(255, 87, 87, 1)"
+                />
+                Delete
+              </Button>
+            </Group>
+          </>
+        ) : null}
       </Stack>
     </>
   );
