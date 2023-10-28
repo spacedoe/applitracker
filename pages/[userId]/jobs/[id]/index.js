@@ -6,6 +6,7 @@ import Link from "next/link";
 import useSWR from "swr";
 import { IconPencil, IconTrash } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
+import JobDetailsSkeleton from "@/components/JobDetails/JobDetailsSkeleton";
 
 export default function JobDetailsPage() {
   const { data: session } = useSession();
@@ -13,7 +14,13 @@ export default function JobDetailsPage() {
   const router = useRouter();
 
   const { id } = router.query;
-  const { data: job, isLoading, error } = useSWR(`/api/${userId}/jobs/${id}`);
+  const {
+    data: job,
+    isLoading,
+    error,
+  } = useSWR(userId ? `/api/${userId}/jobs/${id}` : null, {
+    revalidateOnFocus: false,
+  });
 
   async function deleteJob() {
     await fetch(`/api/${userId}/jobs/${id}`, { method: "DELETE" });
@@ -29,8 +36,7 @@ export default function JobDetailsPage() {
       <Stack align="center">
         <Title>Job Details</Title>
         {error ? <p>Failed to load job details...</p> : null}
-        {isLoading ? <p>Loading job details...</p> : null}
-
+        {!job && isLoading ? <JobDetailsSkeleton /> : null}
         {job ? (
           <>
             <JobDetails job={job} />

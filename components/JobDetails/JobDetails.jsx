@@ -1,21 +1,6 @@
-import {
-  Anchor,
-  Flex,
-  Group,
-  Paper,
-  Stack,
-  Text,
-  Timeline,
-} from "@mantine/core";
+import { Anchor, Flex, Paper, Stack, Text, Timeline } from "@mantine/core";
 
-import {
-  IconCircleCheck,
-  IconGitBranch,
-  IconGitCommit,
-  IconGitPullRequest,
-  IconMessageDots,
-} from "@tabler/icons-react";
-import { Fragment } from "react";
+import { IconCircleCheck } from "@tabler/icons-react";
 import { localiseDate } from "../../utils/general";
 
 export default function JobDetails({ job }) {
@@ -32,51 +17,49 @@ export default function JobDetails({ job }) {
   } = job;
 
   return (
-    <>
-      <Paper shadow="xs" p="xl" withBorder maw="600px" mx="auto">
-        <Flex gap="70px">
-          <Stack>
-            <Text>Role: {role} </Text>
-            <Text>Company: {company}</Text>
-            <Text>Location: {location}</Text>
-            <Text>
-              URL:{" "}
-              <Anchor href={`${URL}`} target="_blank">
-                {URL}
-              </Anchor>{" "}
-            </Text>
-            <Text>Description: {description}</Text>
-            <Text>Contact person: {contactPerson}</Text>
-            <Text>Contact details: {contactDetails}</Text>
-            <Text>Notes: {notes}</Text>
-          </Stack>
+    <Paper shadow="xs" p="xl" withBorder maw="600px" mx="auto">
+      <Flex gap="70px">
+        <Stack>
+          <Text>Role: {role} </Text>
+          <Text>Company: {company}</Text>
+          <Text>Location: {location}</Text>
+          <Text>
+            URL:{" "}
+            <Anchor href={`${URL}`} target="_blank">
+              {URL}
+            </Anchor>{" "}
+          </Text>
+          <Text>Description: {description}</Text>
+          <Text>Contact person: {contactPerson}</Text>
+          <Text>Contact details: {contactDetails}</Text>
+          <Text>Notes: {notes}</Text>
+        </Stack>
 
-          <Stack>
-            <Timeline active={10} bulletSize={30} lineWidth={2} color="blue">
-              {stages?.map((stage, index) => {
-                const { _id, stageName, stageDate } = stage;
+        <Stack>
+          <Timeline active={10} bulletSize={30} lineWidth={2} color="blue">
+            {stages?.map((stage, index) => {
+              const { _id, stageName, stageDate } = stage;
 
-                return (
-                  <Timeline.Item
-                    key={_id}
-                    mb="20px"
-                    bullet={<IconCircleCheck size={30} />}
-                    lineVariant="solid"
-                    title={`Stage ${index + 1}`}
-                  >
-                    <Text size="sm">{stageName}</Text>
+              return (
+                <Timeline.Item
+                  key={_id}
+                  mb="20px"
+                  bullet={<IconCircleCheck size={30} />}
+                  lineVariant="solid"
+                  title={`Stage ${index + 1}`}
+                >
+                  <Text size="sm">{stageName}</Text>
 
-                    <Text size="xs" mt={4}>
-                      {localiseDate(stageDate)}
-                    </Text>
-                  </Timeline.Item>
-                );
-              })}
-            </Timeline>
-          </Stack>
-        </Flex>
-      </Paper>
-    </>
+                  <Text size="xs" mt={4}>
+                    {localiseDate(stageDate)}
+                  </Text>
+                </Timeline.Item>
+              );
+            })}
+          </Timeline>
+        </Stack>
+      </Flex>
+    </Paper>
   );
 }
 
