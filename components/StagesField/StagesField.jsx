@@ -2,6 +2,7 @@ import { Button, Fieldset, Flex } from "@mantine/core";
 import { Fragment, useEffect, useState } from "react";
 import { uid } from "uid";
 import Stage from "../Stage/Stage";
+import { IconPencilPlus } from "@tabler/icons-react";
 
 export default function StagesField({ savedData }) {
   const [stages, setStages] = useState([]);
@@ -51,8 +52,9 @@ export default function StagesField({ savedData }) {
             );
           })}
           <Flex>
-            <Button mt="10px" w="103.9px" onClick={addStage}>
-              + Stage
+            <Button variant="filled" size="sm" onClick={addStage}>
+              <IconPencilPlus style={{ marginRight: "10px" }} />
+              Add Stage
             </Button>
           </Flex>
         </Fieldset>

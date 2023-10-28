@@ -50,6 +50,7 @@ export default function Form({ onSubmit, formName, savedData }) {
                 placeholder="What is the role title?"
                 name="role"
                 defaultValue={savedData?.role}
+                required
               />
               <TextInput
                 withAsterisk
@@ -57,6 +58,7 @@ export default function Form({ onSubmit, formName, savedData }) {
                 placeholder="What is the company name?"
                 name="company"
                 defaultValue={savedData?.company}
+                required
               />
               <TextInput
                 withAsterisk
@@ -64,6 +66,7 @@ export default function Form({ onSubmit, formName, savedData }) {
                 placeholder="Office address/work from home/hybrid"
                 name="location"
                 defaultValue={savedData?.location}
+                required
               />
               <TextInput
                 withAsterisk
@@ -71,6 +74,7 @@ export default function Form({ onSubmit, formName, savedData }) {
                 placeholder="Job post link"
                 name="URL"
                 defaultValue={savedData?.URL}
+                required
               />
 
               <Textarea

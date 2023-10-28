@@ -37,7 +37,7 @@ export default function EditPage() {
   return (
     <>
       <Header session={session} />
-      <Button variant="filled" size="sm" component={Link} href={`${userId}/jobs/${id}`}>
+      <Button variant="filled" size="sm" component={Link} href={`/${userId}/jobs/${id}`}>
         Back
       </Button>
       <Flex justify="center">

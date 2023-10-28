@@ -53,6 +53,7 @@ export default function Stage({
         placeholder="Enter date"
         maw="120px"
         defaultValue={new Date(stageDate)}
+        required
       />
       <Button
         variant="outline"
