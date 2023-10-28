@@ -19,6 +19,8 @@ export default function UserPage() {
     revalidateOnFocus: false,
   });
 
+  const hasNoJobs = jobs && jobs.length === 0 && !isLoading;
+
   if (!session) {
     return null;
   }
@@ -36,23 +38,8 @@ export default function UserPage() {
       >
         {isLoading ? <p>Loading jobs list...</p> : null}
         {error ? <p>Failed to load the jobs list</p> : null}
-        {jobs && jobs.length > 0 ? (
-          <>
-            <JobsTable jobs={jobs} userId={userId} />
-            <Flex justify="flex-end">
-              <Button
-                variant="filled"
-                size="sm"
-                mt="50px"
-                component={Link}
-                href={`${userId}/add`}
-              >
-                + Job
-              </Button>
-            </Flex>
-          </>
-        ) : null}
-        {jobs && jobs.length === 0 ? (
+        {jobs ? <JobsTable jobs={jobs} userId={userId} /> : null}
+        {hasNoJobs ? (
           <Button
             variant="filled"
             size="xl"
@@ -62,7 +49,19 @@ export default function UserPage() {
             <IconPencilPlus style={{ marginRight: "10px" }} /> Add new job
             opportunity
           </Button>
-        ) : null}
+        ) : (
+          <Flex justify="flex-end">
+            <Button
+              variant="filled"
+              size="sm"
+              mt="50px"
+              component={Link}
+              href={`${userId}/add`}
+            >
+              <IconPencilPlus style={{ marginRight: "10px" }} /> Add job
+            </Button>
+          </Flex>
+        )}
       </Container>
     </>
   );
