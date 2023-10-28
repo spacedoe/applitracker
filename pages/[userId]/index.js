@@ -1,10 +1,11 @@
-import { Button, Container, Flex } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
-import Link from "next/link";
-import Header from "../../components/Header/Header";
+import { Button, Container, Flex } from "@mantine/core";
 import { IconPencilPlus } from "@tabler/icons-react";
-import JobsTable from "../../components/JobsTable/JobsTable";
+import Link from "next/link";
+import Header from "@/components/Header/Header";
+import JobsTable from "@/components/JobsTable/JobsTable";
+import JobsTableSkeleton from "@/components/JobsTable/JobsTableSkeleton";
 
 export default function UserPage() {
   const { data: session } = useSession();
@@ -36,7 +37,7 @@ export default function UserPage() {
         my="xl"
         mt="150px"
       >
-        {isLoading ? <p>Loading jobs list...</p> : null}
+        {isLoading ? <JobsTableSkeleton /> : null}
         {error ? <p>Failed to load the jobs list</p> : null}
         {jobs ? <JobsTable jobs={jobs} userId={userId} /> : null}
         {hasNoJobs ? (
