@@ -9,7 +9,6 @@ export default function Stage({
   stageName,
   stageDate,
 }) {
-  console.log("stage uid", uid);
   return (
     <Flex
       gap="sm"

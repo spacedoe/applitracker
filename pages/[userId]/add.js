@@ -10,7 +10,6 @@ import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
 export default function AddJobPage() {
   const router = useRouter();
   const { data: session } = useSession();
-  console.log("session", session);
 
   const userId = session?.user?.userId
   

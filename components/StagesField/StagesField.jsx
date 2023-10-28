@@ -27,12 +27,8 @@ export default function StagesField({ savedData }) {
   function deleteStage(uid) {
     const filterByUid = stages.filter((stage) => stage.uid !== uid);
     setStages(filterByUid);
-    console.log("f", filterByUid);
   }
 
-  useEffect(() => {
-    console.log("s", stages);
-  }, [stages]);
 
   return (
     <>
