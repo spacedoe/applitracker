@@ -11,8 +11,6 @@ export function Hero() {
         zIndex={0}
       />
       <Container className={classes.container} size="md">
-        {/* <Title className={classes.title}>Applitracker</Title> */}
-
         <Title>
           <Text
             className={classes.title}

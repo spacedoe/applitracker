@@ -5,7 +5,6 @@ import { Button, Flex, Title } from "@mantine/core";
 import useSWR from "swr";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
 import { IconArrowLeft } from "@tabler/icons-react";
 import Footer from "@/components/Footer/Footer";
 

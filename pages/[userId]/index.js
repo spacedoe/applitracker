@@ -76,7 +76,7 @@ export default function UserPage() {
           </Flex>
         )}
       </Container>
-      <Footer/>
+      <Footer />
     </>
   );
 }

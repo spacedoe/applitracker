@@ -2,11 +2,16 @@ import { Container, Text } from "@mantine/core";
 import { IconHeart } from "@tabler/icons-react";
 import React from "react";
 
+
 export default function Footer() {
   return (
-    <Container 
+    <Container
 
       style={{
+        position: "fixed",
+        bottom: "0",
+        left: "0",
+        right: "0",
         textAlign: "center",
         marginTop: "10px"
       }}
