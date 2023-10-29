@@ -4,12 +4,7 @@ import JobDetails from "../../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
 import Link from "next/link";
 import useSWR from "swr";
-import {
-  IconArrowBackUp,
-  IconArrowLeft,
-  IconPencil,
-  IconTrash,
-} from "@tabler/icons-react";
+import { IconPencil, IconTrash } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 import JobDetailsSkeleton from "@/components/JobDetails/JobDetailsSkeleton";
 import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";

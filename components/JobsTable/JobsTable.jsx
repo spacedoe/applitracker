@@ -43,7 +43,7 @@ export default function JobsTable({ jobs, userId }) {
   const rows = sortedJobs.map((job) => (
     <Table.Tr key={job._id}>
       <Table.Td>
-        <Anchor href={`${userId}/jobs/${job._id}`}>{job.role}</Anchor>
+        <Anchor href={`/${userId}/jobs/${job._id}`}>{job.role}</Anchor>
       </Table.Td>
       <Table.Td>{job.company}</Table.Td>
       <Table.Td>{job.location}</Table.Td>
