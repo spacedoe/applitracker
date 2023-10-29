@@ -1,11 +1,12 @@
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
 import { Button, Container, Flex } from "@mantine/core";
-import { IconChartLine, IconPencilPlus, IconReportAnalytics } from "@tabler/icons-react";
+import { IconPencilPlus, IconReportAnalytics } from "@tabler/icons-react";
 import Link from "next/link";
 import Header from "@/components/Header/Header";
 import JobsTable from "@/components/JobsTable/JobsTable";
 import JobsTableSkeleton from "@/components/JobsTable/JobsTableSkeleton";
+import Footer from "@/components/Footer/Footer";
 
 export default function UserPage() {
   const { data: session } = useSession();
@@ -51,16 +52,17 @@ export default function UserPage() {
             opportunity
           </Button>
         ) : (
-          <Flex justify="space-between">
+          <Flex justify="space-between" mb="150px">
             <Button
               variant="gradient"
-              gradient={{ from: 'blue', to: 'pink', deg: 270 }}
+              gradient={{ from: "blue", to: "pink", deg: 270 }}
               size="sm"
               mt="50px"
               component={Link}
               href={`${userId}/progress`}
             >
-              <IconReportAnalytics style={{ marginRight: "10px" }} /> View progress
+              <IconReportAnalytics style={{ marginRight: "10px" }} /> View
+              progress
             </Button>
             <Button
               variant="filled"
@@ -74,6 +76,7 @@ export default function UserPage() {
           </Flex>
         )}
       </Container>
+      <Footer/>
     </>
   );
 }

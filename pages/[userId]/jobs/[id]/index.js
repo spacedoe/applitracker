@@ -8,6 +8,7 @@ import { IconPencil, IconTrash } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 import JobDetailsSkeleton from "@/components/JobDetails/JobDetailsSkeleton";
 import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
+import Footer from "@/components/Footer/Footer";
 
 export default function JobDetailsPage() {
   const { data: session } = useSession();
@@ -69,6 +70,7 @@ export default function JobDetailsPage() {
           </>
         ) : null}
       </Stack>
+      <Footer/>
     </>
   );
 }

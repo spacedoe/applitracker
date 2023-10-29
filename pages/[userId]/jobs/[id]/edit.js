@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useSession } from "next-auth/react";
 import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
 import { IconArrowLeft } from "@tabler/icons-react";
+import Footer from "@/components/Footer/Footer";
 
 export default function EditPage() {
   const { data: session } = useSession();
@@ -47,6 +48,7 @@ export default function EditPage() {
         <Title>Edit Job</Title>
       </Flex>
       <Form onSubmit={editJob} formName={"edit-job"} savedData={job} />
+      <Footer/>
     </>
   );
 }

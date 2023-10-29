@@ -1,12 +1,10 @@
 import { Avatar, Button, Drawer, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/router";
 import LightAndDarkModeBnt from "../LightAndDarkModeBnt/LightAndDarkModeBnt";
 
 export default function UserAvatarDrawer({ session }) {
   const [opened, { open, close }] = useDisclosure(false);
-  const router = useRouter();
   return (
     <>
       <Avatar
@@ -50,9 +48,7 @@ export default function UserAvatarDrawer({ session }) {
         <Text ta="start">
           You are signed in as <br /> {session.user?.email}
         </Text>
-        <LightAndDarkModeBnt
-          
-        />
+        <LightAndDarkModeBnt />
 
         <Button
           onClick={() => signOut({ callbackUrl: "/" })}
