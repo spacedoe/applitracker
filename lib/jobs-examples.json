@@ -1,0 +1,326 @@
+[{
+  "_id": {
+    "$oid": "653e42d6c5fb49afb1ea6381"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Web Developer",
+  "company": "Canonical",
+  "location": "Berlin",
+  "URL": "https://www.linkedin.com/jobs/view/3724277357/?alternateChannel=search&refId=adba74c0-870d-4879-8b77-e560aa72d32b&trackingId=BE%2FcvNM9Q%2BKVIQXhQLdKZA%3D%3D",
+  "summary": "This job is for a Web Developer passionate about open source, working in a dynamic, collaborative environment to create impactful web applications. The role demands proficiency in HTML, CSS (SCSS), JavaScript, and an array of web development tools. Ideal candidates are committed to continuous learning and possess a strong attention to detail, valuing both design and code quality. You'll collaborate with a diverse team to create high-fidelity websites and apps, maintain existing projects, and ensure consistent, high-quality output. The company offers a supportive, inclusive work environment, learning opportunities, compensation reviews, recognition rewards, generous annual leave, and travel benefits.",
+  "contactPerson": "Sarah Thompson",
+  "contactDetails": "sahra.thompson@canonical.com",
+  "notes": "work from home possible, stated salary: 100K",
+  "stages": [
+    {
+      "stageName": "Applied on",
+      "stageDate": {
+        "$date": "2023-09-30T22:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e5aec180f833d15b50fcc"
+      }
+    },
+    {
+      "stageName": "Initial interview",
+      "stageDate": {
+        "$date": "2023-10-05T22:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e5aec180f833d15b50fcd"
+      }
+    },
+    {
+      "stageName": "Technical interview",
+      "stageDate": {
+        "$date": "2023-10-12T22:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e5aec180f833d15b50fce"
+      }
+    },
+    {
+      "stageName": "Live coding",
+      "stageDate": {
+        "$date": "2023-10-18T22:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e5aec180f833d15b50fcf"
+      }
+    },
+    {
+      "stageName": "Final interview",
+      "stageDate": {
+        "$date": "2023-10-26T22:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e5aec180f833d15b50fd0"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "653e4c011f5075f9101aa3a9"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Frontend Engineer",
+  "company": "Staffbase",
+  "location": "Berlin, hybrid",
+  "URL": "https://www.linkedin.com/jobs/view/3743270322/?alternateChannel=search&refId=DuxPlJO%2F%2BNYJN4xaDBKuPw%3D%3D&trackingId=IXWC6LgAs8ONGOZlMeEAzA%3D%3D",
+  "summary": "Staffbase, a rapidly growing tech company that recently achieved unicorn status, is seeking Frontend Engineers to join their international team. The company is on a mission to empower leaders and communicators through internal communication solutions. In this role, you'll work with technologies like React.js, JavaScript, and TypeScript, collaborating in a diverse and inclusive environment that values work-life balance and personal development. Problem-solving skills and a passion for clean code are essential, and previous experience in an agile environment is a plus. ",
+  "contactPerson": "Peter Papke",
+  "contactDetails": "peter.parke@staffbase.com",
+  "notes": "Benefits: Employee Stock Option Plan, ongoing learning opportunities, a 4-day workweek in August, flexible work arrangements, and paid parental leave.",
+  "stages": [
+    {
+      "stageName": "Applied on",
+      "stageDate": {
+        "$date": "2023-10-12T22:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e67e0180f833d15b511c0"
+      }
+    },
+    {
+      "stageName": "Initial interview",
+      "stageDate": {
+        "$date": "2023-10-24T22:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e67e0180f833d15b511c1"
+      }
+    },
+    {
+      "stageName": "Live coding",
+      "stageDate": {
+        "$date": "2023-10-29T23:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e67e0180f833d15b511c2"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "653e4ece1f5075f9101aa3b7"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Full-Stack Software Engineer",
+  "company": "Cresta",
+  "location": "Berlin",
+  "URL": "https://www.linkedin.com/jobs/view/3737471352/?alternateChannel=search&refId=f%2B1e0buPSDFotzaLHrYkqw%3D%3D&trackingId=SD44243O9wJDPo4JNPKgkQ%3D%3D",
+  "summary": "Cresta, a Silicon Valley company, is seeking Full-Stack Engineers to join their Berlin-based team, focused on enhancing the efficiency of knowledge workers through AI in call centers. As a Full-Stack Engineer, you'll contribute to the Cresta Director application, offering insights into customer conversations for call center managers. The role involves defining requirements, architecting software, writing high-quality code for both frontend and backend, applying synchronous and asynchronous design patterns, and scaling distributed applications. Candidates should have a deep understanding of modern frontend technologies, proficiency in API design, and a knack for observability and application performance. Cresta offers an appealing salary and stock options in a collaborative, international environment for those eager to make a tech impact.",
+  "contactPerson": "Kaan Can Götürmen",
+  "contactDetails": "Kaan.can@cresta.com",
+  "notes": "Interesting product",
+  "stages": [
+    {
+      "stageName": "Applied on",
+      "stageDate": {
+        "$date": "2023-10-23T22:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e6880180f833d15b5120c"
+      }
+    },
+    {
+      "stageName": "Initial interview",
+      "stageDate": {
+        "$date": "2023-10-30T23:00:00.000Z"
+      },
+      "_id": {
+        "$oid": "653e6880180f833d15b5120d"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "653e42d6c5fb49afb1ea6387"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Full-Stack Developer",
+  "company": "TechSolutions GmbH",
+  "location": "Berlin, Germany",
+  "URL": "https://www.example.com/jobs/123456",
+  "summary": "Join TechSolutions GmbH as a Full-Stack Developer and work on a variety of exciting projects. You'll be responsible for developing and maintaining both the front-end and back-end of web applications. We're looking for someone with expertise in JavaScript, Node.js, and React. If you're passionate about building high-quality software and love tackling technical challenges, we want to hear from you.",
+  "contactPerson": "John Smith",
+  "contactDetails": "john.smith@techsolutions.com",
+  "notes": "Competitive salary, flexible work hours, innovative projects.",
+  "stages": [
+    {
+    "stageName": "Applied on",
+    "stageDate": {
+      "$date": "2023-10-13T22:00:00.000Z"
+    },
+    "_id": {
+      "$oid": "653e6880180f833d15b5120b"
+    }
+  }]
+},
+{
+  "_id": {
+    "$oid": "653e4ece1f5075f9101aa3b6"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Web Developer",
+  "company": "DigitalScape AG",
+  "location": "Munich, Germany",
+  "URL": "https://www.example.com/jobs/789012",
+  "summary": "DigitalScape AG is seeking a Web Developer to join our dynamic team in Munich. You'll be responsible for creating visually appealing and user-friendly websites and web applications. Proficiency in HTML, CSS, JavaScript, and experience with modern web development frameworks is essential. If you're passionate about web design and development and want to be part of a collaborative team, this is the opportunity for you.",
+  "contactPerson": "Maria Müller",
+  "contactDetails": "maria.mueller@digitalscape.com",
+  "notes": "Work on cutting-edge web projects, supportive team, remote work options.",
+  "stages": [
+    {
+    "stageName": "Applied on",
+    "stageDate": {
+      "$date": "2023-10-10T22:00:00.000Z"
+    },
+    "_id": {
+      "$oid": "653e6880180f833d15b5120f"
+    }
+  }]
+},
+{
+  "_id": {
+    "$oid": "653e4c011f5075f9101aa3a3"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Front-end Developer",
+  "company": "InnovateTech Solutions",
+  "location": "Hamburg, Germany",
+  "URL": "https://www.example.com/jobs/567890",
+  "summary": "InnovateTech Solutions is looking for a Front-end Developer to join our team in Hamburg. You'll be responsible for creating responsive and engaging user interfaces using HTML, CSS, and JavaScript. Experience with modern front-end libraries and frameworks like React or Angular is a plus. If you have a keen eye for design and a passion for delivering outstanding user experiences, we'd love to have you on board.",
+  "contactPerson": "Sophie Schneider",
+  "contactDetails": "sophie.schneider@innovatetech.com",
+  "notes": "Exciting projects, competitive salary, opportunities for skill development.",
+  "stages": [
+    {
+    "stageName": "Applied on",
+    "stageDate": {
+      "$date": "2023-10-14T22:00:00.000Z"
+    },
+    "_id": {
+      "$oid": "653e6880180f833d15b5121d"
+    }
+  }]
+},
+{
+  "_id": {
+    "$oid": "653e42d6c5fb49afb1ea6382"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Junior Front-end Engineer",
+  "company": "CodeCrafters",
+  "location": "Berlin, Germany",
+  "URL": "https://www.example.com/jobs/890123",
+  "summary": "CodeCrafters is seeking a Junior Front-end Engineer to join our team in Berlin. This role is perfect for individuals who are starting their career in web development. You'll be working on front-end web development projects, gaining experience in HTML, CSS, and JavaScript. If you're enthusiastic about web development and eager to learn, we encourage you to apply.",
+  "contactPerson": "Lena Weber",
+  "contactDetails": "lena.weber@codecrafters.com",
+  "notes": "Entry-level position, work on web development projects, mentorship available.",
+  "stages": [
+    {
+    "stageName": "Applied on",
+    "stageDate": {
+      "$date": "2023-10-14T22:00:00.000Z"
+    },
+    "_id": {
+      "$oid": "653e6880180f833d15b5123a"
+    }
+  }]
+},
+{
+  "_id": {
+    "$oid": "653e52161f5075f9101aa3e5"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Junior Web Developer",
+  "company": "WebTech Innovations",
+  "location": "Berlin, Germany",
+  "URL": "https://www.example.com/jobs/345678",
+  "summary": "WebTech Innovations is looking for a Junior Web Developer to join our team in Berlin. This is an excellent opportunity for individuals who are starting their career in web development. You will work on building and maintaining websites, learning HTML, CSS, and JavaScript. If you're enthusiastic about web development and eager to learn, we encourage you to apply.",
+  "contactPerson": "Lisa Weber",
+  "contactDetails": "lisa.weber@webtech.com",
+  "notes": "Entry-level position, great learning opportunities, mentorship available.",
+  "stages": [
+    {
+    "stageName": "Applied on",
+    "stageDate": {
+      "$date": "2023-10-12T22:00:00.000Z"
+    },
+    "_id": {
+      "$oid": "653e6880180f833d15b5123b"
+    }
+  }]
+},
+{
+  "_id": {
+    "$oid": "653e52801f5075f9101aa3eb"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Junior Full-Stack Engineer",
+  "company": "TechStart Solutions",
+  "location": "Berlin, Germany",
+  "URL": "https://www.example.com/jobs/456789",
+  "summary": "TechStart Solutions is seeking a Junior Full-Stack Engineer to join our team in Munich. This role is perfect for recent graduates or those looking to transition into full-stack development. You'll work on both the front-end and back-end of web applications, gaining experience with languages like JavaScript, Node.js, and React. If you're passionate about technology and want to kick-start your career in full-stack development, this position is for you.",
+  "contactPerson": "David Müller",
+  "contactDetails": "david.mueller@techstart.com",
+  "notes": "Entry-level position, hands-on experience with full-stack development, mentorship provided.",
+  "stages": [
+    {
+    "stageName": "Applied on",
+    "stageDate": {
+      "$date": "2023-10-11T22:00:00.000Z"
+    },
+    "_id": {
+      "$oid": "653e6880180f833d15b5123e"
+    }
+  }]
+},
+{
+  "_id": {
+    "$oid": "653e53691f5075f9101aa3f9"
+  },
+  "userId": {
+    "$oid": "653ba7f826fbd993cc624550"
+  },
+  "role": "Junior Mobile App Developer",
+  "company": "MobileTech Innovations",
+  "location": "Munich, Germany",
+  "URL": "https://www.example.com/jobs/678901",
+  "summary": "MobileTech Innovations is looking for a Junior Mobile App Developer to join our team in Munich. This is an ideal opportunity for individuals who are passionate about mobile app development. You will work on creating and optimizing mobile applications for Android and iOS, using technologies like React Native or Flutter. If you're eager to kick-start your career in mobile app development and be part of a dynamic team, we encourage you to apply.",
+  "contactPerson": "Daniel Schmidt",
+  "contactDetails": "daniel.schmidt@datatech.com",
+  "notes": "Entry-level position, learn mobile app development, great growth opportunities.",
+  "stages": [
+    {
+    "stageName": "Applied on",
+    "stageDate": {
+      "$date": "2023-10-16T22:00:00.000Z"
+    },
+    "_id": {
+      "$oid": "653e6880180f833d15b5123d"
+    }
+  }]
+}]

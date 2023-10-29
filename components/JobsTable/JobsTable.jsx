@@ -1,11 +1,7 @@
 import { Anchor, Table } from "@mantine/core";
 import { localiseDate } from "../../utils/general";
 import { useState } from "react";
-import {
-  IconChevronUp,
-  IconCircleArrowUp,
-  IconSelector,
-} from "@tabler/icons-react";
+import { IconSelector } from "@tabler/icons-react";
 
 export default function JobsTable({ jobs, userId }) {
   const [sortDirection, setSortDirection] = useState("asc");
@@ -72,7 +68,11 @@ export default function JobsTable({ jobs, userId }) {
                 <IconSelector
                   size="16px"
                   color="var(--mantine-color-blue-filled)"
-                  style={{ cursor: "pointer", position: "relative", top: "3px"  }}
+                  style={{
+                    cursor: "pointer",
+                    position: "relative",
+                    top: "3px",
+                  }}
                   onClick={() =>
                     setSortDirection(sortDirection === "asc" ? "desc" : "asc")
                   }
@@ -83,7 +83,11 @@ export default function JobsTable({ jobs, userId }) {
                 <IconSelector
                   size="16px"
                   color="var(--mantine-color-blue-filled)"
-                  style={{ cursor: "pointer", position: "relative", top: "3px"  }}
+                  style={{
+                    cursor: "pointer",
+                    position: "relative",
+                    top: "3px",
+                  }}
                   onClick={() =>
                     setSortDirection(sortDirection === "asc" ? "desc" : "asc")
                   }

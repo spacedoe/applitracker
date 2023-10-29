@@ -48,7 +48,7 @@ export default function StagesField({ savedData }) {
             );
           })}
           <Flex>
-            <Button variant="filled" size="sm" onClick={addStage}>
+            <Button variant="filled" size="sm" onClick={addStage} mt="12px">
               <IconPencilPlus style={{ marginRight: "10px" }} />
               Add Stage
             </Button>

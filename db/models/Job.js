@@ -11,7 +11,7 @@ const jobSchema = new Schema(
     company: { type: String, required: true },
     location: { type: String, required: true },
     URL: { type: String, required: true },
-    description: { type: String },
+    summary: { type: String },
     contactPerson: { type: String },
     contactDetails: { type: String },
     notes: { type: String },

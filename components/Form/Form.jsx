@@ -19,7 +19,7 @@ export default function Form({ onSubmit, formName, savedData }) {
       company: formData.get("company"),
       location: formData.get("location"),
       URL: formData.get("URL"),
-      description: formData.get("description"),
+      summary: formData.get("summary"),
       contactPerson: formData.get("contactPerson"),
       contactDetails: formData.get("contactDetails"),
       notes: formData.get("notes"),
@@ -35,7 +35,7 @@ export default function Form({ onSubmit, formName, savedData }) {
       });
     }
     onSubmit(jobData);
-    // event.target.reset();
+    event.target.reset();
   }
 
   return (
@@ -78,10 +78,10 @@ export default function Form({ onSubmit, formName, savedData }) {
               />
 
               <Textarea
-                label="Description"
-                placeholder="What does the role involve?"
-                name="description"
-                defaultValue={savedData?.description}
+                label="Summary"
+                placeholder="The role involves..."
+                name="summary"
+                defaultValue={savedData?.summary}
               />
             </Fieldset>
             <Fieldset>
@@ -108,7 +108,7 @@ export default function Form({ onSubmit, formName, savedData }) {
             <StagesField savedData={savedData} />
           </Flex>
 
-          <Group justify="center" mt="md">
+          <Group justify="center" mt="md" mb="32px">
             <Button type="submit">Submit</Button>
           </Group>
         </form>

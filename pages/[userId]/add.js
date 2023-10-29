@@ -1,5 +1,4 @@
-import { Button, Flex, Title } from "@mantine/core";
-import Link from "next/link";
+import { Flex, Title } from "@mantine/core";
 import { useRouter } from "next/router";
 import Form from "../../components/Form/Form";
 import Header from "../../components/Header/Header";

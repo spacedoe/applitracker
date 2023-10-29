@@ -1,9 +1,8 @@
 import { Button, Container, Overlay, Text, Title } from "@mantine/core";
 import classes from "./Hero.module.css";
-import { useSession, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 
 export function Hero() {
-  const { data: session } = useSession();
   return (
     <div className={classes.hero}>
       <Overlay

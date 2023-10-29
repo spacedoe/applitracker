@@ -9,7 +9,7 @@ export default function JobDetails({ job }) {
     company,
     location,
     URL,
-    description,
+    summary,
     contactPerson,
     contactDetails,
     notes,
@@ -17,25 +17,39 @@ export default function JobDetails({ job }) {
   } = job;
 
   return (
-    <Paper shadow="xs" p="xl" withBorder maw={600} w={"100%"}>
-      <Flex gap="70px" mx="lg" wrap={"wrap"}>
-        <Stack>
-          <Text>Role: {role} </Text>
-          <Text>Company: {company}</Text>
-          <Text>Location: {location}</Text>
+    <Paper shadow="xs" p="xl" withBorder maw="768px" w={"100%"}>
+      <Flex gap="20px" mx="lg" wrap={"nowrap"}>
+        <Stack maw={400}>
           <Text>
-            URL:{" "}
-            <Anchor href={`${URL}`} target="_blank">
-              {URL}
-            </Anchor>{" "}
+            Role: <strong>{role}</strong>{" "}
           </Text>
-          <Text>Description: {description}</Text>
-          <Text>Contact person: {contactPerson}</Text>
-          <Text>Contact details: {contactDetails}</Text>
-          <Text>Notes: {notes}</Text>
+          <Text>
+            Company: <strong>{company}</strong>
+          </Text>
+          <Text>
+            Location: <strong>{location}</strong>
+          </Text>
+          <Text>
+            <Anchor href={`${URL}`} target="_blank">
+              <strong>Job offer link</strong>
+            </Anchor>
+          </Text>
+          <Text ta="justify">
+            Summary: <br /> <em>{summary}</em>
+          </Text>
+          <Text>
+            Contact person: <strong>{contactPerson}</strong>
+          </Text>
+          <Text>
+            Contact details: <strong>{contactDetails}</strong>
+          </Text>
+          <Text>
+            Notes: <br />
+            <em>{notes}</em>
+          </Text>
         </Stack>
 
-        <Stack ml="auto" >
+        <Stack ml="auto">
           <Timeline active={10} bulletSize={30} lineWidth={2} color="blue">
             {stages?.map((stage, index) => {
               const { _id, stageName, stageDate } = stage;

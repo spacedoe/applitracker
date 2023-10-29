@@ -4,7 +4,12 @@ import JobDetails from "../../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
 import Link from "next/link";
 import useSWR from "swr";
-import { IconArrowBackUp, IconArrowLeft, IconPencil, IconTrash } from "@tabler/icons-react";
+import {
+  IconArrowBackUp,
+  IconArrowLeft,
+  IconPencil,
+  IconTrash,
+} from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 import JobDetailsSkeleton from "@/components/JobDetails/JobDetailsSkeleton";
 import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
@@ -31,7 +36,7 @@ export default function JobDetailsPage() {
   return (
     <>
       <Header session={session} />
-      <GoBackBnt/>
+      <GoBackBnt />
       <Stack align="center" mx={20}>
         <Title>Job Details</Title>
         {error ? <p>Failed to load job details...</p> : null}
@@ -39,7 +44,7 @@ export default function JobDetailsPage() {
         {job ? (
           <>
             <JobDetails job={job} />
-            <Group justify="center" mt="md">
+            <Group justify="center" mt="md" mb="32px">
               <Button
                 variant="outline"
                 size="sm"
@@ -66,7 +71,6 @@ export default function JobDetailsPage() {
                 Delete
               </Button>
             </Group>
-          
           </>
         ) : null}
       </Stack>
