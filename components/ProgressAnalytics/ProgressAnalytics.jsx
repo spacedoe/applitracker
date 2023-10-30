@@ -13,7 +13,7 @@ export default function ProgressAnalytics({ jobs, userId }) {
     "#e44981",
   ];
   return (
-    <Container my="32px">
+    <Container my="32px" mb="100px">
       {jobs?.map((job) => {
         return (
           <Flex key={job._id} mb={20} gap={30}>

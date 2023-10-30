@@ -40,7 +40,7 @@ export default function Form({ onSubmit, formName, savedData }) {
 
   return (
     <>
-      <Box maw={600} mx="auto" my="sm">
+      <Box maw={600} mx="auto" my="xl" mb="100px">
         <form aria-labelledby={formName} onSubmit={handleSubmit}>
           <Flex direction="column" gap="md">
             <Fieldset>

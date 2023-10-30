@@ -40,7 +40,7 @@ export default function JobDetailsPage() {
         {job ? (
           <>
             <JobDetails job={job} />
-            <Group justify="center" mt="md" mb="32px">
+            <Group justify="center" mt="md" mb="100px">
               <Button
                 variant="outline"
                 size="sm"
