@@ -47,7 +47,7 @@ export default function EditPage() {
         <Title>Edit Job</Title>
       </Flex>
       <Form onSubmit={editJob} formName={"edit-job"} savedData={job} />
-      <Footer/>
+ 
     </>
   );
 }

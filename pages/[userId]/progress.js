@@ -32,7 +32,7 @@ export default function ProgressPage() {
       {isLoading ? <p>Progress is isLoading</p> : null}
       {error ? <p>Failed to load the jobs list</p> : null}
       {jobs ? <ProgressAnalytics jobs={jobs} userId={userId}/> : null}
-      <Footer/>
+
     </>
   );
 }

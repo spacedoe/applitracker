@@ -70,7 +70,7 @@ export default function JobDetailsPage() {
           </>
         ) : null}
       </Stack>
-      <Footer/>
+   
     </>
   );
 }
