@@ -36,7 +36,7 @@ export default function AddJobPage() {
         <Title>Add Job</Title>
       </Flex>
       <Form onSubmit={addJob} formName={"add-job"} />
-      <Footer />
+    
     </>
   );
 }
