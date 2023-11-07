@@ -1,4 +1,4 @@
-import { Anchor, Flex, Paper, Stack, Text, Timeline } from "@mantine/core";
+import { Anchor, Flex, Paper, Spoiler, Stack, Text, Timeline } from "@mantine/core";
 
 import { IconCircleCheck } from "@tabler/icons-react";
 import { localiseDate } from "../../utils/general";
@@ -34,9 +34,11 @@ export default function JobDetails({ job }) {
               <strong>Job offer link</strong>
             </Anchor>
           </Text>
+          <Spoiler maxHeight={150} showLabel="Show more" hideLabel="Hide">
           <Text ta="justify">
             Summary: <br /> <em>{summary}</em>
           </Text>
+          </Spoiler>
           <Text>
             Contact person: <strong>{contactPerson}</strong>
           </Text>
