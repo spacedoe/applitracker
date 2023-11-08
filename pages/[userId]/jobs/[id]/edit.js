@@ -6,7 +6,8 @@ import useSWR from "swr";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { IconArrowLeft } from "@tabler/icons-react";
-import Footer from "@/components/Footer/Footer";
+import { IconCheck } from "@tabler/icons-react";
+import { notifications } from "@mantine/notifications";
 
 export default function EditPage() {
   const { data: session } = useSession();
@@ -30,6 +31,13 @@ export default function EditPage() {
       });
 
       if (response.ok) {
+        notifications.show({
+          title: "Done!",
+          message: "The job has been updated 👍",
+          icon: <IconCheck/>,
+          color: "teal",
+          autoClose: 10000,
+        });
         router.push(`/${userId}/jobs/${id}`);
       }
     } catch (error) {

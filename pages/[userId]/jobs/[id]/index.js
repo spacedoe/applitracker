@@ -1,19 +1,27 @@
-import { Button, Group, Stack, Title } from "@mantine/core";
+import { Button, Group, Modal, Stack, Title } from "@mantine/core";
 import Header from "../../../../components/Header/Header";
 import JobDetails from "../../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
 import Link from "next/link";
 import useSWR from "swr";
-import { IconPencil, IconTrash } from "@tabler/icons-react";
+import {
+  IconCheck,
+  IconPencil,
+  IconTrash,
+  IconX,
+} from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 import JobDetailsSkeleton from "@/components/JobDetails/JobDetailsSkeleton";
 import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
-import Footer from "@/components/Footer/Footer";
+import { useDisclosure } from "@mantine/hooks";
+import { notifications } from "@mantine/notifications";
 
 export default function JobDetailsPage() {
   const { data: session } = useSession();
   const userId = session?.user?.userId;
   const router = useRouter();
+
+  const [opened, { open, close }] = useDisclosure(false);
 
   const { id } = router.query;
   const {
@@ -26,6 +34,14 @@ export default function JobDetailsPage() {
 
   async function deleteJob() {
     await fetch(`/api/${userId}/jobs/${id}`, { method: "DELETE" });
+    notifications.show({
+      title: "Done!",
+      message: "The job has been deleted.",
+      icon: <IconCheck />,
+      color: "teal",
+      autoClose: 5000,
+      withBorder: true,
+    });
     router.push("/");
   }
 
@@ -58,7 +74,8 @@ export default function JobDetailsPage() {
                 color="rgba(255, 87, 87, 1)"
                 size="sm"
                 px="9px"
-                onClick={deleteJob}
+                // onClick={deleteJob}
+                onClick={open}
               >
                 <IconTrash
                   style={{ marginRight: "5px" }}
@@ -67,10 +84,26 @@ export default function JobDetailsPage() {
                 Delete
               </Button>
             </Group>
+            <Modal
+              opened={opened}
+              onClose={close}
+              withCloseButton={false}
+              align="center"
+              centered
+            >
+              Are you sure you want to delete this job?
+              <Group justify="center" gap={16} mt="md">
+                <Button onClick={close}>
+                  <IconX style={{ marginRight: "6px" }} /> No
+                </Button>
+                <Button onClick={deleteJob} color="rgba(255, 87, 87, 1)">
+                  <IconCheck style={{ marginRight: "6px" }} /> Yes
+                </Button>
+              </Group>
+            </Modal>
           </>
         ) : null}
       </Stack>
-   
     </>
   );
 }

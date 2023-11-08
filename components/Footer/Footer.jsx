@@ -6,12 +6,10 @@ export default function Footer() {
   return (
     <Container
       style={{
-        position: "fixed",
-        bottom: "0",
+        position: "absolute",
         left: "0",
         right: "0",
-        textAlign: "center",
-        paddingTop: "100px",
+        textAlign: "center"
       }}
     >
       <Text fz="12px" my={10}>
