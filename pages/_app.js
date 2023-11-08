@@ -4,6 +4,8 @@ import { MantineProvider } from "@mantine/core";
 import { theme } from "../theme";
 import { SWRConfig } from "swr";
 import { SessionProvider } from "next-auth/react";
+import "@mantine/notifications/styles.css";
+import { Notifications } from "@mantine/notifications";
 
 export default function App({
   Component,
@@ -23,6 +25,7 @@ export default function App({
     >
       <MantineProvider theme={theme}>
         <SessionProvider session={session}>
+          <Notifications position="bottom-right" zIndex={1000} />
           <Component {...pageProps} />
         </SessionProvider>
       </MantineProvider>

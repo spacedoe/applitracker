@@ -6,7 +6,7 @@
 }
 
 .container {
-  height: 95vh;
+  height: 94vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
