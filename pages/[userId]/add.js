@@ -1,4 +1,4 @@
-import { Flex, Notification, Title, rem } from "@mantine/core";
+import { Flex, Title } from "@mantine/core";
 import { useRouter } from "next/router";
 import Form from "../../components/Form/Form";
 import Header from "../../components/Header/Header";
@@ -13,7 +13,6 @@ export default function AddJobPage() {
 
   const userId = session?.user?.userId;
 
-  // const checkIcon = <IconCheck style={{ width: rem(20), height: rem(20) }} />;
 
   async function addJob(job) {
     const response = await fetch("/api/user/jobs", {
@@ -48,9 +47,6 @@ export default function AddJobPage() {
         <Title>Add Job</Title>
       </Flex>
       <Form onSubmit={addJob} formName={"add-job"} />
-      {/* <Notification icon={checkIcon} color="teal" withBorder title="Done!">
-        The job is added.
-      </Notification> */}
     </>
   );
 }
