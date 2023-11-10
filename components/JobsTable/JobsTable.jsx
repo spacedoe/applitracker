@@ -1,11 +1,23 @@
-import { Anchor, Table } from "@mantine/core";
+import {
+  Anchor,
+  Center,
+  Group,
+  Table,
+  Text,
+  UnstyledButton,
+} from "@mantine/core";
 import { localiseDate } from "../../utils/general";
 import { useState } from "react";
-import { IconSelector } from "@tabler/icons-react";
+import {
+  IconChevronDown,
+  IconChevronUp,
+  IconSelector,
+} from "@tabler/icons-react";
+import classes from "./JobsTable.module.css";
 
 export default function JobsTable({ jobs, userId }) {
-  const [sortDirection, setSortDirection] = useState("asc");
-  const [sortColumn, setSortColumn] = useState("dates");
+  const [sortDirection, setSortDirection] = useState(null);
+  const [sortColumn, setSortColumn] = useState(null);
 
   const stageOrder = [
     "Applied on",
@@ -28,6 +40,7 @@ export default function JobsTable({ jobs, userId }) {
       const currIndex = stageOrder.indexOf(
         curr.stages[curr.stages.length - 1].stageName
       );
+
       return sortDirection === "asc"
         ? prevIndex - currIndex
         : currIndex - prevIndex;
@@ -39,6 +52,27 @@ export default function JobsTable({ jobs, userId }) {
         : currDate - prevDate;
     }
   });
+
+  function TableHead({ children, reversed, sorted, onSort }) {
+    const Icon = sorted ? (sortDirection === "desc" ? IconChevronUp : IconChevronDown) : IconSelector;
+
+    return (
+      <Table.Th fz="md" >
+        <UnstyledButton onClick={onSort}  className={classes.button}>
+          <Group justify="space-between">
+            <Text fw="bold">{children}</Text>
+            <Center>
+              <Icon
+                style={{ width: "16px", height: "16px" }}
+                stroke={1.5}
+                color="var(--mantine-color-blue-filled)"
+              />
+            </Center>
+          </Group>
+        </UnstyledButton>
+      </Table.Th>
+    );
+  }
 
   const rows = sortedJobs.map((job) => (
     <Table.Tr key={job._id}>
@@ -63,36 +97,24 @@ export default function JobsTable({ jobs, userId }) {
               <Table.Th>Role</Table.Th>
               <Table.Th>Company</Table.Th>
               <Table.Th>Location</Table.Th>
-              <Table.Th onClick={() => setSortColumn("stages")}>
+              <TableHead
+                sorted={sortColumn === "stages"}
+                onSort={() => {
+                  setSortColumn("stages");
+                  setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+                }}
+              >
                 Latest stage
-                <IconSelector
-                  size="16px"
-                  color="var(--mantine-color-blue-filled)"
-                  style={{
-                    cursor: "pointer",
-                    position: "relative",
-                    top: "3px",
-                  }}
-                  onClick={() =>
-                    setSortDirection(sortDirection === "asc" ? "desc" : "asc")
-                  }
-                />
-              </Table.Th>
-              <Table.Th onClick={() => setSortColumn("dates")}>
+              </TableHead>
+              <TableHead
+                sorted={sortColumn === "dates"}
+                onSort={() => {
+                  setSortColumn("dates");
+                  setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+                }}
+              >
                 Date
-                <IconSelector
-                  size="16px"
-                  color="var(--mantine-color-blue-filled)"
-                  style={{
-                    cursor: "pointer",
-                    position: "relative",
-                    top: "3px",
-                  }}
-                  onClick={() =>
-                    setSortDirection(sortDirection === "asc" ? "desc" : "asc")
-                  }
-                />
-              </Table.Th>
+              </TableHead>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>
