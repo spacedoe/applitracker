@@ -15,6 +15,7 @@ const jobSchema = new Schema(
     contactPerson: { type: String },
     contactDetails: { type: String },
     notes: { type: String },
+    appliedOn: { type: Date, required: true },
     stages: [
       {
         type: {
@@ -26,6 +27,12 @@ const jobSchema = new Schema(
   },
   { collection: "jobs" }
 );
+
+// jobSchema.pre("save", function (next) {
+//   this.appliedOn = new Date();
+
+//   next();
+// });
 
 const Job = mongoose.models.Job || mongoose.model("Job", jobSchema);
 

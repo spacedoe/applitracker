@@ -6,8 +6,10 @@ import {
   TextInput,
   Textarea,
   Flex,
+  Badge,
 } from "@mantine/core";
 import StagesField from "../StagesField/StagesField";
+import { DatePickerInput } from "@mantine/dates";
 
 export default function Form({ onSubmit, formName, savedData }) {
   function handleSubmit(event) {
@@ -23,6 +25,7 @@ export default function Form({ onSubmit, formName, savedData }) {
       contactPerson: formData.get("contactPerson"),
       contactDetails: formData.get("contactDetails"),
       notes: formData.get("notes"),
+      appliedOn: formData.get("appliedOn"),
       stages: [],
     };
 
@@ -39,80 +42,100 @@ export default function Form({ onSubmit, formName, savedData }) {
   }
 
   return (
-    <>
-      <Box maw={600} mx="auto" my="xl" mb="100px">
-        <form aria-labelledby={formName} onSubmit={handleSubmit}>
-          <Flex direction="column" gap="md">
-            <Fieldset>
-              <TextInput
-                withAsterisk
-                label="Role"
-                placeholder="What is the role title?"
-                name="role"
-                defaultValue={savedData?.role}
-                required
-              />
-              <TextInput
-                withAsterisk
-                label="Company"
-                placeholder="What is the company name?"
-                name="company"
-                defaultValue={savedData?.company}
-                required
-              />
-              <TextInput
-                withAsterisk
-                label="Location"
-                placeholder="Office address/work from home/hybrid"
-                name="location"
-                defaultValue={savedData?.location}
-                required
-              />
-              <TextInput
-                withAsterisk
-                label="URL"
-                placeholder="Job post link"
-                name="URL"
-                defaultValue={savedData?.URL}
-                required
-              />
-
-              <Textarea
-                label="Summary"
-                placeholder="The role involves..."
-                name="summary"
-                defaultValue={savedData?.summary}
-              />
-            </Fieldset>
-            <Fieldset>
-              <TextInput
-                label="Contact person"
-                placeholder="Full name, title"
-                name="contactPerson"
-                defaultValue={savedData?.contactPerson}
-              />
-              <TextInput
-                label="Contact details"
-                placeholder="Email, phone number, etc."
-                name="contactDetails"
-                defaultValue={savedData?.contactDetails}
-              />
-            </Fieldset>
-            <Textarea
-              label="Notes"
-              placeholder="Add notes about the role & process"
-              name="notes"
-              defaultValue={savedData?.notes}
+    <Box maw={600} mx="auto" my="xl" mb="100px">
+      <form aria-labelledby={formName} onSubmit={handleSubmit}>
+        <Flex direction="column" gap="md">
+          <Fieldset>
+            <TextInput
+              withAsterisk
+              label="Role"
+              placeholder="What is the role title?"
+              name="role"
+              defaultValue={savedData?.role}
+              required
+            />
+            <TextInput
+              withAsterisk
+              label="Company"
+              placeholder="What is the company name?"
+              name="company"
+              defaultValue={savedData?.company}
+              required
+            />
+            <TextInput
+              withAsterisk
+              label="Location"
+              placeholder="Office address/work from home/hybrid"
+              name="location"
+              defaultValue={savedData?.location}
+              required
+            />
+            <TextInput
+              withAsterisk
+              label="URL"
+              placeholder="Job post link"
+              name="URL"
+              defaultValue={savedData?.URL}
+              required
             />
 
-            <StagesField savedData={savedData} />
-          </Flex>
+            <Textarea
+              label="Summary"
+              placeholder="The role involves..."
+              name="summary"
+              defaultValue={savedData?.summary}
+            />
+          </Fieldset>
+          <Fieldset>
+            <TextInput
+              label="Contact person"
+              placeholder="Full name, title"
+              name="contactPerson"
+              defaultValue={savedData?.contactPerson}
+            />
+            <TextInput
+              label="Contact details"
+              placeholder="Email, phone number, etc."
+              name="contactDetails"
+              defaultValue={savedData?.contactDetails}
+            />
+          </Fieldset>
+          <Textarea
+            label="Notes"
+            placeholder="Add notes about the role & process"
+            name="notes"
+            defaultValue={savedData?.notes}
+          />
 
-          <Group justify="center" mt="md" mb="32px">
-            <Button type="submit">Submit</Button>
-          </Group>
-        </form>
-      </Box>
-    </>
+          <Fieldset>
+            <Flex gap="38px" align="flex-end" direction="row" mb="sm">
+              <Badge
+                variant="filled"
+                color="var(--mantine-color-gray-6)"
+                size="lg"
+                radius="sm"
+                h="36px"
+              >
+                Applied on
+              </Badge>
+              <DatePickerInput
+                valueFormat="DD.MM.YYYY"
+                label="Date"
+                name="appliedOn"
+                maw="120px"
+                defaultValue={savedData ? new Date(savedData?.appliedOn) : new Date()}
+                required
+              />
+            </Flex>
+
+            <StagesField savedData={savedData} />
+          </Fieldset>
+        </Flex>
+
+        <Group justify="center" mt="md" mb="32px">
+          <Button type="submit">Submit</Button>
+        </Group>
+      </form>
+    </Box>
   );
 }

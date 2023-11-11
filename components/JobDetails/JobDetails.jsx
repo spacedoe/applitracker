@@ -1,10 +1,19 @@
-import { Anchor, Flex, Paper, Spoiler, Stack, Text, Timeline } from "@mantine/core";
+import {
+  Anchor,
+  Flex,
+  Paper,
+  Spoiler,
+  Stack,
+  Text,
+  Timeline,
+} from "@mantine/core";
 
 import { IconCircleCheck } from "@tabler/icons-react";
 import { localiseDate } from "../../utils/general";
 
 export default function JobDetails({ job }) {
   const {
+    _id,
     role,
     company,
     location,
@@ -13,6 +22,7 @@ export default function JobDetails({ job }) {
     contactPerson,
     contactDetails,
     notes,
+    appliedOn,
     stages,
   } = job;
 
@@ -35,9 +45,9 @@ export default function JobDetails({ job }) {
             </Anchor>
           </Text>
           <Spoiler maxHeight={150} showLabel="Show more" hideLabel="Hide">
-          <Text ta="justify">
-            Summary: <br /> <em>{summary}</em>
-          </Text>
+            <Text ta="justify">
+              Summary: <br /> <em>{summary}</em>
+            </Text>
           </Spoiler>
           <Text>
             Contact person: <strong>{contactPerson}</strong>
@@ -53,6 +63,19 @@ export default function JobDetails({ job }) {
 
         <Stack ml="auto">
           <Timeline active={10} bulletSize={30} lineWidth={2} color="blue">
+            <Timeline.Item
+              key={_id}
+              mb="20px"
+              bullet={<IconCircleCheck size={30} />}
+              lineVariant="solid"
+              // color="var(--mantine-color-gray-6)"
+              title="Applied on:"
+            >
+              <Text size="xs" mt={4}>
+                {localiseDate(appliedOn)}
+              </Text>
+            </Timeline.Item>
+
             {stages?.map((stage, index) => {
               const { _id, stageName, stageDate } = stage;
 
