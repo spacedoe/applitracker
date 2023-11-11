@@ -13,29 +13,33 @@ export default function AddJobPage() {
 
   const userId = session?.user?.userId;
 
-
   async function addJob(job) {
-    const response = await fetch("/api/user/jobs", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...job, userId }),
-    });
-    if (response.ok) {
-      notifications.show({
-        title: "Success!",
-        message: "The job has been added 👍",
-        icon: <IconCheck />,
-        color: "teal",
-        autoClose: 5000,
-        withBorder: true,
+    try {
+      console.log("addJob async function", job);
+      const response = await fetch("/api/user/jobs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...job, userId }),
       });
+      if (response.ok) {
+        notifications.show({
+          title: "Success!",
+          message: "The job has been added 👍",
+          icon: <IconCheck />,
+          color: "teal",
+          autoClose: 5000,
+          withBorder: true,
+        });
 
-      router.push(`/${userId}`);
-    } else {
-      const error = await response.json();
-      console.log("Error:", error, response.status);
+        router.push(`/${userId}`);
+      } else {
+        const error = await response.json();
+        console.log("Error:", error, response.status);
+      }
+    } catch (err) {
+      throw new Error(err);
     }
   }
 

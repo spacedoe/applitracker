@@ -20,16 +20,17 @@ export default function JobsTable({ jobs, userId }) {
   const [sortColumn, setSortColumn] = useState(null);
 
   const stageOrder = [
-    "Applied on",
-    "Initial interview",
+    "Initial Interview",
+    "Second interview",
     "Technical interview",
-    "Technical challenge",
+    "Task",
     "Live coding",
     "Team fit",
     "Final interview",
     "Offer",
-    "Pause",
+    "Paused",
     "Rejection",
+    "No reply",
   ];
 
   const sortedJobs = [...jobs].sort((prev, curr) => {
@@ -53,12 +54,15 @@ export default function JobsTable({ jobs, userId }) {
     }
   });
 
-  function TableHead({ children, reversed, sorted, onSort }) {
-    const Icon = sorted ? (sortDirection === "desc" ? IconChevronUp : IconChevronDown) : IconSelector;
-
+  function TableHead({ children, sorted, onSort }) {
+    const Icon = sorted
+      ? sortDirection === "desc"
+        ? IconChevronUp
+        : IconChevronDown
+      : IconSelector;
     return (
-      <Table.Th fz="md" >
-        <UnstyledButton onClick={onSort}  className={classes.button}>
+      <Table.Th fz="md">
+        <UnstyledButton onClick={onSort} className={classes.button}>
           <Group justify="space-between">
             <Text fw="bold">{children}</Text>
             <Center>
@@ -81,10 +85,20 @@ export default function JobsTable({ jobs, userId }) {
       </Table.Td>
       <Table.Td>{job.company}</Table.Td>
       <Table.Td>{job.location}</Table.Td>
-      <Table.Td>{job?.stages[job.stages.length - 1].stageName}</Table.Td>
-      <Table.Td>
-        {localiseDate(job?.stages[job.stages.length - 1].stageDate)}
-      </Table.Td>
+
+      {job.stages.length > 0 ? (
+        <>
+          <Table.Td>{job?.stages[job.stages.length - 1].stageName}</Table.Td>
+          <Table.Td>
+            {localiseDate(job?.stages[job.stages.length - 1].stageDate)}
+          </Table.Td>
+        </>
+      ) : (
+        <>
+          <Table.Td>Applied on</Table.Td>
+          <Table.Td>{localiseDate(job.appliedOn)}</Table.Td>
+        </>
+      )}
     </Table.Tr>
   ));
 

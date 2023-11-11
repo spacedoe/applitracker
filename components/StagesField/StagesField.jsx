@@ -1,4 +1,4 @@
-import { Button, Fieldset, Flex } from "@mantine/core";
+import { Button, Flex } from "@mantine/core";
 import { Fragment, useEffect, useState } from "react";
 import { uid } from "uid";
 import Stage from "../Stage/Stage";
@@ -29,12 +29,10 @@ export default function StagesField({ savedData }) {
     setStages(filterByUid);
   }
 
-
   return (
     <>
-      {stages ? (
-        <Fieldset>
-          {stages.map((stage, index) => {
+      {stages
+        ? stages.map((stage, index) => {
             return (
               <Fragment key={stage.uid}>
                 <Stage
@@ -46,15 +44,14 @@ export default function StagesField({ savedData }) {
                 />
               </Fragment>
             );
-          })}
-          <Flex>
-            <Button variant="filled" size="sm" onClick={addStage} mt="12px">
-              <IconPencilPlus style={{ marginRight: "10px" }} />
-              Add Stage
-            </Button>
-          </Flex>
-        </Fieldset>
-      ) : null}
+          })
+        : null}
+      <Flex>
+        <Button variant="filled" size="sm" onClick={addStage} mt="12px">
+          <IconPencilPlus style={{ marginRight: "10px" }} />
+          Add Stage
+        </Button>
+      </Flex>
     </>
   );
 }

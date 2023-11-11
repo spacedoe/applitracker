@@ -32,16 +32,17 @@ export default function Stage({
         label="Stage name"
         name="stageName"
         data={[
-          "Applied on",
-          "Initial interview",
+          "Initial Interview",
+          "Second interview",
           "Technical interview",
-          "Technical challenge",
+          "Task",
           "Live coding",
           "Team fit",
           "Final interview",
           "Offer",
-          "Pause",
+          "Paused",
           "Rejection",
+          "No reply",
         ]}
         defaultValue={stageName}
       />
@@ -49,7 +50,6 @@ export default function Stage({
         valueFormat="DD.MM.YYYY"
         label="Date"
         name="stageDate"
-        placeholder="Enter date"
         maw="120px"
         defaultValue={new Date(stageDate)}
         required
