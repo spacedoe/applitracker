@@ -26,7 +26,7 @@ export default function ProgressPage() {
     <>
       <Header session={session} />
       <GoBackBnt />
-      <Flex justify="center">
+      <Flex justify="center" mb={32}>
         <Title>Your progress</Title>
       </Flex>
       {isLoading ? <p>Progress is isLoading</p> : null}

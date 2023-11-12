@@ -74,7 +74,6 @@ export default function JobDetailsPage() {
                 color="rgba(255, 87, 87, 1)"
                 size="sm"
                 px="9px"
-                // onClick={deleteJob}
                 onClick={open}
               >
                 <IconTrash
