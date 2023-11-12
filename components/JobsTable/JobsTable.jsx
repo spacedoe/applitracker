@@ -20,6 +20,7 @@ export default function JobsTable({ jobs, userId }) {
   const [sortColumn, setSortColumn] = useState(null);
 
   const stageOrder = [
+    "Applied on",
     "Initial Interview",
     "Second interview",
     "Technical interview",
@@ -27,27 +28,36 @@ export default function JobsTable({ jobs, userId }) {
     "Live coding",
     "Team fit",
     "Final interview",
-    "Offer",
+    "Offer!",
     "Paused",
-    "Rejection",
     "No reply",
+    "Rejection",
   ];
 
   const sortedJobs = [...jobs].sort((prev, curr) => {
     if (sortColumn === "stages") {
-      const prevIndex = stageOrder.indexOf(
-        prev.stages[prev.stages.length - 1].stageName
-      );
-      const currIndex = stageOrder.indexOf(
-        curr.stages[curr.stages.length - 1].stageName
-      );
+      const prevIndex =
+        prev.stages.length > 0
+          ? stageOrder.indexOf(prev.stages[prev.stages.length - 1].stageName)
+          : -Infinity;
+      const currIndex =
+        curr.stages.length > 0
+          ? stageOrder.indexOf(curr.stages[curr.stages.length - 1].stageName)
+          : -Infinity;
 
       return sortDirection === "asc"
         ? prevIndex - currIndex
         : currIndex - prevIndex;
     } else if (sortColumn === "dates") {
-      const prevDate = new Date(prev.stages[prev.stages.length - 1].stageDate);
-      const currDate = new Date(curr.stages[curr.stages.length - 1].stageDate);
+      const prevDate =
+        prev.stages.length > 0
+          ? new Date(prev.stages[prev.stages.length - 1].stageDate)
+          : new Date(prev.appliedOn);
+      const currDate =
+        curr.stages.length > 0
+          ? new Date(curr.stages[curr.stages.length - 1].stageDate)
+          : new Date(curr.appliedOn);
+
       return sortDirection === "asc"
         ? prevDate - currDate
         : currDate - prevDate;

@@ -22,7 +22,7 @@ export default function ProgressAnalytics({ jobs, userId }) {
 
   function setStageNameColor(stageName, index) {
     switch (stageName) {
-      case "Offer":
+      case "Offer!":
         return offerColor;
       case "Rejection":
         return rejectionColor;

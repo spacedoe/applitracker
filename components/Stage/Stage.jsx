@@ -39,10 +39,10 @@ export default function Stage({
           "Live coding",
           "Team fit",
           "Final interview",
-          "Offer",
+          "Offer!",
           "Paused",
-          "Rejection",
           "No reply",
+          "Rejection",
         ]}
         defaultValue={stageName}
       />
