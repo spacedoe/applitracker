@@ -36,7 +36,7 @@ export default function EditPage() {
           message: "The job has been updated 👍",
           icon: <IconCheck/>,
           color: "teal",
-          autoClose: 10000,
+          autoClose: 5000,
         });
         router.push(`/${userId}/jobs/${id}`);
       }
