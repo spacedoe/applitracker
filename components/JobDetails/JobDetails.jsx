@@ -8,8 +8,13 @@ import {
   Timeline,
 } from "@mantine/core";
 
-import { IconCircleCheck } from "@tabler/icons-react";
-import { localiseDate } from "../../utils/general";
+import {
+  IconCircleCheck,
+  IconCircleDashed,
+  IconCircleDashedX,
+  IconCircleX,
+} from "@tabler/icons-react";
+import stageColorSetter, { localiseDate } from "../../utils/general";
 
 export default function JobDetails({ job }) {
   const {
@@ -25,6 +30,19 @@ export default function JobDetails({ job }) {
     appliedOn,
     stages,
   } = job;
+
+  function setIcon(stageName) {
+    switch (stageName) {
+      case "Rejection":
+        return <IconCircleX />;
+      case "Paused":
+        return <IconCircleDashed />;
+      case "No reply":
+        return <IconCircleDashedX />;
+      default:
+        return <IconCircleCheck />;
+    }
+  }
 
   return (
     <Paper shadow="xs" p="xl" withBorder maw="768px" w={"100%"}>
@@ -83,9 +101,10 @@ export default function JobDetails({ job }) {
                 <Timeline.Item
                   key={_id}
                   mb="20px"
-                  bullet={<IconCircleCheck size={30} />}
+                  bullet={setIcon(stageName)}
                   lineVariant="solid"
                   title={`Stage ${index + 1}`}
+                  color={stageColorSetter(stageName, index)}
                 >
                   <Text size="sm">{stageName}</Text>
 
