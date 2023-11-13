@@ -10,11 +10,16 @@ import {
 
 import {
   IconCircleCheck,
-  IconCircleDashed,
-  IconCircleDashedX,
+  IconCircleMinus,
   IconCircleX,
 } from "@tabler/icons-react";
 import stageColorSetter, { localiseDate } from "../../utils/general";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCirclePause,
+  faFaceGrinStars,
+} from "@fortawesome/free-regular-svg-icons";
+import { faHandsClapping } from "@fortawesome/free-solid-svg-icons";
 
 export default function JobDetails({ job }) {
   const {
@@ -33,12 +38,16 @@ export default function JobDetails({ job }) {
 
   function setIcon(stageName) {
     switch (stageName) {
+      case "Offer!":
+        // return <FontAwesomeIcon icon={faHandsClapping} size="lg" />
+        return <FontAwesomeIcon icon={faFaceGrinStars} size="lg" />;
       case "Rejection":
         return <IconCircleX />;
       case "Paused":
-        return <IconCircleDashed />;
+        return <FontAwesomeIcon icon={faCirclePause} size="lg" />;
       case "No reply":
-        return <IconCircleDashedX />;
+        return <IconCircleMinus />;
+
       default:
         return <IconCircleCheck />;
     }
