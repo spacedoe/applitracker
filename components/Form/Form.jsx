@@ -10,8 +10,14 @@ import {
 } from "@mantine/core";
 import StagesField from "../StagesField/StagesField";
 import { DatePickerInput } from "@mantine/dates";
+import EditorComponent from "../EditorComponent/EditorComponent";
+import { useState } from "react";
 
 export default function Form({ onSubmit, formName, savedData }) {
+
+  const [editor, setEditor] = useState(null);
+
+
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -21,13 +27,17 @@ export default function Form({ onSubmit, formName, savedData }) {
       company: formData.get("company"),
       location: formData.get("location"),
       URL: formData.get("URL"),
-      summary: formData.get("summary"),
+      // summary: formData.get("description"),
+      summary: editor.getHTML(),
       contactPerson: formData.get("contactPerson"),
       contactDetails: formData.get("contactDetails"),
       notes: formData.get("notes"),
       appliedOn: formData.get("appliedOn"),
       stages: [],
     };
+
+    console.log("jobData", jobData);
+    console.log("FormData", FormData);
 
     const stageNames = formData.getAll("stageName");
     const stageDates = formData.getAll("stageDate");
@@ -39,6 +49,7 @@ export default function Form({ onSubmit, formName, savedData }) {
     }
     onSubmit(jobData);
     event.target.reset();
+    editor.commands.setContent('');
   }
 
   return (
@@ -79,13 +90,16 @@ export default function Form({ onSubmit, formName, savedData }) {
               required
             />
 
-            <Textarea
+            {/* <Textarea
               label="Summary"
               placeholder="The role involves..."
               name="summary"
               defaultValue={savedData?.summary}
-            />
+            /> */}
           </Fieldset>
+
+          <EditorComponent savedData={savedData} setEditor={setEditor}/>
+
           <Fieldset>
             <TextInput
               label="Contact person"
@@ -123,7 +137,9 @@ export default function Form({ onSubmit, formName, savedData }) {
                 label="Date"
                 name="appliedOn"
                 maw="120px"
-                defaultValue={savedData ? new Date(savedData?.appliedOn) : new Date()}
+                defaultValue={
+                  savedData ? new Date(savedData?.appliedOn) : new Date()
+                }
                 required
               />
             </Flex>

@@ -6,6 +6,7 @@ import {
   Stack,
   Text,
   Timeline,
+  TypographyStylesProvider,
 } from "@mantine/core";
 
 import {
@@ -19,7 +20,8 @@ import {
   faCirclePause,
   faFaceGrinStars,
 } from "@fortawesome/free-regular-svg-icons";
-import { faHandsClapping } from "@fortawesome/free-solid-svg-icons";
+import { RichTextEditor } from "@mantine/tiptap";
+import StarterKit from "@tiptap/starter-kit";
 
 export default function JobDetails({ job }) {
   const {
@@ -72,9 +74,11 @@ export default function JobDetails({ job }) {
             </Anchor>
           </Text>
           <Spoiler maxHeight={150} showLabel="Show more" hideLabel="Hide">
-            <Text ta="justify">
-              Summary: <br /> <em>{summary}</em>
-            </Text>
+        
+            <Text ta="justify">Summary:</Text>
+            <TypographyStylesProvider>
+              <RichTextEditor extensions={[StarterKit]}> {summary}</RichTextEditor>
+            </TypographyStylesProvider>
           </Spoiler>
           <Text>
             Contact person: <strong>{contactPerson}</strong>
