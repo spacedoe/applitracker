@@ -10,7 +10,7 @@ const jobSchema = new Schema(
     company: { type: String, required: true },
     location: { type: String, required: true },
     URL: { type: String, required: true },
-    summary: { type: String },
+    description: { type: String },
     contactPerson: { type: String },
     contactDetails: { type: String },
     notes: { type: String },
@@ -26,7 +26,6 @@ const jobSchema = new Schema(
   },
   { collection: "jobs" }
 );
-
 
 const Job = mongoose.models.Job || mongoose.model("Job", jobSchema);
 

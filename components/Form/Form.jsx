@@ -14,9 +14,7 @@ import EditorComponent from "../EditorComponent/EditorComponent";
 import { useState } from "react";
 
 export default function Form({ onSubmit, formName, savedData }) {
-
   const [editor, setEditor] = useState(null);
-
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -27,8 +25,7 @@ export default function Form({ onSubmit, formName, savedData }) {
       company: formData.get("company"),
       location: formData.get("location"),
       URL: formData.get("URL"),
-      // summary: formData.get("description"),
-      summary: editor.getHTML(),
+      description: editor.getHTML(),
       contactPerson: formData.get("contactPerson"),
       contactDetails: formData.get("contactDetails"),
       notes: formData.get("notes"),
@@ -49,7 +46,7 @@ export default function Form({ onSubmit, formName, savedData }) {
     }
     onSubmit(jobData);
     event.target.reset();
-    editor.commands.setContent('');
+    editor.commands.setContent("");
   }
 
   return (
@@ -89,16 +86,9 @@ export default function Form({ onSubmit, formName, savedData }) {
               defaultValue={savedData?.URL}
               required
             />
-
-            {/* <Textarea
-              label="Summary"
-              placeholder="The role involves..."
-              name="summary"
-              defaultValue={savedData?.summary}
-            /> */}
           </Fieldset>
 
-          <EditorComponent savedData={savedData} setEditor={setEditor}/>
+          <EditorComponent savedData={savedData} setEditor={setEditor} />
 
           <Fieldset>
             <TextInput

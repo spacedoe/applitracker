@@ -6,7 +6,6 @@ import {
   Stack,
   Text,
   Timeline,
-  TypographyStylesProvider,
 } from "@mantine/core";
 
 import {
@@ -20,8 +19,7 @@ import {
   faCirclePause,
   faFaceGrinStars,
 } from "@fortawesome/free-regular-svg-icons";
-import { RichTextEditor } from "@mantine/tiptap";
-import StarterKit from "@tiptap/starter-kit";
+import DOMPurify from "dompurify";
 
 export default function JobDetails({ job }) {
   const {
@@ -30,7 +28,7 @@ export default function JobDetails({ job }) {
     company,
     location,
     URL,
-    summary,
+    description,
     contactPerson,
     contactDetails,
     notes,
@@ -38,10 +36,11 @@ export default function JobDetails({ job }) {
     stages,
   } = job;
 
+  const sanitizedDescription = DOMPurify.sanitize(description);
+
   function setIcon(stageName) {
     switch (stageName) {
       case "Offer!":
-        // return <FontAwesomeIcon icon={faHandsClapping} size="lg" />
         return <FontAwesomeIcon icon={faFaceGrinStars} size="lg" />;
       case "Rejection":
         return <IconCircleX />;
@@ -57,8 +56,8 @@ export default function JobDetails({ job }) {
 
   return (
     <Paper shadow="xs" p="xl" withBorder maw="768px" w={"100%"}>
-      <Flex gap="20px" mx="lg" wrap={"nowrap"}>
-        <Stack maw={400}>
+      <Flex gap="20px" wrap={"nowrap"}>
+        <Stack maw={500}>
           <Text>
             Role: <strong>{role}</strong>{" "}
           </Text>
@@ -73,13 +72,13 @@ export default function JobDetails({ job }) {
               <strong>Job offer link</strong>
             </Anchor>
           </Text>
-          <Spoiler maxHeight={150} showLabel="Show more" hideLabel="Hide">
-        
-            <Text ta="justify">Summary:</Text>
-            <TypographyStylesProvider>
-              <RichTextEditor extensions={[StarterKit]}> {summary}</RichTextEditor>
-            </TypographyStylesProvider>
-          </Spoiler>
+              <Text ta="justify">Description:</Text>
+          <Paper shadow="xs" px="md" withBorder>
+            <Spoiler maxHeight={262} showLabel="Show more" hideLabel="Hide">
+              
+              <div style={{ lineHeight: 1.3, lineHeightStep: 1}} dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+            </Spoiler>
+          </Paper>
           <Text>
             Contact person: <strong>{contactPerson}</strong>
           </Text>
@@ -99,7 +98,6 @@ export default function JobDetails({ job }) {
               mb="20px"
               bullet={<IconCircleCheck size={30} />}
               lineVariant="solid"
-              // color="var(--mantine-color-gray-6)"
               title="Applied on:"
             >
               <Text size="xs" mt={4}>

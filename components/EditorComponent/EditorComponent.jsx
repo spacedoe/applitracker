@@ -22,7 +22,7 @@ export default function EditorComponent({ savedData, setEditor }) {
       TextAlign.configure({ types: ["heading", "paragraph"] }),
       Placeholder.configure({ placeholder: "This job involves..." }),
     ],
-    content: savedData ? savedData.summary : "",
+    content: savedData ? savedData.description : "",
   });
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function EditorComponent({ savedData, setEditor }) {
       <RichTextEditor
         editor={editor}
         name="description"
-        defaultValue={savedData?.summary}
+        defaultValue={savedData?.description}
       >
         <RichTextEditor.Toolbar sticky stickyOffset={60}>
           <RichTextEditor.ControlsGroup>
