@@ -65,26 +65,28 @@ export default function JobDetails({ job }) {
     <Paper shadow="xs" p="xl" withBorder maw="768px" w={"100%"}>
       <Flex gap="20px" wrap={"nowrap"}>
         <Stack maw={500}>
-          <Text fz="sm">
-            Role: <br />
+          <Stack gap={0}>
+            <Text fz="sm">Role:</Text>
             <Text>
               <strong>{role}</strong>
             </Text>
-          </Text>
-          <Text fz="sm">
-            Company: <br />
+          </Stack>
+
+          <Stack gap={0}>
+            <Text fz="sm">Company:</Text>
             <Text>
               <strong>{company}</strong>
             </Text>
-          </Text>
+          </Stack>
 
-          <Text fz="sm">
-            Location: <br />
+          <Stack gap={0}>
+            <Text fz="sm">Location:</Text>
             <Text>
               <strong>{location}</strong>
             </Text>
-          </Text>
-          <Group >
+          </Stack>
+
+          <Group>
             <Button
               leftSection={<IconExternalLink />}
               variant="outline"
@@ -120,27 +122,26 @@ export default function JobDetails({ job }) {
             <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
           </Modal>
 
-          <Text fz="sm">
-            Contact person: <br />
+          <Stack gap={0}>
+            <Text fz="sm">Contact person:</Text>
             <Text>
               <strong>{contactPerson}</strong>
             </Text>
-          </Text>
+          </Stack>
 
-          <Text fz="sm">
-            Contact details: <br />{" "}
+          <Stack gap={0}>
+            <Text fz="sm">Contact details:</Text>
             <Text>
               <strong>{contactDetails}</strong>
             </Text>
-          </Text>
+          </Stack>
 
-          <Text fz="sm" style={{ whiteSpace: "pre-wrap" }}>
-            Notes:
-            <br />
+          <Stack gap={0} style={{ whiteSpace: "pre-wrap" }}>
+            <Text fz="sm">Notes:</Text>
             <Text>
               <em>{notes}</em>
             </Text>
-          </Text>
+          </Stack>
         </Stack>
 
         <Stack ml="auto">
