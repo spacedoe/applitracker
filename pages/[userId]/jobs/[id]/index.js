@@ -4,12 +4,7 @@ import JobDetails from "../../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
 import Link from "next/link";
 import useSWR from "swr";
-import {
-  IconCheck,
-  IconPencil,
-  IconTrash,
-  IconX,
-} from "@tabler/icons-react";
+import { IconCheck, IconPencil, IconTrash, IconX } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 import JobDetailsSkeleton from "@/components/JobDetails/JobDetailsSkeleton";
 import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
@@ -60,13 +55,13 @@ export default function JobDetailsPage() {
               <Button
                 variant="outline"
                 size="sm"
-                component={Link}
+                component="a"
                 href={`/${userId}/jobs/${id}/edit`}
+                px={18}
+                leftSection={
+                  <IconPencil color="var(--mantine-color-blue-outline)" />
+                }
               >
-                <IconPencil
-                  style={{ marginRight: "5px" }}
-                  color="var(--mantine-color-blue-outline)"
-                />
                 Edit
               </Button>
               <Button
@@ -75,11 +70,8 @@ export default function JobDetailsPage() {
                 size="sm"
                 px="9px"
                 onClick={open}
+                leftSection={<IconTrash color="rgba(255, 87, 87, 1)" />}
               >
-                <IconTrash
-                  style={{ marginRight: "5px" }}
-                  color="rgba(255, 87, 87, 1)"
-                />
                 Delete
               </Button>
             </Group>
@@ -92,11 +84,15 @@ export default function JobDetailsPage() {
             >
               Are you sure you want to delete this job?
               <Group justify="center" gap={16} mt="md">
-                <Button onClick={close}>
-                  <IconX style={{ marginRight: "6px" }} /> No
+                <Button onClick={close} leftSection={<IconX />} px={17}>
+                  No
                 </Button>
-                <Button onClick={deleteJob} color="rgba(255, 87, 87, 1)">
-                  <IconCheck style={{ marginRight: "6px" }} /> Yes
+                <Button
+                  onClick={deleteJob}
+                  color="rgba(255, 87, 87, 1)"
+                  leftSection={<IconCheck />}
+                >
+                  Yes
                 </Button>
               </Group>
             </Modal>

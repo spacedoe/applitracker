@@ -109,6 +109,8 @@ export default function Form({ onSubmit, formName, savedData }) {
             placeholder="Add notes about the role & process"
             name="notes"
             defaultValue={savedData?.notes}
+            autosize
+            minRows={6}
           />
 
           <Fieldset>

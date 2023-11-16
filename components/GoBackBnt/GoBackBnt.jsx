@@ -14,8 +14,9 @@ export default function GoBackBnt() {
       ml="8px"
       component={Link}
       href={`/${userId}`}
+      leftSection={<IconArrowLeft />}
     >
-      <IconArrowLeft style={{ marginRight: "10px" }} />
+      
       Back
     </Button>
   );

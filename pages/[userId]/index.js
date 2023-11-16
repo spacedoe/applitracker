@@ -46,11 +46,11 @@ export default function UserPage() {
             variant="filled"
             size="xl"
             mb={250}
-            component={Link}
+            component="a"
             href={`${userId}/add`}
+            leftSection={<IconPencilPlus />}
           >
-            <IconPencilPlus style={{ marginRight: "10px" }} /> Add new job
-            opportunity
+            Add new job opportunity
           </Button>
         ) : (
           <Flex justify="space-between" mb="150px">
@@ -59,11 +59,11 @@ export default function UserPage() {
               gradient={{ from: "blue", to: "pink", deg: 270 }}
               size="sm"
               mt="50px"
-              component={Link}
+              component="a"
               href={`${userId}/progress`}
+              leftSection={<IconReportAnalytics />}
             >
-              <IconReportAnalytics style={{ marginRight: "10px" }} /> View
-              progress
+              View progress
             </Button>
             <Button
               variant="filled"
@@ -71,8 +71,9 @@ export default function UserPage() {
               mt="50px"
               component={Link}
               href={`${userId}/add`}
+              leftSection={<IconPencilPlus />}
             >
-              <IconPencilPlus style={{ marginRight: "10px" }} /> Add job
+              Add job
             </Button>
           </Flex>
         )}
