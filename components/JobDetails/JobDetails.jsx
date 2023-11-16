@@ -1,8 +1,10 @@
 import {
   Anchor,
+  Button,
   Flex,
+  Group,
+  Modal,
   Paper,
-  Spoiler,
   Stack,
   Text,
   Timeline,
@@ -12,6 +14,9 @@ import {
   IconCircleCheck,
   IconCircleMinus,
   IconCircleX,
+  IconExternalLink,
+  IconFileDescription,
+  IconLink,
 } from "@tabler/icons-react";
 import stageColorSetter, { localiseDate } from "../../utils/general";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,6 +25,7 @@ import {
   faFaceGrinStars,
 } from "@fortawesome/free-regular-svg-icons";
 import DOMPurify from "dompurify";
+import { useDisclosure } from "@mantine/hooks";
 
 export default function JobDetails({ job }) {
   const {
@@ -36,6 +42,7 @@ export default function JobDetails({ job }) {
     stages,
   } = job;
 
+  const [opened, { open, close }] = useDisclosure(false);
   const sanitizedDescription = DOMPurify.sanitize(description);
 
   function setIcon(stageName) {
@@ -58,36 +65,81 @@ export default function JobDetails({ job }) {
     <Paper shadow="xs" p="xl" withBorder maw="768px" w={"100%"}>
       <Flex gap="20px" wrap={"nowrap"}>
         <Stack maw={500}>
-          <Text>
-            Role: <strong>{role}</strong>{" "}
+          <Text fz="sm">
+            Role: <br />
+            <Text>
+              <strong>{role}</strong>
+            </Text>
           </Text>
-          <Text>
-            Company: <strong>{company}</strong>
+          <Text fz="sm">
+            Company: <br />
+            <Text>
+              <strong>{company}</strong>
+            </Text>
           </Text>
-          <Text>
-            Location: <strong>{location}</strong>
+
+          <Text fz="sm">
+            Location: <br />
+            <Text>
+              <strong>{location}</strong>
+            </Text>
           </Text>
-          <Text>
-            <Anchor href={`${URL}`} target="_blank">
-              <strong>Job offer link</strong>
-            </Anchor>
+          <Group >
+            <Button
+              leftSection={<IconExternalLink />}
+              variant="outline"
+              component="a"
+              href={`${URL}`}
+              target="_blank"
+            >
+              Go to the job post
+            </Button>
+
+            <Button
+              leftSection={<IconFileDescription />}
+              variant="outline"
+              onClick={open}
+              px={20}
+            >
+              Role description
+            </Button>
+          </Group>
+
+          <Modal
+            opened={opened}
+            onClose={close}
+            title={`${role} at ${company}`}
+            size="70%"
+            styles={{
+              title: {
+                fontSize: "2rem",
+                color: "var(--mantine-color-blue-filled)",
+              },
+            }}
+          >
+            <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+          </Modal>
+
+          <Text fz="sm">
+            Contact person: <br />
+            <Text>
+              <strong>{contactPerson}</strong>
+            </Text>
           </Text>
-              <Text ta="justify">Description:</Text>
-          <Paper shadow="xs" px="md" withBorder>
-            <Spoiler maxHeight={262} showLabel="Show more" hideLabel="Hide">
-              
-              <div style={{ lineHeight: 1.3, lineHeightStep: 1}} dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
-            </Spoiler>
-          </Paper>
-          <Text>
-            Contact person: <strong>{contactPerson}</strong>
+
+          <Text fz="sm">
+            Contact details: <br />{" "}
+            <Text>
+              <strong>{contactDetails}</strong>
+            </Text>
           </Text>
-          <Text>
-            Contact details: <strong>{contactDetails}</strong>
-          </Text>
-          <Text>
-            Notes: <br />
-            <em>{notes}</em>
+
+          <Text fz="sm" style={{ whiteSpace: "pre-wrap" }}>
+            Notes:
+            <br />
+            <Text>
+              <em>{notes}</em>
+            </Text>
           </Text>
         </Stack>
 
