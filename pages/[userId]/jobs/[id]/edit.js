@@ -5,19 +5,19 @@ import { Button, Flex, Title } from "@mantine/core";
 import useSWR from "swr";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import { IconArrowLeft, IconCheck  } from "@tabler/icons-react";
+import { IconArrowLeft, IconCheck } from "@tabler/icons-react";
 import { notifications } from "@mantine/notifications";
 
 export default function EditPage() {
   const { data: session } = useSession();
-  const userId = session?.user?.userId
+  const userId = session?.user?.userId;
   const router = useRouter();
 
   const { id } = router.query;
   const { data: job, isLoading, error } = useSWR(`/api/${userId}/jobs/${id}`);
 
   if (error) return <div>Failed to load</div>;
-  if (!job || isLoading) return <h2>Loading...</h2>;
+  // if (!job || isLoading) return <h2>Loading...</h2>;
 
   async function editJob(job) {
     try {
@@ -33,7 +33,7 @@ export default function EditPage() {
         notifications.show({
           title: "Done!",
           message: "The job has been updated 👍",
-          icon: <IconCheck/>,
+          icon: <IconCheck />,
           color: "teal",
           autoClose: 5000,
         });
@@ -46,15 +46,20 @@ export default function EditPage() {
   return (
     <>
       <Header session={session} />
-      <Button variant="filled" size="sm" ml="8px" component={Link} href={`/${userId}/jobs/${id}`}>
-      <IconArrowLeft style={{ marginRight: "10px" }} />
+      <Button
+        variant="filled"
+        size="sm"
+        ml="8px"
+        component={Link}
+        href={`/${userId}/jobs/${id}`}
+        leftSection={<IconArrowLeft />}
+      >
         Back
       </Button>
       <Flex justify="center">
         <Title>Edit Job</Title>
       </Flex>
       <Form onSubmit={editJob} formName={"edit-job"} savedData={job} />
- 
     </>
   );
 }
