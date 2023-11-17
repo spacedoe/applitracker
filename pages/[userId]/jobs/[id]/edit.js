@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Header from "../../../../components/Header/Header";
 import Form from "../../../../components/Form/Form";
-import { Button, Flex, Title } from "@mantine/core";
+import { Button, Center, Flex, Text, Title } from "@mantine/core";
 import useSWR from "swr";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
@@ -16,8 +16,8 @@ export default function EditPage() {
   const { id } = router.query;
   const { data: job, isLoading, error } = useSWR(`/api/${userId}/jobs/${id}`);
 
-  if (error) return <div>Failed to load</div>;
-  // if (!job || isLoading) return <h2>Loading...</h2>;
+  if (error) return <Center><Text>Failed to load</Text></Center>;
+  if (!job || isLoading) return <Center><Text>is loading</Text></Center>;
 
   async function editJob(job) {
     try {

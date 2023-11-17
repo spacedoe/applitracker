@@ -10,7 +10,7 @@ import Placeholder from "@tiptap/extension-placeholder";
 import { InputLabel, Stack } from "@mantine/core";
 import { useEffect } from "react";
 
-export default function EditorComponent({ savedData, setEditor }) {
+export default function EditorComponent({ description, setEditor }) {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -22,7 +22,7 @@ export default function EditorComponent({ savedData, setEditor }) {
       TextAlign.configure({ types: ["heading", "paragraph"] }),
       Placeholder.configure({ placeholder: "This job involves..." }),
     ],
-    content: savedData ? savedData.description : "",
+    content: description,
   });
 
   useEffect(() => {

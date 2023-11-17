@@ -12,6 +12,8 @@ import StagesField from "../StagesField/StagesField";
 import { DatePickerInput } from "@mantine/dates";
 import EditorComponent from "../EditorComponent/EditorComponent";
 import { useState } from "react";
+import { Editor } from "@tiptap/react";
+import { useRichTextEditorContext } from "@mantine/tiptap";
 
 export default function Form({ onSubmit, formName, savedData }) {
   const [editor, setEditor] = useState(null);
@@ -88,7 +90,11 @@ export default function Form({ onSubmit, formName, savedData }) {
             />
           </Fieldset>
 
-          <EditorComponent savedData={savedData} setEditor={setEditor} />
+          {savedData !== undefined ? (
+            <EditorComponent description={savedData?.description} setEditor={setEditor}/>
+          ) : null}
+
+          {!savedData ? <EditorComponent /> : null}
 
           <Fieldset>
             <TextInput
@@ -111,7 +117,7 @@ export default function Form({ onSubmit, formName, savedData }) {
             defaultValue={savedData?.notes}
             autosize
             minRows={6}
-            styles={{label: {marginLeft: "24px"}}}
+            styles={{ label: { marginLeft: "24px" } }}
           />
 
           <Fieldset>
