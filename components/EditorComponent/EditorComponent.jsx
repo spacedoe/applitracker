@@ -31,7 +31,7 @@ export default function EditorComponent({ savedData, setEditor }) {
 
   return (
     <Stack gap={0}>
-      <InputLabel>Description</InputLabel>
+      <InputLabel ml={24}>Description</InputLabel>
       <RichTextEditor
         editor={editor}
         name="description"

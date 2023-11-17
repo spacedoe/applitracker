@@ -111,6 +111,7 @@ export default function Form({ onSubmit, formName, savedData }) {
             defaultValue={savedData?.notes}
             autosize
             minRows={6}
+            styles={{label: {marginLeft: "24px"}}}
           />
 
           <Fieldset>
