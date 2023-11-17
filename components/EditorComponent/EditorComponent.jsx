@@ -32,11 +32,7 @@ export default function EditorComponent({ savedData, setEditor }) {
   return (
     <Stack gap={0}>
       <InputLabel ml={24}>Description</InputLabel>
-      <RichTextEditor
-        editor={editor}
-        name="description"
-        defaultValue={savedData?.description}
-      >
+      <RichTextEditor editor={editor} name="description">
         <RichTextEditor.Toolbar sticky stickyOffset={60}>
           <RichTextEditor.ControlsGroup>
             <RichTextEditor.Bold />
@@ -45,7 +41,6 @@ export default function EditorComponent({ savedData, setEditor }) {
             <RichTextEditor.Strikethrough />
             <RichTextEditor.ClearFormatting />
             <RichTextEditor.Highlight />
-            {/* <RichTextEditor.Code /> */}
           </RichTextEditor.ControlsGroup>
 
           <RichTextEditor.ControlsGroup>
