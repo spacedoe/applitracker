@@ -5,8 +5,7 @@ import { Button, Flex, Title } from "@mantine/core";
 import useSWR from "swr";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import { IconArrowLeft } from "@tabler/icons-react";
-import { IconCheck } from "@tabler/icons-react";
+import { IconArrowLeft, IconCheck  } from "@tabler/icons-react";
 import { notifications } from "@mantine/notifications";
 
 export default function EditPage() {

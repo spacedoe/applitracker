@@ -1,8 +1,10 @@
 import {
   Anchor,
+  Button,
   Flex,
+  Group,
+  Modal,
   Paper,
-  Spoiler,
   Stack,
   Text,
   Timeline,
@@ -12,6 +14,9 @@ import {
   IconCircleCheck,
   IconCircleMinus,
   IconCircleX,
+  IconExternalLink,
+  IconFileDescription,
+  IconLink,
 } from "@tabler/icons-react";
 import stageColorSetter, { localiseDate } from "../../utils/general";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +24,8 @@ import {
   faCirclePause,
   faFaceGrinStars,
 } from "@fortawesome/free-regular-svg-icons";
-import { faHandsClapping } from "@fortawesome/free-solid-svg-icons";
+import DOMPurify from "dompurify";
+import { useDisclosure } from "@mantine/hooks";
 
 export default function JobDetails({ job }) {
   const {
@@ -28,7 +34,7 @@ export default function JobDetails({ job }) {
     company,
     location,
     URL,
-    summary,
+    description,
     contactPerson,
     contactDetails,
     notes,
@@ -36,10 +42,12 @@ export default function JobDetails({ job }) {
     stages,
   } = job;
 
+  const [opened, { open, close }] = useDisclosure(false);
+  const sanitizedDescription = DOMPurify.sanitize(description);
+
   function setIcon(stageName) {
     switch (stageName) {
       case "Offer!":
-        // return <FontAwesomeIcon icon={faHandsClapping} size="lg" />
         return <FontAwesomeIcon icon={faFaceGrinStars} size="lg" />;
       case "Rejection":
         return <IconCircleX />;
@@ -55,37 +63,85 @@ export default function JobDetails({ job }) {
 
   return (
     <Paper shadow="xs" p="xl" withBorder maw="768px" w={"100%"}>
-      <Flex gap="20px" mx="lg" wrap={"nowrap"}>
-        <Stack maw={400}>
-          <Text>
-            Role: <strong>{role}</strong>{" "}
-          </Text>
-          <Text>
-            Company: <strong>{company}</strong>
-          </Text>
-          <Text>
-            Location: <strong>{location}</strong>
-          </Text>
-          <Text>
-            <Anchor href={`${URL}`} target="_blank">
-              <strong>Job offer link</strong>
-            </Anchor>
-          </Text>
-          <Spoiler maxHeight={150} showLabel="Show more" hideLabel="Hide">
-            <Text ta="justify">
-              Summary: <br /> <em>{summary}</em>
+      <Flex gap="20px" wrap={"nowrap"}>
+        <Stack maw={500}>
+          <Stack gap={0}>
+            <Text fz="sm">Role:</Text>
+            <Text>
+              <strong>{role}</strong>
             </Text>
-          </Spoiler>
-          <Text>
-            Contact person: <strong>{contactPerson}</strong>
-          </Text>
-          <Text>
-            Contact details: <strong>{contactDetails}</strong>
-          </Text>
-          <Text>
-            Notes: <br />
-            <em>{notes}</em>
-          </Text>
+          </Stack>
+
+          <Stack gap={0}>
+            <Text fz="sm">Company:</Text>
+            <Text>
+              <strong>{company}</strong>
+            </Text>
+          </Stack>
+
+          <Stack gap={0}>
+            <Text fz="sm">Location:</Text>
+            <Text>
+              <strong>{location}</strong>
+            </Text>
+          </Stack>
+
+          <Group>
+            <Button
+              leftSection={<IconExternalLink />}
+              variant="outline"
+              component="a"
+              href={`${URL}`}
+              target="_blank"
+            >
+              Go to the job post
+            </Button>
+
+            <Button
+              leftSection={<IconFileDescription />}
+              variant="outline"
+              onClick={open}
+              px={20}
+            >
+              Role description
+            </Button>
+          </Group>
+
+          <Modal
+            opened={opened}
+            onClose={close}
+            title={`${role} at ${company}`}
+            size="70%"
+            styles={{
+              title: {
+                fontSize: "2rem",
+                color: "var(--mantine-color-blue-filled)",
+              },
+            }}
+          >
+            <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+          </Modal>
+
+          <Stack gap={0}>
+            <Text fz="sm">Contact person:</Text>
+            <Text>
+              <strong>{contactPerson}</strong>
+            </Text>
+          </Stack>
+
+          <Stack gap={0}>
+            <Text fz="sm">Contact details:</Text>
+            <Text>
+              <strong>{contactDetails}</strong>
+            </Text>
+          </Stack>
+
+          <Stack gap={0} style={{ whiteSpace: "pre-wrap" }}>
+            <Text fz="sm">Notes:</Text>
+            <Text>
+              <em>{notes}</em>
+            </Text>
+          </Stack>
         </Stack>
 
         <Stack ml="auto">
@@ -95,7 +151,6 @@ export default function JobDetails({ job }) {
               mb="20px"
               bullet={<IconCircleCheck size={30} />}
               lineVariant="solid"
-              // color="var(--mantine-color-gray-6)"
               title="Applied on:"
             >
               <Text size="xs" mt={4}>

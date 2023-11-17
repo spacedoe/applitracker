@@ -6,6 +6,7 @@ import { SWRConfig } from "swr";
 import { SessionProvider } from "next-auth/react";
 import "@mantine/notifications/styles.css";
 import { Notifications } from "@mantine/notifications";
+import '@mantine/tiptap/styles.css';
 
 export default function App({
   Component,

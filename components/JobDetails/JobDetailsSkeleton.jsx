@@ -26,7 +26,7 @@ export default function JobDetailsSkeleton() {
           </Flex>
 
           <Flex>
-            <Text>Summary:</Text>
+            <Text>Description:</Text>
             <Skeleton height={18} mt={6} ml="sm" radius="xl" />
           </Flex>
             <Stack>

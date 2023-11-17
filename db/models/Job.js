@@ -5,13 +5,12 @@ const { Schema } = mongoose;
 
 const jobSchema = new Schema(
   {
-    // _id: Schema.Types.ObjectId,
     userId: { type: Schema.Types.ObjectId, ref: User },
     role: { type: String, required: true },
     company: { type: String, required: true },
     location: { type: String, required: true },
     URL: { type: String, required: true },
-    summary: { type: String },
+    description: { type: String },
     contactPerson: { type: String },
     contactDetails: { type: String },
     notes: { type: String },
@@ -27,12 +26,6 @@ const jobSchema = new Schema(
   },
   { collection: "jobs" }
 );
-
-// jobSchema.pre("save", function (next) {
-//   this.appliedOn = new Date();
-
-//   next();
-// });
 
 const Job = mongoose.models.Job || mongoose.model("Job", jobSchema);
 
