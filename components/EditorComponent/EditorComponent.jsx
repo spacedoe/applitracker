@@ -7,7 +7,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import Superscript from "@tiptap/extension-superscript";
 import SubScript from "@tiptap/extension-subscript";
 import Placeholder from "@tiptap/extension-placeholder";
-import { InputLabel, Stack } from "@mantine/core";
+import { InputLabel, ScrollArea, Stack } from "@mantine/core";
 import { useEffect } from "react";
 
 export default function EditorComponent({ description, setEditor }) {
@@ -32,8 +32,8 @@ export default function EditorComponent({ description, setEditor }) {
   return (
     <Stack gap={0}>
       <InputLabel ml={24}>Description</InputLabel>
-      <RichTextEditor editor={editor} name="description">
-        <RichTextEditor.Toolbar sticky stickyOffset={60}>
+      <RichTextEditor editor={editor} name="description" fz={14}>
+        <RichTextEditor.Toolbar>
           <RichTextEditor.ControlsGroup>
             <RichTextEditor.Bold />
             <RichTextEditor.Italic />
@@ -44,19 +44,9 @@ export default function EditorComponent({ description, setEditor }) {
           </RichTextEditor.ControlsGroup>
 
           <RichTextEditor.ControlsGroup>
-            <RichTextEditor.H1 />
-            <RichTextEditor.H2 />
-            <RichTextEditor.H3 />
-            <RichTextEditor.H4 />
-          </RichTextEditor.ControlsGroup>
-
-          <RichTextEditor.ControlsGroup>
-            {/* <RichTextEditor.Blockquote /> */}
             <RichTextEditor.Hr />
             <RichTextEditor.BulletList />
             <RichTextEditor.OrderedList />
-            {/* <RichTextEditor.Subscript />
-          <RichTextEditor.Superscript /> */}
           </RichTextEditor.ControlsGroup>
 
           <RichTextEditor.ControlsGroup>
@@ -72,7 +62,9 @@ export default function EditorComponent({ description, setEditor }) {
           </RichTextEditor.ControlsGroup>
         </RichTextEditor.Toolbar>
 
-        <RichTextEditor.Content />
+        <ScrollArea h={400}>
+          <RichTextEditor.Content />
+        </ScrollArea>
       </RichTextEditor>
     </Stack>
   );
