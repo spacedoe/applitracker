@@ -16,7 +16,6 @@ export default function GoBackBnt() {
       href={`/${userId}`}
       leftSection={<IconArrowLeft />}
     >
-      
       Back
     </Button>
   );
