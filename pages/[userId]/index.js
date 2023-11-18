@@ -45,7 +45,7 @@ export default function UserPage() {
           <Button
             variant="filled"
             size="xl"
-            mb={250}
+            mb={380}
             component="a"
             href={`${userId}/add`}
             leftSection={<IconPencilPlus />}
