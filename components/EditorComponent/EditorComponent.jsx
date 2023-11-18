@@ -10,7 +10,7 @@ import Placeholder from "@tiptap/extension-placeholder";
 import { InputLabel, ScrollArea, Stack } from "@mantine/core";
 import { useEffect } from "react";
 
-export default function EditorComponent({ description, setEditor }) {
+export default function EditorComponent({ savedData, setEditor }) {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -22,7 +22,7 @@ export default function EditorComponent({ description, setEditor }) {
       TextAlign.configure({ types: ["heading", "paragraph"] }),
       Placeholder.configure({ placeholder: "This job involves..." }),
     ],
-    content: description,
+    content: savedData ? savedData.description : "",
   });
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function EditorComponent({ description, setEditor }) {
 
   return (
     <Stack gap={0}>
-      <InputLabel ml={24}>Description</InputLabel>
+      <InputLabel ml={24}>Job description</InputLabel>
       <RichTextEditor editor={editor} name="description" fz={14}>
         <RichTextEditor.Toolbar>
           <RichTextEditor.ControlsGroup>

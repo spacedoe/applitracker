@@ -12,7 +12,6 @@ import StagesField from "../StagesField/StagesField";
 import { DatePickerInput } from "@mantine/dates";
 import EditorComponent from "../EditorComponent/EditorComponent";
 import { useState } from "react";
-import { Editor } from "@tiptap/react";
 
 export default function Form({ onSubmit, formName, savedData }) {
   const [editor, setEditor] = useState(null);
@@ -88,15 +87,7 @@ export default function Form({ onSubmit, formName, savedData }) {
               required
             />
           </Fieldset>
-
-          {savedData !== undefined ? (
-            <EditorComponent
-              description={savedData?.description}
-              setEditor={setEditor}
-            />
-          ) : null}
-
-          {!savedData ? <EditorComponent /> : null}
+          <EditorComponent savedData={savedData} setEditor={setEditor} />
 
           <Fieldset>
             <TextInput
