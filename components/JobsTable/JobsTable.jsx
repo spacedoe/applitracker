@@ -2,6 +2,7 @@ import {
   Anchor,
   Center,
   Group,
+  ScrollArea,
   Table,
   Text,
   UnstyledButton,
@@ -115,34 +116,37 @@ export default function JobsTable({ jobs, userId }) {
   return (
     <>
       {jobs && jobs.length > 0 ? (
-        <Table>
-          <Table.Thead>
-            <Table.Tr fz="md">
-              <Table.Th>Role</Table.Th>
-              <Table.Th>Company</Table.Th>
-              <Table.Th>Location</Table.Th>
-              <TableHead
-                sorted={sortColumn === "stages"}
-                onSort={() => {
-                  setSortColumn("stages");
-                  setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-                }}
-              >
-                Latest stage
-              </TableHead>
-              <TableHead
-                sorted={sortColumn === "dates"}
-                onSort={() => {
-                  setSortColumn("dates");
-                  setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-                }}
-              >
-                Date
-              </TableHead>
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>{rows}</Table.Tbody>
-        </Table>
+        <ScrollArea h={500} type="always">
+          <Table stickyHeader>
+            <Table.Thead>
+              <Table.Tr fz="md">
+                <Table.Th>Role</Table.Th>
+                <Table.Th>Company</Table.Th>
+                <Table.Th>Location</Table.Th>
+                <TableHead
+                  sorted={sortColumn === "stages"}
+                  onSort={() => {
+                    setSortColumn("stages");
+                    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+                  }}
+                >
+                  Latest stage
+                </TableHead>
+                <TableHead
+                  sorted={sortColumn === "dates"}
+                  onSort={() => {
+                    setSortColumn("dates");
+                    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+                  }}
+                >
+                  Date
+                </TableHead>
+              </Table.Tr>
+            </Table.Thead>
+
+            <Table.Tbody>{rows}</Table.Tbody>
+          </Table>
+        </ScrollArea>
       ) : null}
     </>
   );

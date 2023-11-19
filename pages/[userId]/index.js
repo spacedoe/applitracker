@@ -36,7 +36,7 @@ export default function UserPage() {
         align="center"
         direction="column"
         my="xl"
-        mt="150px"
+        mt="50px"
       >
         {isLoading ? <JobsTableSkeleton /> : null}
         {error ? <p>Failed to load the jobs list</p> : null}
@@ -53,7 +53,7 @@ export default function UserPage() {
             Add new job opportunity
           </Button>
         ) : (
-          <Flex justify="space-between" mb="150px">
+          <Flex justify="space-between" mb="50px">
             <Button
               variant="gradient"
               gradient={{ from: "blue", to: "pink", deg: 270 }}

@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <Container bg="#fff"
+    <Container
     
       style={{
         position: "fixed",
