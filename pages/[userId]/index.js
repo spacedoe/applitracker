@@ -1,13 +1,12 @@
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
-import { Button, Container, Flex } from "@mantine/core";
+import { Button, Flex } from "@mantine/core";
 import { IconPencilPlus, IconReportAnalytics } from "@tabler/icons-react";
 import Link from "next/link";
 import Header from "@/components/Header/Header";
 import JobsTable from "@/components/JobsTable/JobsTable";
 import JobsTableSkeleton from "@/components/JobsTable/JobsTableSkeleton";
 import Footer from "@/components/Footer/Footer";
-import { TestTable } from "@/components/TestTable/TestTable";
 
 export default function UserPage() {
   const { data: session } = useSession();
