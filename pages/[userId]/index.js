@@ -7,6 +7,7 @@ import Header from "@/components/Header/Header";
 import JobsTable from "@/components/JobsTable/JobsTable";
 import JobsTableSkeleton from "@/components/JobsTable/JobsTableSkeleton";
 import Footer from "@/components/Footer/Footer";
+import { TestTable } from "@/components/TestTable/TestTable";
 
 export default function UserPage() {
   const { data: session } = useSession();
@@ -30,13 +31,14 @@ export default function UserPage() {
   return (
     <>
       <Header session={session} />
-      <Container
+      <Flex
         gap="xl"
         justify="center"
-        align="center"
+        // align="center"
+        maw={850}
+        mx="auto"
         direction="column"
-        my="xl"
-        mt="50px"
+        mt={50}
       >
         {isLoading ? <JobsTableSkeleton /> : null}
         {error ? <p>Failed to load the jobs list</p> : null}
@@ -77,7 +79,7 @@ export default function UserPage() {
             </Button>
           </Flex>
         )}
-      </Container>
+      </Flex>
       <Footer />
     </>
   );

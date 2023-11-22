@@ -116,8 +116,8 @@ export default function JobsTable({ jobs, userId }) {
   return (
     <>
       {jobs && jobs.length > 0 ? (
-        <ScrollArea h={500} type="always">
-          <Table stickyHeader>
+        <ScrollArea h={448}>
+          <Table stickyHeader highlightOnHover>
             <Table.Thead>
               <Table.Tr fz="md">
                 <Table.Th>Role</Table.Th>
