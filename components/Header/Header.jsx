@@ -4,8 +4,8 @@ import UserAvatarDrawer from "../UserAvatarDrawer/UserAvatarDrawer";
 
 export default function Header({ session }) {
   return (
-    <Container>
-      <Flex justify="center" my="10px">
+    <Container w="100vw" style={{overflowX: "hidden"}}>
+      <Flex justify="center" my="10px" >
         <Title order={1}>
           <Text
             inherit
