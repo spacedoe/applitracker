@@ -5,7 +5,6 @@ import React from "react";
 export default function Footer() {
   return (
     <Container
-    
       style={{
         position: "fixed",
         bottom: "0",
@@ -14,14 +13,14 @@ export default function Footer() {
         textAlign: "center",
       }}
     >
-      <Text fz="12px" my={10} >
+      <Text fz="12px" my={10}>
         Created with{" "}
         <IconHeart
           color="var(--mantine-color-blue-filled)"
           height={18}
           width={18}
           style={{ position: "relative", top: "4px" }}
-        />
+        />{" "}
         by Anna Steele. Build with Next.js, MongoDB, Mantine.
       </Text>
     </Container>

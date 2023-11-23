@@ -3,6 +3,7 @@ import {
   Center,
   Group,
   ScrollArea,
+  Stack,
   Table,
   Text,
   UnstyledButton,
@@ -116,37 +117,46 @@ export default function JobsTable({ jobs, userId }) {
   return (
     <>
       {jobs && jobs.length > 0 ? (
-        <ScrollArea h={448}>
-          <Table stickyHeader highlightOnHover>
-            <Table.Thead>
-              <Table.Tr fz="md">
-                <Table.Th>Role</Table.Th>
-                <Table.Th>Company</Table.Th>
-                <Table.Th>Location</Table.Th>
-                <TableHead
-                  sorted={sortColumn === "stages"}
-                  onSort={() => {
-                    setSortColumn("stages");
-                    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-                  }}
-                >
-                  Latest stage
-                </TableHead>
-                <TableHead
-                  sorted={sortColumn === "dates"}
-                  onSort={() => {
-                    setSortColumn("dates");
-                    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-                  }}
-                >
-                  Date
-                </TableHead>
-              </Table.Tr>
-            </Table.Thead>
+        <Stack gap={8}>
+          <ScrollArea h={448}>
+            <Table stickyHeader highlightOnHover>
+              <Table.Thead>
+                <Table.Tr fz="md">
+                  <Table.Th>Role</Table.Th>
+                  <Table.Th>Company</Table.Th>
+                  <Table.Th>Location</Table.Th>
+                  <TableHead
+                    sorted={sortColumn === "stages"}
+                    onSort={() => {
+                      setSortColumn("stages");
+                      setSortDirection(
+                        sortDirection === "asc" ? "desc" : "asc"
+                      );
+                    }}
+                  >
+                    Latest stage
+                  </TableHead>
+                  <TableHead
+                    sorted={sortColumn === "dates"}
+                    onSort={() => {
+                      setSortColumn("dates");
+                      setSortDirection(
+                        sortDirection === "asc" ? "desc" : "asc"
+                      );
+                    }}
+                  >
+                    Date
+                  </TableHead>
+                </Table.Tr>
+              </Table.Thead>
 
-            <Table.Tbody>{rows}</Table.Tbody>
-          </Table>
-        </ScrollArea>
+              <Table.Tbody>{rows}</Table.Tbody>
+            </Table>
+          </ScrollArea>
+          <Text fs="italic" fz={14} mt={0} ml={8} ta="end" pr={8}>
+            You&apos;ve applied to <strong>{jobs.length}</strong> {jobs.length === 1 ? "job." : "jobs."}
+          </Text>
+        </Stack>
       ) : null}
     </>
   );

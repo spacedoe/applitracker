@@ -31,13 +31,13 @@ export default function UserPage() {
     <>
       <Header session={session} />
       <Flex
-        gap="xl"
+        // gap="xl"
         justify="center"
         // align="center"
         maw={850}
         mx="auto"
         direction="column"
-        mt={50}
+        mt={32}
       >
         {isLoading ? <JobsTableSkeleton /> : null}
         {error ? <p>Failed to load the jobs list</p> : null}
@@ -54,7 +54,7 @@ export default function UserPage() {
             Add new job opportunity
           </Button>
         ) : (
-          <Flex justify="space-between" mb="50px">
+          <Flex justify="space-between" mb="32px">
             <Button
               variant="gradient"
               gradient={{ from: "blue", to: "pink", deg: 270 }}
