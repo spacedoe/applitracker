@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Form from "../../components/Form/Form";
 import Header from "../../components/Header/Header";
 import { useSession } from "next-auth/react";
-import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
+import GoBackButton from "@/components/GoBackButton/GoBackButton";
 import { IconCheck } from "@tabler/icons-react";
 import { notifications } from "@mantine/notifications";
 
@@ -46,7 +46,7 @@ export default function AddJobPage() {
   return (
     <>
       <Header session={session} />
-      <GoBackBnt />
+      <GoBackButton />
       <Flex justify="center">
         <Title>Add Job</Title>
       </Flex>

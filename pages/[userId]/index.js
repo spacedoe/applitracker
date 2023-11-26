@@ -31,9 +31,7 @@ export default function UserPage() {
     <>
       <Header session={session} />
       <Flex
-        // gap="xl"
         justify="center"
-        // align="center"
         maw={850}
         mx="auto"
         direction="column"
@@ -43,18 +41,21 @@ export default function UserPage() {
         {error ? <p>Failed to load the jobs list</p> : null}
         {jobs ? <JobsTable jobs={jobs} userId={userId} /> : null}
         {hasNoJobs ? (
+          <Flex mt={240} mb={320} justify="center">
           <Button
             variant="filled"
             size="xl"
-            mb={380}
+           
             component="a"
             href={`${userId}/add`}
             leftSection={<IconPencilPlus />}
           >
             Add new job opportunity
           </Button>
+
+          </Flex>
         ) : (
-          <Flex justify="space-between" mb="32px">
+          <Flex justify="space-between" mb={72}>
             <Button
               variant="gradient"
               gradient={{ from: "blue", to: "pink", deg: 270 }}

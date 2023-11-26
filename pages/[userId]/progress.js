@@ -1,4 +1,4 @@
-import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
+import GoBackButton from "@/components/GoBackButton/GoBackButton";
 import Header from "@/components/Header/Header";
 import ProgressAnalytics from "@/components/ProgressAnalytics/ProgressAnalytics";
 import { Center, Flex, Loader, Text, Title } from "@mantine/core";
@@ -22,7 +22,7 @@ export default function ProgressPage() {
   return (
     <>
       <Header session={session} />
-      <GoBackBnt />
+      <GoBackButton />
       <Flex justify="center" mb={32}>
         <Title>Your progress</Title>
       </Flex>

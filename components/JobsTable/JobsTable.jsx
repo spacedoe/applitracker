@@ -154,7 +154,8 @@ export default function JobsTable({ jobs, userId }) {
             </Table>
           </ScrollArea>
           <Text fs="italic" fz={14} mt={0} ml={8} ta="end" pr={8}>
-            You&apos;ve applied to <strong>{jobs.length}</strong> {jobs.length === 1 ? "job." : "jobs."}
+            You&apos;ve applied to <strong>{jobs.length}</strong>{" "}
+            {jobs.length === 1 ? "job." : "jobs."}
           </Text>
         </Stack>
       ) : null}

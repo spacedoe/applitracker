@@ -7,9 +7,9 @@ import useSWR from "swr";
 import { IconCheck, IconPencil, IconTrash, IconX } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
 import JobDetailsSkeleton from "@/components/JobDetails/JobDetailsSkeleton";
-import GoBackBnt from "@/components/GoBackBnt/GoBackBnt";
 import { useDisclosure } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
+import GoBackButton from "@/components/GoBackButton/GoBackButton";
 
 export default function JobDetailsPage() {
   const { data: session } = useSession();
@@ -43,7 +43,7 @@ export default function JobDetailsPage() {
   return (
     <>
       <Header session={session} />
-      <GoBackBnt />
+      <GoBackButton />
       <Stack align="center" mx={20}>
         <Title>Job Details</Title>
         {error ? <p>Failed to load job details...</p> : null}
