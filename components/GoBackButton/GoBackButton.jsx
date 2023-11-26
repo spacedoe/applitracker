@@ -1,19 +1,17 @@
 import { Button } from "@mantine/core";
 import { IconArrowLeft } from "@tabler/icons-react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
 
-export default function GoBackBnt() {
-  const router = useRouter();
-  const { userId } = router.query;
+export default function GoBackButton() {
   return (
     <Button
       variant="filled"
       size="sm"
-      ml="8px"
+      ml={8}
+      mt={8}
       component={Link}
-      href={`/${userId}`}
+      href={"/"}
       leftSection={<IconArrowLeft />}
     >
       Back

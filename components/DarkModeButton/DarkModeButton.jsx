@@ -3,7 +3,7 @@ import { IconMoonStars, IconSun } from "@tabler/icons-react";
 import { Container } from '@mantine/core';
 import React from "react";
 
-export default function LightAndDarkModeBnt() {
+export default function DarkModeButton() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const dark = colorScheme === "dark";
 

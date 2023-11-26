@@ -30,7 +30,7 @@ export function Hero() {
           variant="gradient"
           size="xl"
           radius="xl"
-          className={classes.signInBnt}
+          className={classes.signInButton}
           onClick={() => signIn()}
         >
           Sign in to get started
