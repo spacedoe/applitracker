@@ -1,0 +1,17 @@
+.container {
+  @media (max-width: $mantine-breakpoint-xs) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.title {
+  font-size: 56px;
+  font-weight: 900;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    margin-top: 8px;
+    font-size: 48px;
+    font-weight: 900;
+  }
+}

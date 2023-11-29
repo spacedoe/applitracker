@@ -7,6 +7,7 @@ import Header from "@/components/Header/Header";
 import JobsTable from "@/components/JobsTable/JobsTable";
 import JobsTableSkeleton from "@/components/JobsTable/JobsTableSkeleton";
 import Footer from "@/components/Footer/Footer";
+import ActionButtons from "@/components/ActionButtons/ActionButtons";
 
 export default function UserPage() {
   const { data: session } = useSession();
@@ -30,56 +31,27 @@ export default function UserPage() {
   return (
     <>
       <Header session={session} />
-      <Flex
-        justify="center"
-        maw={850}
-        mx="auto"
-        direction="column"
-        mt={32}
-      >
+      <Flex justify="center" maw={850} mx="auto" direction="column" mt={32}>
         {isLoading ? <JobsTableSkeleton /> : null}
         {error ? <p>Failed to load the jobs list</p> : null}
         {jobs ? <JobsTable jobs={jobs} userId={userId} /> : null}
         {hasNoJobs ? (
           <Flex mt={240} mb={320} justify="center">
-          <Button
-            variant="filled"
-            size="xl"
-           
-            component="a"
-            href={`${userId}/add`}
-            leftSection={<IconPencilPlus />}
-          >
-            Add new job opportunity
-          </Button>
-
-          </Flex>
-        ) : (
-          <Flex justify="space-between" mb={72}>
-            <Button
-              variant="gradient"
-              gradient={{ from: "blue", to: "pink", deg: 270 }}
-              size="sm"
-              mt="50px"
-              component="a"
-              href={`${userId}/progress`}
-              leftSection={<IconReportAnalytics />}
-            >
-              View progress
-            </Button>
             <Button
               variant="filled"
-              size="sm"
-              mt="50px"
-              component={Link}
+              size="xl"
+              component="a"
               href={`${userId}/add`}
               leftSection={<IconPencilPlus />}
             >
-              Add job
+              Add new job opportunity
             </Button>
           </Flex>
+        ) : (
+          <ActionButtons userId={userId} />
         )}
       </Flex>
+
       <Footer />
     </>
   );

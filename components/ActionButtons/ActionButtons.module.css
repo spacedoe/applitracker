@@ -8,13 +8,3 @@
     margin: 0 8px;
   }
 }
-
-.filterButton {
-  @media (max-width: $mantine-breakpoint-xs) {
-    white-space: nowrap;
-  }
-}
-
-.filterButton:hover {
-  color: var(--mantine-color-blue-filled);
-}

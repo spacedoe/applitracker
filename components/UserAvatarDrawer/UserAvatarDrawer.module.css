@@ -1,0 +1,7 @@
+.avatar {
+  --avatar-size: var(--avatar-size-lg);
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    --avatar-size: 48px;
+  }
+}

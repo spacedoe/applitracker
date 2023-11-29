@@ -1,22 +1,23 @@
-import { Container, Flex, Text, Title } from "@mantine/core";
+import { Container, Flex, Text } from "@mantine/core";
+import classes from "./Header.module.css";
 
 import UserAvatarDrawer from "../UserAvatarDrawer/UserAvatarDrawer";
 
 export default function Header({ session }) {
   return (
-    <Container w="100vw" style={{overflowX: "hidden"}}>
-      <Flex justify="center" my="10px" >
-        <Title order={1}>
-          <Text
-            inherit
-            fw={900}
-            variant="gradient"
-            gradient={{ from: "blue", to: "pink", deg: 90 }}
-            fz={50}
-          >
-            Applitracker
-          </Text>
-        </Title>
+    <Container
+      w="100vw"
+      style={{ overflowX: "hidden" }}
+      className={classes.container}
+    >
+      <Flex justify="center">
+        <Text
+          className={classes.title}
+          variant="gradient"
+          gradient={{ from: "blue", to: "pink", deg: 90 }}
+        >
+          Applitracker
+        </Text>
       </Flex>
 
       {session ? <UserAvatarDrawer session={session} /> : null}

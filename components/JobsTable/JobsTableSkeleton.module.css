@@ -1,20 +1,9 @@
 .container {
   margin: 0 16px;
-
   @media (max-width: $mantine-breakpoint-sm) {
     margin: 0 16px;
   }
   @media (max-width: $mantine-breakpoint-xs) {
     margin: 0 8px;
   }
-}
-
-.filterButton {
-  @media (max-width: $mantine-breakpoint-xs) {
-    white-space: nowrap;
-  }
-}
-
-.filterButton:hover {
-  color: var(--mantine-color-blue-filled);
 }

@@ -1,7 +1,7 @@
 import {
   Anchor,
   Center,
-  Group,
+  Flex,
   ScrollArea,
   Stack,
   Table,
@@ -74,17 +74,18 @@ export default function JobsTable({ jobs, userId }) {
       : IconSelector;
     return (
       <Table.Th fz="md">
-        <UnstyledButton onClick={onSort} className={classes.button}>
-          <Group justify="space-between">
+        <UnstyledButton onClick={onSort} className={classes.filterButton}>
+          <Flex direction="row" justify="center">
             <Text fw="bold">{children}</Text>
             <Center>
               <Icon
-                style={{ width: "16px", height: "16px" }}
-                stroke={1.5}
+                size={16}
+                stroke={2}
                 color="var(--mantine-color-blue-filled)"
+                style={{ marginLeft: "4px" }}
               />
             </Center>
-          </Group>
+          </Flex>
         </UnstyledButton>
       </Table.Th>
     );
@@ -95,8 +96,8 @@ export default function JobsTable({ jobs, userId }) {
       <Table.Td>
         <Anchor href={`/${userId}/jobs/${job._id}`}>{job.role}</Anchor>
       </Table.Td>
-      <Table.Td>{job.company}</Table.Td>
-      <Table.Td>{job.location}</Table.Td>
+      <Table.Td visibleFrom="sm">{job.company}</Table.Td>
+      <Table.Td visibleFrom="sm">{job.location}</Table.Td>
 
       {job.stages.length > 0 ? (
         <>
@@ -117,14 +118,14 @@ export default function JobsTable({ jobs, userId }) {
   return (
     <>
       {jobs && jobs.length > 0 ? (
-        <Stack gap={8}>
+        <Stack className={classes.container}>
           <ScrollArea h={448}>
             <Table stickyHeader highlightOnHover>
               <Table.Thead>
                 <Table.Tr fz="md">
                   <Table.Th>Role</Table.Th>
-                  <Table.Th>Company</Table.Th>
-                  <Table.Th>Location</Table.Th>
+                  <Table.Th visibleFrom="sm">Company</Table.Th>
+                  <Table.Th visibleFrom="sm">Location</Table.Th>
                   <TableHead
                     sorted={sortColumn === "stages"}
                     onSort={() => {
@@ -153,7 +154,7 @@ export default function JobsTable({ jobs, userId }) {
               <Table.Tbody>{rows}</Table.Tbody>
             </Table>
           </ScrollArea>
-          <Text fs="italic" fz={14} mt={0} ml={8} ta="end" pr={8}>
+          <Text fs="italic" fz={14} ml={8} ta="end" pr={8}>
             You&apos;ve applied to <strong>{jobs.length}</strong>{" "}
             {jobs.length === 1 ? "job." : "jobs."}
           </Text>

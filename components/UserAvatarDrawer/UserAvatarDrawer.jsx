@@ -2,19 +2,18 @@ import { Avatar, Button, Drawer, Text, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { signOut } from "next-auth/react";
 import DarkModeButton from "../DarkModeButton/DarkModeButton";
+import classes from "./UserAvatarDrawer.module.css";
 
 export default function UserAvatarDrawer({ session }) {
   const [opened, { open, close }] = useDisclosure(false);
   return (
     <>
       <Avatar
-        width={200}
-        height={200}
+        className={classes.avatar}
         src={session.user?.image}
         alt="Avatar"
         priority="true"
         radius="100%"
-        size="lg"
         onClick={open}
         style={{ position: "absolute", top: "16px", right: "16px" }}
         styles={{ image: { cursor: "pointer" } }}
@@ -48,7 +47,7 @@ export default function UserAvatarDrawer({ session }) {
         <Text ta="start">
           You are signed in as <br /> {session.user?.email}
         </Text>
-        <DarkModeButton/>
+        <DarkModeButton />
 
         <Button
           onClick={() => signOut({ callbackUrl: "/" })}

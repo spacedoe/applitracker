@@ -15,48 +15,52 @@
   z-index: 1;
   position: relative;
   color: var(--mantine-color-white);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    height: 93vh;
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    height: 89vh;
+  }
 }
 
 .title {
-  font-size: rem(70px);
+  font-size: rem(80px);
   font-weight: 900;
   line-height: 1;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: rem(72px);
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    font-size: rem(56px);
+  }
 }
 
 .description {
   max-width: rem(600px);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    max-width: 100%;
+    font-size: var(--mantine-font-size-lg);
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    max-width: 100%;
+    font-size: var(--mantine-font-size-md);
+  }
 }
 
 .signInButton {
   margin-top: calc(var(--mantine-spacing-xl) * 1.5);
-}
 
-@media (max-width: $mantine-breakpoint-sm) {
-  .container {
-    height: 100vh;
-  }
-  .title {
-    font-size: rem(64px);
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: var(--mantine-font-size-lg);
   }
 
-  .description {
-    max-width: 100%;
-    font-size: var(--mantine-font-size-md);
-  }
-  .signInButton {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: $mantine-breakpoint-xs) {
-  .container {
-    height: 91vh;
-  }
-  .title {
-    font-size: rem(56px);
-  }
-  .description {
-    max-width: 100%;
+  @media (max-width: $mantine-breakpoint-xs) {
     font-size: var(--mantine-font-size-md);
   }
 }

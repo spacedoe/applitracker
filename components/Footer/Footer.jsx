@@ -5,7 +5,7 @@ import classes from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <Stack mt={4} ta="center" gap={0} className={classes.footer}>
+    <Stack mt={6} ta="center" gap={0} className={classes.footer}>
       <Text inherit>
         Created with{" "}
         <IconHeart
@@ -20,7 +20,7 @@ export default function Footer() {
         </span>
       </Text>
       <Text inherit>
-        By signing in and using Applitracker you agree to
+        By signing in and using Applitracker you agree to{" "}
         <span className={classes.span}>
           the{" "}
           <Anchor inherit href="/policies#terms-and-conditions">
