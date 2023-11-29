@@ -1,0 +1,13 @@
+.footer {
+  font-size: 14px;
+}
+@media (max-width: $mantine-breakpoint-xs) {
+  .footer {
+    font-size: 12px;
+    margin: 0 48px;
+  }
+
+  .span {
+    display: block;
+  }
+}

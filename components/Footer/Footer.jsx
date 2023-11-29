@@ -1,11 +1,12 @@
-import { Anchor, Box, Container, Flex, Stack, Text } from "@mantine/core";
+import { Anchor, Stack, Text } from "@mantine/core";
 import { IconHeart } from "@tabler/icons-react";
 import React from "react";
+import classes from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <Stack mt={4} ta="center" gap={0}>
-      <Text fz={14}>
+    <Stack mt={4} ta="center" gap={0} className={classes.footer}>
+      <Text inherit>
         Created with{" "}
         <IconHeart
           color="var(--mantine-color-blue-filled)"
@@ -13,18 +14,24 @@ export default function Footer() {
           width={18}
           style={{ position: "relative", top: "4px" }}
         />{" "}
-        by Anna Steele. Build with Next.js, MongoDB, Mantine.
+        by Anna Steele.{" "}
+        <span className={classes.span}>
+          Build with Next.js, MongoDB, Mantine.
+        </span>
       </Text>
-      <Text fz={14}>
-        By signing in and using Applitracker you agree to the{" "}
-        <Anchor fz={14} href="/policies#terms-and-conditions">
-          T&C
-        </Anchor>{" "}
-        and{" "}
-        <Anchor fz={14} href="/policies#cookie-policy">
-          Cookie Policy
-        </Anchor>
-        .
+      <Text inherit>
+        By signing in and using Applitracker you agree to
+        <span className={classes.span}>
+          the{" "}
+          <Anchor inherit href="/policies#terms-and-conditions">
+            T&C
+          </Anchor>{" "}
+          and{" "}
+          <Anchor inherit href="/policies#cookie-policy">
+            Cookie Policy
+          </Anchor>
+          .
+        </span>
       </Text>
     </Stack>
   );
