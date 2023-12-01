@@ -12,6 +12,9 @@
   @media (max-width: $mantine-breakpoint-xs) {
     margin-top: 8px;
     font-size: 48px;
-    font-weight: 900;
+  }
+
+  @media (max-width: 384px) {
+    font-size: 45px;
   }
 }

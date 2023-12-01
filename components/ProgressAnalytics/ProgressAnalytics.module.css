@@ -1,0 +1,41 @@
+.mainContainer {
+  margin-left: 16px;
+  margin-right: 16px;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+
+.jobsContainer {
+  justify-content: center;
+  @media (max-width: $mantine-breakpoint-sm) {
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    justify-content: start;
+  }
+}
+
+.stagesContainer {
+  @media (max-width: $mantine-breakpoint-lg) {
+    max-width: 72vw;
+    overflow-x: scroll;
+  }
+
+  @media (max-width: $mantine-breakpoint-md) {
+    max-width: 68vw;
+    overflow-x: scroll;
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    max-width: 64vw;
+    overflow-x: scroll;
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    display: flex;
+    flex-direction: column;
+  }
+}

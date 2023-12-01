@@ -6,7 +6,7 @@ import classes from "./ActionButtons.module.css";
 
 export default function ActionButtons(userId) {
   return (
-    <Flex justify="space-between" mb={72} className={classes.container}>
+    <Flex justify="space-between" mb={64} className={classes.container}>
       <Button
         variant="gradient"
         gradient={{ from: "blue", to: "pink", deg: 270 }}

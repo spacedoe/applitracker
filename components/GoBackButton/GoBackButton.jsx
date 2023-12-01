@@ -8,8 +8,8 @@ export default function GoBackButton() {
     <Button
       variant="filled"
       size="sm"
-      ml={8}
-      mt={8}
+      ml={16}
+      my={16}
       component={Link}
       href={"/"}
       leftSection={<IconArrowLeft />}

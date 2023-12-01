@@ -1,13 +1,12 @@
 import { useSession } from "next-auth/react";
 import useSWR from "swr";
-import { Button, Flex } from "@mantine/core";
-import { IconPencilPlus, IconReportAnalytics } from "@tabler/icons-react";
-import Link from "next/link";
+import { Flex } from "@mantine/core";
 import Header from "@/components/Header/Header";
 import JobsTable from "@/components/JobsTable/JobsTable";
 import JobsTableSkeleton from "@/components/JobsTable/JobsTableSkeleton";
 import Footer from "@/components/Footer/Footer";
 import ActionButtons from "@/components/ActionButtons/ActionButtons";
+import AddFirstJobButton from "@/components/AddFirstJobButton/AddFirstJobButton";
 
 export default function UserPage() {
   const { data: session } = useSession();
@@ -36,17 +35,7 @@ export default function UserPage() {
         {error ? <p>Failed to load the jobs list</p> : null}
         {jobs ? <JobsTable jobs={jobs} userId={userId} /> : null}
         {hasNoJobs ? (
-          <Flex mt={240} mb={320} justify="center">
-            <Button
-              variant="filled"
-              size="xl"
-              component="a"
-              href={`${userId}/add`}
-              leftSection={<IconPencilPlus />}
-            >
-              Add new job opportunity
-            </Button>
-          </Flex>
+          <AddFirstJobButton userId={userId} />
         ) : (
           <ActionButtons userId={userId} />
         )}
