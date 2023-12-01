@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 import classes from "./ActionButtons.module.css";
 
-export default function ActionButtons(userId) {
+export default function ActionButtons({ userId }) {
   return (
     <Flex justify="space-between" mb={64} className={classes.container}>
       <Button
@@ -13,7 +13,7 @@ export default function ActionButtons(userId) {
         size="sm"
         mt="50px"
         component="a"
-        href={`${userId}/progress`}
+        href={`/${userId}/progress`}
         leftSection={<IconReportAnalytics />}
       >
         View progress
@@ -23,7 +23,7 @@ export default function ActionButtons(userId) {
         size="sm"
         mt="50px"
         component={Link}
-        href={`${userId}/add`}
+        href={`/${userId}/add`}
         leftSection={<IconPencilPlus />}
       >
         Add job

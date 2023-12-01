@@ -6,7 +6,7 @@ import React from "react";
 
 export default function ProgressAnalytics({ jobs, userId }) {
   return (
-    <Container maw="fit-content" className={classes.mainContainer}>
+    <Container maw="fit-content" mx="auto">
       {jobs?.map((job) => {
         return (
           <Flex key={job._id} mb={20} gap={16}>
@@ -49,9 +49,8 @@ export default function ProgressAnalytics({ jobs, userId }) {
                       color={stageColorSetter(stageName, index)}
                       p="10px"
                       style={{ overflow: "unset" }}
-                      ta="center"
                     >
-                      <Progress.Label fw={500} fz="15px">
+                      <Progress.Label fw={500} fz="15px" ta="center">
                         {stageName} <br /> {localiseDate(stageDate)}
                       </Progress.Label>
                     </Progress.Section>
