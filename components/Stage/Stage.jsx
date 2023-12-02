@@ -1,6 +1,7 @@
-import { Badge, Button, Flex, NativeSelect } from "@mantine/core";
+import { Badge, Box, Button, Flex, NativeSelect } from "@mantine/core";
 import { DatePickerInput } from "@mantine/dates";
 import { IconTrash } from "@tabler/icons-react";
+import classes from "./Stage.module.css";
 
 export default function Stage({
   count,
@@ -10,15 +11,9 @@ export default function Stage({
   stageDate,
 }) {
   return (
-    <Flex
-      gap="sm"
-      justify="space-between"
-      align="flex-end"
-      direction="row"
-      wrap="nowrap"
-      mb="sm"
-    >
+    <Flex className={classes.stageContainer} mb="sm">
       <Badge
+        className={classes.badge}
         variant="filled"
         color="var(--mantine-color-gray-6)"
         size="xl"
@@ -45,6 +40,7 @@ export default function Stage({
           "Rejection",
         ]}
         defaultValue={stageName}
+        className={classes.nativeSelect}
       />
       <DatePickerInput
         valueFormat="DD.MM.YYYY"
@@ -53,7 +49,9 @@ export default function Stage({
         maw="120px"
         defaultValue={new Date(stageDate)}
         required
+        className={classes.datePickerInput}
       />
+
       <Button
         variant="outline"
         color="rgba(255, 87, 87, 1)"
@@ -61,6 +59,7 @@ export default function Stage({
         h="36px"
         px="5px"
         onClick={() => onDeleteStage(uid)}
+        className={classes.deleteButton}
       >
         <IconTrash color="rgba(255, 87, 87, 1)" />
       </Button>

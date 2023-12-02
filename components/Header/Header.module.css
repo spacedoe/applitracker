@@ -1,5 +1,5 @@
 .container {
-  @media (max-width: $mantine-breakpoint-xs) {
+  @media (max-width: 528px) {
     display: flex;
     justify-content: space-between;
   }

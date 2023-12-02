@@ -1,0 +1,9 @@
+.formBox {
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding: 0 16px;
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    padding: 0 8px;
+  }
+}

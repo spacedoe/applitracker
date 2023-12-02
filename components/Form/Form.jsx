@@ -12,6 +12,7 @@ import StagesField from "../StagesField/StagesField";
 import { DatePickerInput } from "@mantine/dates";
 import EditorComponent from "../EditorComponent/EditorComponent";
 import { useState } from "react";
+import classes from "./Form.module.css";
 
 export default function Form({ onSubmit, formName, savedData }) {
   const [editor, setEditor] = useState(null);
@@ -50,7 +51,7 @@ export default function Form({ onSubmit, formName, savedData }) {
   }
 
   return (
-    <Box maw={600} mx="auto" my="xl" mb="100px">
+    <Box maw={600} mx="auto" my="sm" className={classes.formBox}>
       <form aria-labelledby={formName} onSubmit={handleSubmit}>
         <Flex direction="column" gap="md">
           <Fieldset>
@@ -140,7 +141,7 @@ export default function Form({ onSubmit, formName, savedData }) {
           </Fieldset>
         </Flex>
 
-        <Group justify="center" mt="md" mb="32px">
+        <Group justify="center" my="24">
           <Button type="submit">Submit</Button>
         </Group>
       </form>

@@ -1,0 +1,51 @@
+.stageContainer {
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 12px;
+
+  @media (max-width: 520px) {
+    margin-top: 32px;
+    flex-wrap: wrap;
+    justify-content: start;
+    .badge {
+      order: 1;
+      margin-right: 100%;
+      margin-left: 0;
+      min-width: fit-content;
+    }
+
+    .nativeSelect {
+      order: 2;
+    }
+
+    .datePickerInput {
+      order: 3;
+    }
+
+    .deleteButton {
+      order: 4;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .badge {
+      order: 1;
+      margin: 0;
+    }
+
+    .nativeSelect {
+      order: 3;
+    }
+
+    .datePickerInput {
+      order: 4;
+    }
+
+    .deleteButton {
+      order: 2;
+      margin-right: 96px;
+    }
+  }
+}
