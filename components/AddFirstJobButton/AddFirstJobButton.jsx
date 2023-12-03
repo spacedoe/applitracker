@@ -2,7 +2,7 @@ import { Button, Flex } from "@mantine/core";
 import { IconPencilPlus } from "@tabler/icons-react";
 import React from "react";
 
-export default function AddFirstJobButton(userId) {
+export default function AddFirstJobButton({ userId }) {
   return (
     <Flex mt={240} mb={320} justify="center">
       <Button
