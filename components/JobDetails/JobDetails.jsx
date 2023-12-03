@@ -23,7 +23,7 @@ import {
   faFaceGrinStars,
 } from "@fortawesome/free-regular-svg-icons";
 import DOMPurify from "dompurify";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import classes from "./JobDetails.module.css";
 
 export default function JobDetails({ job }) {
@@ -42,6 +42,7 @@ export default function JobDetails({ job }) {
   } = job;
 
   const [opened, { open, close }] = useDisclosure(false);
+  const isMobile = useMediaQuery("(max-width: 50em)");
   const sanitizedDescription = DOMPurify.sanitize(description);
 
   function setIcon(stageName) {
@@ -122,7 +123,9 @@ export default function JobDetails({ job }) {
                 opened={opened}
                 onClose={close}
                 title={`${role} at ${company}`}
-                size="90%"
+                size="80%"
+                fullScreen={isMobile}
+                transitionProps={{ transition: "fade", duration: 200 }}
                 styles={{
                   title: {
                     fontSize: "2rem",

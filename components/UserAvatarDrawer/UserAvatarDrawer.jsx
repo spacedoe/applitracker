@@ -22,7 +22,7 @@ export default function UserAvatarDrawer({ session }) {
         position="right"
         opened={opened}
         onClose={close}
-        size="sm"
+        size="md"
         styles={{ header: { zIndex: "-1" } }}
       >
         <Avatar
