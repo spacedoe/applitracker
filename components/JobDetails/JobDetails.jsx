@@ -147,7 +147,7 @@ export default function JobDetails({ job }) {
 
               <Stack gap={0}>
                 <Text fz="sm">Contact details:</Text>
-                <Text>
+                <Text style={{ wordBreak: "break-word" }}>
                   <strong>{contactDetails}</strong>
                 </Text>
               </Stack>
