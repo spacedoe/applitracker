@@ -20,9 +20,9 @@ export default function Footer() {
         </span>
       </Text>
       <Text inherit>
-        By signing in and using Applitracker you agree to{" "}
+        By signing in and using Applitracker{" "}
         <span className={classes.span}>
-          the{" "}
+          you agree to the{" "}
           <Anchor inherit href="/policies#terms-and-conditions">
             T&C
           </Anchor>{" "}
