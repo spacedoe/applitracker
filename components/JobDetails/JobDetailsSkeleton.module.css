@@ -1,0 +1,27 @@
+.container {
+  margin: 32px;
+  @media (max-width: $mantine-breakpoint-xs) {
+    margin: 8px 16px;
+  }
+
+  @media (max-width: 384px) {
+    margin: 8px;
+  }
+}
+
+.paper {
+  padding: 32px;
+  max-width: 656px;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    max-width: 440px;
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    padding: 16px;
+  }
+
+  @media (max-width: 384px) {
+    padding: 16px 8px;
+  }
+}
