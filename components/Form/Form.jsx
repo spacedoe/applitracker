@@ -141,7 +141,7 @@ export default function Form({ onSubmit, formName, savedData }) {
           </Fieldset>
         </Flex>
 
-        <Group justify="center" my="24">
+        <Group justify="center" my="24" pb={32}>
           <Button type="submit">Submit</Button>
         </Group>
       </form>

@@ -6,7 +6,7 @@ import React from "react";
 
 export default function ProgressAnalytics({ jobs, userId }) {
   return (
-    <Container maw="fit-content" mx="auto">
+    <Container maw="fit-content" mx="auto" pb={32}>
       {jobs?.map((job) => {
         return (
           <Flex key={job._id} mb={20} gap={16}>
