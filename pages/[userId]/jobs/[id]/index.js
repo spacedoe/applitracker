@@ -2,7 +2,6 @@ import { Button, Flex, Group, Modal, Title } from "@mantine/core";
 import Header from "../../../../components/Header/Header";
 import JobDetails from "../../../../components/JobDetails/JobDetails";
 import { useRouter } from "next/router.js";
-import Link from "next/link";
 import useSWR from "swr";
 import { IconCheck, IconPencil, IconTrash, IconX } from "@tabler/icons-react";
 import { useSession } from "next-auth/react";
@@ -54,7 +53,7 @@ export default function JobDetailsPage() {
       {job ? (
         <>
           <JobDetails job={job} />
-          <Group justify="center" mt="md" mb="100px">
+          <Group justify="center" mt="md" pb="32px">
             <Button
               variant="outline"
               size="sm"
