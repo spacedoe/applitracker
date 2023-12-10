@@ -1,7 +1,5 @@
-.jobsContainer {
+.jobContainer {
   justify-content: center;
-  @media (max-width: $mantine-breakpoint-sm) {
-  }
 
   @media (max-width: $mantine-breakpoint-xs) {
     justify-content: start;

@@ -6,7 +6,12 @@ import React from "react";
 
 export default function ProgressAnalytics({ jobs, userId }) {
   return (
-    <Container maw="fit-content" mx="auto" pb={32}>
+    <Container
+      maw="fit-content"
+      mx="auto"
+      pb={32}
+      data-testid="progress-analytics"
+    >
       {jobs?.map((job) => {
         return (
           <Flex key={job._id} mb={20} gap={16}>
@@ -15,19 +20,19 @@ export default function ProgressAnalytics({ jobs, userId }) {
               w={100}
               miw={100}
               gap={4}
-              className={classes.jobsContainer}
+              className={classes.jobContainer}
             >
               <Anchor href={`/${userId}/jobs/${job._id}`}>
-                <Text lh="1" fw={600}>
+                <Text lh="1" fw={600} data-testid="job-role">
                   {job.role}
                 </Text>
               </Anchor>
-              <Text lh="1" fz="14px">
+              <Text lh="1" fz="14px" data-testid="job-company">
                 {job.company}
               </Text>
             </Stack>
 
-            <Stack justify="center">
+            <Stack justify="center" data-testid="progress-bar">
               <Progress.Root size="auto" className={classes.stagesContainer}>
                 <Progress.Section
                   value={100}
