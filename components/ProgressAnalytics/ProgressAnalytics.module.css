@@ -6,7 +6,8 @@
   }
 }
 
-.stagesContainer {
+.stagesBar {
+  border-radius: 4px;
   @media (max-width: $mantine-breakpoint-lg) {
     max-width: 72vw;
     overflow-x: scroll;
@@ -23,7 +24,17 @@
   @media (max-width: $mantine-breakpoint-xs) {
     display: flex;
     flex-direction: column;
-    --progress-radius: 0;
-    border-radius: 4px;
   }
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px 16px;
+  color: #ffff;
+  line-height: 1;
 }

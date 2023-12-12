@@ -1,5 +1,14 @@
 import stageColorSetter, { localiseDate } from "@/utils/general";
-import { Text, Progress, Flex, Stack, Container, Anchor } from "@mantine/core";
+import {
+  Text,
+  Progress,
+  Flex,
+  Stack,
+  Container,
+  Anchor,
+  Box,
+  Center,
+} from "@mantine/core";
 import classes from "./ProgressAnalytics.module.css";
 
 import React from "react";
@@ -33,35 +42,24 @@ export default function ProgressAnalytics({ jobs, userId }) {
             </Stack>
 
             <Stack justify="center" data-testid="progress-bar">
-              <Progress.Root size="auto" className={classes.stagesContainer}>
-                <Progress.Section
-                  value={100}
-                  color="#248ae4"
-                  p="10px"
-                  style={{ overflow: "unset" }}
-                >
-                  <Progress.Label fw={500} fz="15px" ta="center">
-                    {"Applied on"} <br /> {localiseDate(job.appliedOn)}
-                  </Progress.Label>
-                </Progress.Section>
+              <Flex className={classes.stagesBar}>
+                <Text className={classes.stage} bg="#248ae4">
+                  {"Applied on"} <br /> {localiseDate(job.appliedOn)}
+                </Text>
 
                 {job.stages.map((stage, index) => {
                   const { _id, stageName, stageDate } = stage;
                   return (
-                    <Progress.Section
+                    <Text
+                      className={classes.stage}
                       key={_id}
-                      value={100}
-                      color={stageColorSetter(stageName, index)}
-                      p="10px"
-                      style={{ overflow: "unset" }}
+                      bg={stageColorSetter(stageName, index)}
                     >
-                      <Progress.Label fw={500} fz="15px" ta="center">
-                        {stageName} <br /> {localiseDate(stageDate)}
-                      </Progress.Label>
-                    </Progress.Section>
+                      {stageName} <br /> {localiseDate(stageDate)}
+                    </Text>
                   );
                 })}
-              </Progress.Root>
+              </Flex>
             </Stack>
           </Flex>
         );
