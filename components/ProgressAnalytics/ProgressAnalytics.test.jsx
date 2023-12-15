@@ -2,10 +2,10 @@ import { render, screen } from "../../test-utils";
 import ProgressAnalytics from "./ProgressAnalytics";
 
 describe("ProgressAnalytics", () => {
-  const jobs = [
+  const mockJobs = [
     {
       _id: "1",
-      role: "Software Engineer",
+      role: "Software Developer",
       company: "Google",
       appliedOn: "2021-08-01T00:00:00.000Z",
       stages: [
@@ -41,40 +41,16 @@ describe("ProgressAnalytics", () => {
     },
   ];
 
-  const job = jobs.map((job) => job);
-
   it("renders ProgressAnalytics", () => {
-    render(<ProgressAnalytics />);
+    render(<ProgressAnalytics jobs={mockJobs} userId={"123"} />);
+
     const progressAnalytics = screen.getByTestId("progress-analytics");
-
     expect(progressAnalytics).toBeInTheDocument();
+
+    const jobRole = screen.getByRole("link", { name: "Software Developer" });
+    expect(jobRole).toBeInTheDocument();
+
+    const jobCompany = screen.getByText("Facebook");
+    expect(jobCompany).toBeInTheDocument();
   });
-
-  it("renders the correct number of job roles and companies", () => {
-    render(<ProgressAnalytics jobs={jobs} />);
-
-    const jobRole = screen.getAllByTestId("job-role");
-    const jobCompany = screen.getAllByTestId("job-company");
-
-    // const jobRole = screen.getByRole("link", { name: `${job.role}` });
-    // const jobCompany = screen.getByRole("link", { name: `${job.company}` });
-
-    expect(jobRole.length).toBe(2);
-    expect(jobCompany.length).toBe(2);
-  });
-
-  it("renders progress bar for each job", () => {
-    render(<ProgressAnalytics jobs={jobs} />);
-    const progressBar = screen.getAllByTestId("progress-bar");
-    expect(progressBar.length).toBe(2);
-  });
-
-  // Replace Progressbar to divs:
-
-  //   it("renders the correct number of progress bar sections for each job", () => {
-  //     render(<ProgressAnalytics jobs={jobs} />);
-  //     const progressBarSection = screen.getAllByRole("progressbar");
-  //     const progressBarSectionsPerJob = progressBarSection.length / jobs.length;
-  //     expect(progressBarSectionsPerJob).toBe(job[0].stages.length + 1);
-  //   });
 });

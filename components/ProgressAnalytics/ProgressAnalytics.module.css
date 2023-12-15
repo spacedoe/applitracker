@@ -1,5 +1,6 @@
 .jobContainer {
   justify-content: center;
+  border-radius: 24px;
 
   @media (max-width: $mantine-breakpoint-xs) {
     justify-content: start;
@@ -8,9 +9,9 @@
 
 .stagesBar {
   border-radius: 4px;
+  overflow-x: auto;
   @media (max-width: $mantine-breakpoint-lg) {
     max-width: 72vw;
-    overflow-x: scroll;
   }
 
   @media (max-width: $mantine-breakpoint-md) {

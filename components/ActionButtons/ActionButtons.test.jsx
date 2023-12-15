@@ -3,14 +3,14 @@ import ActionButtons from "./ActionButtons";
 
 describe("Action Buttons", () => {
   it("renders two button-links", () => {
-    render(<ActionButtons />);
+    render(<ActionButtons userId={"123"} />);
     const actionButton = screen.getAllByRole("link");
 
     expect(actionButton).toHaveLength(2);
   });
 
   it("renders the first button-link with a name 'View progress'", () => {
-    render(<ActionButtons />);
+    render(<ActionButtons userId={"123"} />);
     const viewProgressButton = screen.getByRole("link", {
       name: "View progress",
     });
@@ -19,7 +19,7 @@ describe("Action Buttons", () => {
   });
 
   it("renders the second button-link with the name 'Add job'", () => {
-    render(<ActionButtons />);
+    render(<ActionButtons userId={"123"} />);
     const addJobButton = screen.getByRole("link", {
       name: "Add job",
     });

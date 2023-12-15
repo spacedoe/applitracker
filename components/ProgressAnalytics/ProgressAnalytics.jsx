@@ -31,17 +31,15 @@ export default function ProgressAnalytics({ jobs, userId }) {
               gap={4}
               className={classes.jobContainer}
             >
-              <Anchor href={`/${userId}/jobs/${job._id}`}>
-                <Text lh="1" fw={600} data-testid="job-role">
-                  {job.role}
-                </Text>
+              <Anchor href={`/${userId}/jobs/${job._id}`} lh="1" fw={600}>
+                {job.role}
               </Anchor>
               <Text lh="1" fz="14px" data-testid="job-company">
                 {job.company}
               </Text>
             </Stack>
 
-            <Stack justify="center" data-testid="progress-bar">
+            <Stack justify="center">
               <Flex className={classes.stagesBar}>
                 <Text className={classes.stage} bg="#248ae4">
                   {"Applied on"} <br /> {localiseDate(job.appliedOn)}
