@@ -27,7 +27,7 @@ describe("Action Buttons", () => {
     expect(addJobButton).toBeInTheDocument();
   });
 
-  it("'View progres' Button renders the correct link", () => {
+  it("renders 'View progres' button with the correct link", () => {
     render(<ActionButtons userId={"123"} />);
 
     const viewProgressButton = screen.getByRole("link", {
@@ -44,7 +44,7 @@ describe("Action Buttons", () => {
     // expect(viewSth).toHaveAttribute("href", "/123/progress");
   });
 
-  it("'Add job' button renders the correct link", () => {
+  it("renders 'Add job' button with the correct link", () => {
     render(<ActionButtons userId={"123"} />);
 
     const addJobButton = screen.getByRole("link", {
