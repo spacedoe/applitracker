@@ -1,6 +1,6 @@
 import { ActionIcon, useMantineColorScheme } from "@mantine/core";
 import { IconMoonStars, IconSun } from "@tabler/icons-react";
-import { Container } from '@mantine/core';
+import { Container } from "@mantine/core";
 import React from "react";
 
 export default function DarkModeButton() {
@@ -15,7 +15,11 @@ export default function DarkModeButton() {
         onClick={() => toggleColorScheme()}
         title="Toggle color scheme"
       >
-        {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
+        {dark ? (
+          <IconSun size={18} />
+        ) : (
+          <IconMoonStars size={18} data-testid="dark-mode-icon" />
+        )}
       </ActionIcon>
     </Container>
   );
