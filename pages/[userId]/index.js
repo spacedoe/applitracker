@@ -7,7 +7,7 @@ import JobsTableSkeleton from "@/components/JobsTable/JobsTableSkeleton";
 import Footer from "@/components/Footer/Footer";
 import ActionButtons from "@/components/ActionButtons/ActionButtons";
 import AddFirstJobButton from "@/components/AddFirstJobButton/AddFirstJobButton";
-import classes from "../index.module.css";
+import classes from "./index.module.css";
 
 export default function UserPage() {
   const { data: session } = useSession();
@@ -37,6 +37,7 @@ export default function UserPage() {
         mx="auto"
         direction="column"
         mt={32}
+        w="100%"
         style={{ flex: "1 0 auto" }}
       >
         {isLoading ? <JobsTableSkeleton /> : null}

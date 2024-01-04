@@ -134,6 +134,7 @@ export default function JobsTable({ jobs, userId }) {
                         sortDirection === "asc" ? "desc" : "asc"
                       );
                     }}
+                    style={{ whiteSpace: "nowrap" }}
                   >
                     Latest stage
                   </TableHead>
