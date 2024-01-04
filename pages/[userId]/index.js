@@ -7,6 +7,7 @@ import JobsTableSkeleton from "@/components/JobsTable/JobsTableSkeleton";
 import Footer from "@/components/Footer/Footer";
 import ActionButtons from "@/components/ActionButtons/ActionButtons";
 import AddFirstJobButton from "@/components/AddFirstJobButton/AddFirstJobButton";
+import classes from "../index.module.css";
 
 export default function UserPage() {
   const { data: session } = useSession();
@@ -28,9 +29,16 @@ export default function UserPage() {
   }
 
   return (
-    <>
+    <Flex className={classes.container}>
       <Header session={session} />
-      <Flex justify="center" maw={850} mx="auto" direction="column" mt={32}>
+      <Flex
+        justify="center"
+        maw={850}
+        mx="auto"
+        direction="column"
+        mt={32}
+        style={{ flex: "1 0 auto" }}
+      >
         {isLoading ? <JobsTableSkeleton /> : null}
         {error ? <p>Failed to load the jobs list</p> : null}
         {jobs ? <JobsTable jobs={jobs} userId={userId} /> : null}
@@ -40,8 +48,7 @@ export default function UserPage() {
           <ActionButtons userId={userId} />
         )}
       </Flex>
-
       <Footer />
-    </>
+    </Flex>
   );
 }

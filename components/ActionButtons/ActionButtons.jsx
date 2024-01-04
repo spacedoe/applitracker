@@ -15,6 +15,7 @@ export default function ActionButtons({ userId }) {
         component="a"
         href={`/${userId}/progress`}
         leftSection={<IconReportAnalytics />}
+        data-testid="view-progress-button"
       >
         View progress
       </Button>

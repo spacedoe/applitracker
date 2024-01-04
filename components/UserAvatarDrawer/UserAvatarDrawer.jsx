@@ -24,6 +24,7 @@ export default function UserAvatarDrawer({ session }) {
         onClose={close}
         size="md"
         styles={{ header: { zIndex: "-1" } }}
+        data-testid="drawer"
       >
         <Avatar
           width={200}

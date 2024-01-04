@@ -1,9 +1,11 @@
 .footer {
   font-size: 14px;
-  position: absolute;
+  /* position: absolute;
   bottom: 4px;
   left: 0;
-  right: 0;
+  right: 0; */
+  width: 100%;
+  flex-shrink: 0;
 
   @media (max-width: 512px) {
     font-size: 12px;
