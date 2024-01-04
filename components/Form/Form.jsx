@@ -34,9 +34,6 @@ export default function Form({ onSubmit, formName, savedData }) {
       stages: [],
     };
 
-    console.log("jobData", jobData);
-    console.log("FormData", FormData);
-
     const stageNames = formData.getAll("stageName");
     const stageDates = formData.getAll("stageDate");
     for (let i = 0; i < stageNames.length; i++) {
